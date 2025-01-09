@@ -1,0 +1,9 @@
+.slider-container{
+    margin-top: 100px;
+}
+
+.slider-image{
+    width: 75vw;
+    height: 70vh;
+    border-radius: 50px;
+}
