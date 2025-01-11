@@ -6,7 +6,7 @@ import slider4 from "../Images/slide4.jpeg"
 import "../Css/Slider.css"
 import { useEffect, useState } from "react";
 
-function Slider() {
+export default function Slider() {
     const [slider, setSlider] = useState(slider1);
 
     useEffect(() => {
@@ -23,13 +23,10 @@ function Slider() {
       // Cleanup interval when the component unmounts or updates
       return () => clearInterval(interval);
     }, []); // Empty dependency array ensures this runs only once on mount    
-
-
     return(
-        <div className="slider-container">
-            <img className="slider-image" src={slider} alt="slider"></img>
+        <div className="slider-container container">
+            <img className="slider-image img-fluid" src={slider} alt="slider"></img>
+            <h1>Learn Baseball from Beginning to Advance with AI for New Fans</h1>
         </div>
     )
 }
-
-export default Slider;
