@@ -26,7 +26,7 @@ export default function Slider() {
     return(
         <div className="slider-container container">
             <img className="slider-image img-fluid" src={slider} alt="slider"></img>
-            <h1>Learn Baseball from Beginning to Advance with AI for New Fans</h1>
+            <h1 style={{backgroundColor: "green"}}>Learn Baseball from Beginning to Advance with AI for New Fans</h1>
         </div>
     )
 }
