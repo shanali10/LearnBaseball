@@ -9,42 +9,462 @@ export default function Rules() {
   // question inputs from different rules sections
   const [questionInput1, setQuestionInput1] = useState(""); // State to write text in input field
   const [questionInput2, setQuestionInput2] = useState(""); // State to write text in input field
+  const [questionInput3, setQuestionInput3] = useState(""); // State to write text in input field
+  const [questionInput4, setQuestionInput4] = useState(""); // State to write text in input field
+  const [questionInput5, setQuestionInput5] = useState(""); // State to write text in input field
+  const [questionInput6, setQuestionInput6] = useState(""); // State to write text in input field
+  const [questionInput7, setQuestionInput7] = useState(""); // State to write text in input field
+  const [questionInput8, setQuestionInput8] = useState(""); // State to write text in input field
+  const [questionInput9, setQuestionInput9] = useState(""); // State to write text in input field
+  const [questionInput10, setQuestionInput10] = useState(""); // State to write text in input field
+  const [questionInput11, setQuestionInput11] = useState(""); // State to write text in input field
+  const [questionInput12, setQuestionInput12] = useState(""); // State to write text in input field
+  const [questionInput13, setQuestionInput13] = useState(""); // State to write text in input field
+  const [questionInput14, setQuestionInput14] = useState(""); // State to write text in input field
+  const [questionInput15, setQuestionInput15] = useState(""); // State to write text in input field
   // ai responses from different rules sections
   const [aiResponse1, setAIResponse1] = useState(""); // State to hold AI response
   const [aiResponse2, setAIResponse2] = useState(""); // State to hold AI response
+  const [aiResponse3, setAIResponse3] = useState(""); // State to hold AI response
+  const [aiResponse4, setAIResponse4] = useState(""); // State to hold AI response
+  const [aiResponse5, setAIResponse5] = useState(""); // State to hold AI response
+  const [aiResponse6, setAIResponse6] = useState(""); // State to hold AI response
+  const [aiResponse7, setAIResponse7] = useState(""); // State to hold AI response
+  const [aiResponse8, setAIResponse8] = useState(""); // State to hold AI response
+  const [aiResponse9, setAIResponse9] = useState(""); // State to hold AI response
+  const [aiResponse10, setAIResponse10] = useState(""); // State to hold AI response
+  const [aiResponse11, setAIResponse11] = useState(""); // State to hold AI response
+  const [aiResponse12, setAIResponse12] = useState(""); // State to hold AI response
+  const [aiResponse13, setAIResponse13] = useState(""); // State to hold AI response
+  const [aiResponse14, setAIResponse14] = useState(""); // State to hold AI response
+  const [aiResponse15, setAIResponse15] = useState(""); // State to hold AI response
 
   const aiJob =
-    "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or anyother sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
+    "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
 
   const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
+    "AIzaSyAOXLqIhyFtvCiGoHvVEtw0OwK0R9-KKcc"
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
-  const prompt = questionInput1;
-
+  
   const fetchAIResponse1 = async () => {
     setAIResponse1("AI is answering...");
+    const prompt = questionInput1;
     const result = await model.generateContent(
       aiJob + "\n\nPrompt:\n" + prompt
     );
     setAIResponse1(result.response.text()); // Set the actual AI response after fetching
     setQuestionInput1(""); // Clear the input field
     setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
   };
 
   const fetchAIResponse2 = async () => {
     setAIResponse2("AI is answering...");
+    const prompt = questionInput2;
     const result = await model.generateContent(
       aiJob + "\n\nPrompt:\n" + prompt
     );
     setAIResponse2(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1("");
+    setQuestionInput1(""); // Clear the input field
     setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
   };
 
-  const onChangeValue = (e) => {
+  const fetchAIResponse3 = async () => {
+    setAIResponse3("AI is answering...");
+    const prompt = questionInput3;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse3(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse4 = async () => {
+    setAIResponse4("AI is answering...");
+    const prompt = questionInput4;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse4(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse5 = async () => {
+    setAIResponse5("AI is answering...");
+    const prompt = questionInput5;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse5(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse6 = async () => {
+    setAIResponse6("AI is answering...");
+    const prompt = questionInput6;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse6(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse7 = async () => {
+    setAIResponse7("AI is answering...");
+    const prompt = questionInput7;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse7(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse8 = async () => {
+    setAIResponse8("AI is answering...");
+    const prompt = questionInput8;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse8(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+  
+  const fetchAIResponse9 = async () => {
+    setAIResponse9("AI is answering...");
+    const prompt = questionInput9;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse9(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+  
+  const fetchAIResponse10 = async () => {
+    setAIResponse10("AI is answering...");
+    const prompt = questionInput10;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse10(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse11 = async () => {
+    setAIResponse11("AI is answering...");
+    const prompt = questionInput11;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse11(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse12 = async () => {
+    setAIResponse12("AI is answering...");
+    const prompt = questionInput12;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse12(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+  
+  const fetchAIResponse13 = async () => {
+    setAIResponse13("AI is answering...");
+    const prompt = questionInput13;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse13(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse14 = async () => {
+    setAIResponse14("AI is answering...");
+    const prompt = questionInput14;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse14(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const fetchAIResponse15 = async () => {
+    setAIResponse15("AI is answering...");
+    const prompt = questionInput15;
+    const result = await model.generateContent(
+      aiJob + "\n\nPrompt:\n" + prompt
+    );
+    setAIResponse15(result.response.text()); // Set the actual AI response after fetching
+    setQuestionInput1(""); // Clear the input field
+    setQuestionInput2(""); // Clear the input field
+    setQuestionInput3(""); // Clear the input field
+    setQuestionInput4(""); // Clear the input field
+    setQuestionInput5(""); // Clear the input field
+    setQuestionInput6(""); // Clear the input field
+    setQuestionInput7(""); // Clear the input field
+    setQuestionInput8(""); // Clear the input field
+    setQuestionInput9(""); // Clear the input field
+    setQuestionInput10(""); // Clear the input field
+    setQuestionInput11(""); // Clear the input field
+    setQuestionInput12(""); // Clear the input field
+    setQuestionInput13(""); // Clear the input field
+    setQuestionInput14(""); // Clear the input field
+    setQuestionInput15(""); // Clear the input field
+  };
+
+  const onChangeValue1 = (e) => {
     setQuestionInput1(e.target.value);
+  };
+ 
+  const onChangeValue2 = (e) => {
     setQuestionInput2(e.target.value);
+  };
+
+  const onChangeValue3 = (e) => {
+    setQuestionInput3(e.target.value);
+  }; 
+
+  const onChangeValue4 = (e) => {
+    setQuestionInput4(e.target.value);
+  };
+ 
+  const onChangeValue5 = (e) => {
+    setQuestionInput5(e.target.value);
+  };
+
+  const onChangeValue6 = (e) => {
+    setQuestionInput6(e.target.value);
+  };
+
+  const onChangeValue7 = (e) => {
+    setQuestionInput7(e.target.value);
+  };
+
+  const onChangeValue8 = (e) => {
+    setQuestionInput8(e.target.value);
+  };
+
+  const onChangeValue9 = (e) => {
+    setQuestionInput9(e.target.value);
+  };
+
+  const onChangeValue10 = (e) => {
+    setQuestionInput10(e.target.value);
+  };
+
+  const onChangeValue11 = (e) => {
+    setQuestionInput11(e.target.value);
+  };
+
+  const onChangeValue12 = (e) => {
+    setQuestionInput12(e.target.value);
+  };
+
+  const onChangeValue13 = (e) => {
+    setQuestionInput13(e.target.value);
+  };
+
+  const onChangeValue14 = (e) => {
+    setQuestionInput14(e.target.value);
+  };
+
+  const onChangeValue15 = (e) => {
+    setQuestionInput15(e.target.value);
   };
 
   // Convert the Markdown response into HTML using marked
@@ -57,7 +477,7 @@ export default function Rules() {
       {/* Rule 1: No. of Players  */}
       <div className="container my-2 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 1: <b>Number of Players in Baseball</b>
+          Rule No. 1: &nbsp;<b>Number of Players in Baseball</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -118,8 +538,8 @@ export default function Rules() {
               name="question1"
               type="text"
               value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the first rule..."
+              onChange={onChangeValue1}
+              placeholder="Ask our AI anything about the 1st rule..."
             />
             <div>
               <button
@@ -145,7 +565,7 @@ export default function Rules() {
       {/* Rule 2: Objective of the Game  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 2: <b>Objective of the Game</b>
+          Rule No. 2: &nbsp;<b>Objective of the Game</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -238,8 +658,8 @@ export default function Rules() {
               name="question2"
               type="text"
               value={questionInput2}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the second rule..."
+              onChange={onChangeValue2}
+              placeholder="Ask our AI anything about the 2nd rule..."
             />
             <div>
               <button
@@ -263,9 +683,9 @@ export default function Rules() {
       </div>
 
       {/* Rule 3: Game Structure  */}
-      <div className="container my-2 rules-box">
+      <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 3: <b>Game Structure</b>
+          Rule No. 3: &nbsp;<b>Game Structure</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -325,18 +745,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question3"
+              name="question3"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the third rule..."
+              value={questionInput3}
+              onChange={onChangeValue3}
+              placeholder="Ask our AI anything about the 3rd rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput3.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse3}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -347,7 +767,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse3),
             }}
           ></p>
         </div>
@@ -356,7 +776,7 @@ export default function Rules() {
       {/* Rule 4 - The Field  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 4: <b>The Field</b>
+          Rule No. 4: &nbsp;<b>The Field</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -415,18 +835,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question4"
+              name="question4"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the fourth rule..."
+              value={questionInput4}
+              onChange={onChangeValue4}
+              placeholder="Ask our AI anything about the 4th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput4.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse4}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -437,7 +857,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse4),
             }}
           ></p>
         </div>
@@ -446,7 +866,7 @@ export default function Rules() {
       {/* Rule 5: The Batter’s Turn  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 5: <b>The Batter’s Turn</b>
+          Rule No. 5: &nbsp;<b>The Batter’s Turn</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -512,18 +932,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question5"
+              name="question5"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the first rule..."
+              value={questionInput5}
+              onChange={onChangeValue5}
+              placeholder="Ask our AI anything about the 5th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput5.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse5}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -533,7 +953,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse5),
             }}
           ></p>
         </div>
@@ -542,7 +962,7 @@ export default function Rules() {
       {/* Rule 6: Base Running  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 6: <b>Base Running</b>
+          Rule No. 6: &nbsp;<b>Base Running</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -608,18 +1028,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question6"
+              name="question6"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the sixth rule..."
+              value={questionInput6}
+              onChange={onChangeValue6}
+              placeholder="Ask our AI anything about the 6th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput6.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse6}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -630,7 +1050,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse6),
             }}
           ></p>
         </div>
@@ -639,7 +1059,7 @@ export default function Rules() {
       {/* Rule 7: Scoring Runs  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 7: <b>Scoring Runs</b>
+          Rule No. 7: &nbsp;<b>Scoring Runs</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -702,18 +1122,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question7"
+              name="question7"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
-              placeholder="Ask our AI anything about the first rule..."
+              value={questionInput7}
+              onChange={onChangeValue7}
+              placeholder="Ask our AI anything about the 7th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput7.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse7}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -724,7 +1144,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse7),
             }}
           ></p>
         </div>
@@ -733,7 +1153,7 @@ export default function Rules() {
       {/* Rule 8: The Pitcher’s Role  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 8: <b>The Pitcher’s Role</b>
+          Rule No. 8: &nbsp;<b>The Pitcher’s Role</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -811,18 +1231,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question8"
+              name="question8"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
+              value={questionInput8}
+              onChange={onChangeValue8}
               placeholder="Ask our AI anything about the 8th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput8.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse8}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -833,7 +1253,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse8),
             }}
           ></p>
         </div>
@@ -842,7 +1262,7 @@ export default function Rules() {
       {/* Rule 9: The Fielding Team's Role  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 9: <b>The Fielding Team's Role</b>
+          Rule No. 9: &nbsp;<b>The Fielding Team's Role</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -914,18 +1334,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question9"
+              name="question9"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
+              value={questionInput9}
+              onChange={onChangeValue9}
               placeholder="Ask our AI anything about the 9th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput9.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse9}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -936,7 +1356,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse9),
             }}
           ></p>
         </div>
@@ -945,7 +1365,7 @@ export default function Rules() {
       {/* Rule 10: Outs and Switching Sides  */}
       <div className="container my-5 rules-box">
         <h1 className="comparison-heading text-start">
-          Rule No. 10: <b>Outs and Switching Sides</b>
+          Rule No. 10: &nbsp;<b>Outs and Switching Sides</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -995,9 +1415,9 @@ export default function Rules() {
           </p>
           <h2>Summary:</h2>
           <p>
-            The fielding team aims to get <b>three outs</b> to end the batting team’s
-            turn, after which the roles switch, maintaining the balance of
-            offense and defense throughout the game.
+            The fielding team aims to get <b>three outs</b> to end the batting
+            team’s turn, after which the roles switch, maintaining the balance
+            of offense and defense throughout the game.
           </p>
 
           <div className="mb-3">
@@ -1010,18 +1430,18 @@ export default function Rules() {
             </label>
             <input
               className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
+              id="question10"
+              name="question10"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue}
+              value={questionInput10}
+              onChange={onChangeValue10}
               placeholder="Ask our AI anything about the 10th rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questionInput10.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={fetchAIResponse10}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1032,7 +1452,559 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(aiResponse10),
+            }}
+          ></p>
+        </div>
+      </div>
+
+      {/* Rule 11: Home Runs */}
+      <div className="container my-5 rules-box">
+        <h1 className="comparison-heading text-start">
+          Rule No. 11: &nbsp;<b>Home Runs</b>
+        </h1>
+
+        <div className="clearfix text-start">
+          <img
+            src={srcImage}
+            className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+            alt="side_image"
+          />
+
+          <p className="lead">
+            A <b>home run</b> is one of the most exciting moments in baseball!
+            It occurs when the batter hits the ball so hard and far that it
+            leaves the field of play, typically beyond the outfield fence.
+          </p>
+          <h2>What Happens During a Home Run?</h2>
+          <p>
+            &#8226; <b>Automatic Scoring:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; The batter and any runners already on
+            base automatically score.. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; This means the team gets one run for
+            the batter and one additional run for each player who was on base
+            when the ball was hit. <br />
+            &#8226; <b>No Need to Run Quickly:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Since the ball is out of play, no
+            fielders can retrieve it. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; The batter and runners can jog around
+            the bases at their own pace, touching each base (first, second,
+            third, and home).
+          </p>
+          <h2>Types of Home Runs:</h2>
+          <p>
+            &#8226; <b>Solo Home Run:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; If there are no runners on base, only
+            the batter scores. <br />
+            &#8226; <b>Two-Run, Three-Run, or Grand Slam:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; If there are runners on base: <br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Two-Run Home Run</b>:
+            One runner on base. <br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Three-Run Home Run</b>
+            : Two runners on base. <br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Grand Slam</b>: Bases
+            are fully loaded, scoring four runs in total!
+          </p>
+          <h2>Why Are Home Runs Special?</h2>
+          <p>
+            &#8226; A home run is the quickest way to score multiple runs.{" "}
+            <br />
+            &#8226; It often shifts the momentum of the game and excites fans.{" "}
+            <br />
+            &#8226; Some players are known for their ability to hit home runs,
+            making it a celebrated skill in baseball.
+          </p>
+          <h2>Summary:</h2>
+          <p>
+            A home run not only guarantees scoring but also showcases the
+            batter's power and skill, making it one of the most thrilling
+            aspects of the game!
+          </p>
+
+          <div className="mb-3">
+            <label
+              htmlFor="askAI"
+              className="form-label"
+              style={{ fontFamily: "cursive" }}
+            >
+              <b>QnA with AI:</b>
+            </label>
+            <input
+              className="form-control text-form col-auto"
+              id="question11"
+              name="question11"
+              type="text"
+              value={questionInput11}
+              onChange={onChangeValue11}
+              placeholder="Ask our AI anything about the 11th rule..."
+            />
+            <div>
+              <button
+                disabled={questionInput11.length === 0 ? true : false}
+                type="submit"
+                onClick={fetchAIResponse11}
+                className="btn btn-success mb-1 my-2"
+              >
+                Send Question
+              </button>
+            </div>
+          </div>
+
+          <p
+            className="lead my-2 ai-response"
+            dangerouslySetInnerHTML={{
+              __html: getHtmlFromMarkdown(aiResponse11),
+            }}
+          ></p>
+        </div>
+      </div>
+
+      {/* Rule 12: Special Plays  */}
+      <div className="container my-5 rules-box">
+        <h1 className="comparison-heading text-start">
+          Rule No. 12: &nbsp;<b>Special Plays</b>
+        </h1>
+
+        <div className="clearfix text-start">
+          <img
+            src={srcImage}
+            className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+            alt="side_image"
+          />
+          <p className="lead">
+            In baseball, special plays are unique situations or strategies that
+            can change the outcome of a game. They often require quick thinking
+            and teamwork. Let’s explore some key special plays:
+          </p>
+          <h2>Double Plays:</h2>
+          <p>
+            &#8226; A double play occurs when the fielding team records two outs
+            during a single play. <br />
+            &#8226; Example: A batter hits a ground ball to the shortstop. The
+            shortstop throws to second base for one out, and the second baseman
+            throws to first base for the second out.
+          </p>
+          <h2>Triple Plays:</h2>
+          <p>
+            &#8226; A rare and impressive feat where the fielding team gets
+            three outs in a single play. <br />
+            &#8226; Example: If the bases are loaded and the batter hits a line
+            drive that’s caught, runners may be caught off their bases, allowing
+            the fielders to tag two more players out.
+          </p>
+          <h2>The Bunt:</h2>
+          <p>
+            A bunt is when the batter lightly taps the ball with the bat instead
+            of swinging. <br />
+            &#8226; <b>Purpose: </b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Advance runners to the next base.{" "}
+            <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Catch the fielding team off guard.{" "}
+            <br />
+            &#8226; <b>Risk</b>: The ball must stay within fair territory and be
+            hard enough to avoid an easy out.
+          </p>
+          <h2>Stolen Base:</h2>
+          <p>
+            &#8226; A stolen base happens when a runner advances to the next
+            base <b>while the pitcher is delivering the ball</b> to the batter.{" "}
+            <br />
+            &#8226; Success depends on speed and timing. <br />
+            &#8226; <b>Risks</b>: The catcher may throw the ball to the base
+            ahead, potentially tagging the runner out.
+          </p>{" "}
+          <h2>Sacrifice Fly:</h2>
+          <p>
+            &#8226; When a batter hits a fly ball deep enough for a runner on
+            base to tag up and advance, usually scoring a run. <br />
+            &#8226; The batter is out, but the team gains a run.
+          </p>
+          <h2>Pick-Off:</h2>
+          <p>
+            &#8226; A defensive move where the pitcher or catcher throws the
+            ball to a base to tag out a runner who’s leading off too far.
+          </p>
+          <h2>Why Are Special Plays Important?</h2>
+          <p>
+            &#8226; These plays showcase strategy, skill, and quick
+            decision-making. <br />
+            &#8226; They add excitement and unpredictability to the game. <br />
+            &#8226; Mastering these plays can give a team a competitive edge.
+          </p>
+          <h2>Summary:</h2>
+          <p>
+            Special plays are what make baseball not just a physical game but a
+            mental one, rewarding strategy and teamwork!
+          </p>
+          <div className="mb-3">
+            <label
+              htmlFor="askAI"
+              className="form-label"
+              style={{ fontFamily: "cursive" }}
+            >
+              <b>QnA with AI:</b>
+            </label>
+            <input
+              className="form-control text-form col-auto"
+              id="question12"
+              name="question12"
+              type="text"
+              value={questionInput12}
+              onChange={onChangeValue12}
+              placeholder="Ask our AI anything about the 12th rule..."
+            />
+            <div>
+              <button
+                disabled={questionInput12.length === 0 ? true : false}
+                type="submit"
+                onClick={fetchAIResponse12}
+                className="btn btn-success mb-1 my-2"
+              >
+                Send Question
+              </button>
+            </div>
+          </div>
+          <p
+            className="lead my-2 ai-response"
+            dangerouslySetInnerHTML={{
+              __html: getHtmlFromMarkdown(aiResponse12),
+            }}
+          ></p>
+        </div>
+      </div>
+
+      {/* Rule 13: Fouls  */}
+      <div className="container my-5 rules-box">
+        <h1 className="comparison-heading text-start">
+          Rule No. 13: &nbsp;<b>Fouls</b>
+        </h1>
+
+        <div className="clearfix text-start">
+          <img
+            src={srcImage}
+            className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+            alt="side_image"
+          />
+          <p className="lead">
+            In baseball, a <b>foul ball</b> is a hit ball that lands or is
+            touched outside the field's foul lines. Let’s break this rule down
+            for clarity:
+          </p>
+          <h2>What is a Foul Ball?</h2>
+          <p>
+            A foul ball occurs when the ball: <br />
+            &nbsp; &nbsp; &nbsp; &#8226; <b>
+              Touches the ground or a player
+            </b>{" "}
+            outside the foul lines. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; <b>
+              Does not land in fair territory
+            </b>{" "}
+            before reaching first or third base. <br />
+            &nbsp; &nbsp; &nbsp; &#8226;{" "}
+            <b>Hits a structure or spectator area</b> outside the foul lines.
+          </p>
+          <h2>The Foul Lines:</h2>
+          <p>
+            &#8226; The foul lines run from home plate to the outfield fence
+            along first and third base. <br />
+            &#8226; A ball is considered fair if it lands on or inside these
+            lines.
+          </p>
+          <h2>Consequences of a Foul Ball:</h2>
+          <p>
+            &#8226; <b>For the Batter:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; A foul counts as a strike unless the
+            batter already has two strikes. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; A batter cannot strike out on a foul
+            ball (except on a bunt). <br />
+            &nbsp; &nbsp; &nbsp; &#8226; If the foul ball is caught in the air
+            by a fielder, the batter is out. <br />
+            &#8226; <b>For the Runners:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Runners must return to their bases
+            unless the ball is caught in the air and they are tagging up to
+            advance.
+          </p>
+          <h2>Special Cases:</h2>
+          <p>
+            &#8226; A ball hit into the air near the foul line may be caught by
+            a fielder in foul territory. This results in an out. <br />
+            &#8226; If a ball initially lands in fair territory but rolls foul
+            before passing first or third base and isn’t touched, it’s a foul.
+          </p>{" "}
+          <h2>Why Do Fouls Matter?</h2>
+          <p>
+            &#8226; Fouls help pitchers defend against batters by adding
+            strikes. <br />
+            &#8226; They require batters to adjust their hitting strategy to
+            keep the ball in play. <br />
+            &#8226; Fielders use fouls as opportunities to make catches and
+            secure outs.
+          </p>
+          <h2>Summary:</h2>
+          <p>
+            Fouls are an important aspect of baseball, keeping the game fair and
+            challenging for both hitters and defenders!
+          </p>
+          <div className="mb-3">
+            <label
+              htmlFor="askAI"
+              className="form-label"
+              style={{ fontFamily: "cursive" }}
+            >
+              <b>QnA with AI:</b>
+            </label>
+            <input
+              className="form-control text-form col-auto"
+              id="question13"
+              name="question13"
+              type="text"
+              value={questionInput13}
+              onChange={onChangeValue13}
+              placeholder="Ask our AI anything about the 13th rule..."
+            />
+            <div>
+              <button
+                disabled={questionInput13.length === 0 ? true : false}
+                type="submit"
+                onClick={fetchAIResponse13}
+                className="btn btn-success mb-1 my-2"
+              >
+                Send Question
+              </button>
+            </div>
+          </div>
+          <p
+            className="lead my-2 ai-response"
+            dangerouslySetInnerHTML={{
+              __html: getHtmlFromMarkdown(aiResponse13),
+            }}
+          ></p>
+        </div>
+      </div>
+
+      {/* Rule 14: Umpire and Rules Enforcement  */}
+      <div className="container my-5 rules-box">
+        <h1 className="comparison-heading text-start">
+          Rule No. 14: &nbsp;<b>Umpire and Rules Enforcement</b>
+        </h1>
+
+        <div className="clearfix text-start">
+          <img
+            src={srcImage}
+            className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+            alt="side_image"
+          />
+          <p className="lead">
+            In baseball, <b>umpires</b> are the officials responsible for
+            ensuring the game is played fairly and according to the rules. They
+            play a critical role in maintaining the integrity of the game and
+            making important decisions during play:
+          </p>
+          <h2>Roles of the Umpire:</h2>
+          <p>
+            &#8226; <b>Enforcing Rules:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Umpires ensure all players and teams
+            follow the official rules of baseball. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; They make judgments on plays, such as
+            whether a pitch is a ball or a strike, whether a runner is safe or
+            out, and whether a ball is fair or foul.
+            <br />
+            &#8226; <b>Calling Pitches:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; The home plate umpire determines
+            whether a pitch is a strike (inside the strike zone) or a ball
+            (outside the strike zone). <br />
+            &#8226; <b>Making Safe/Out Calls:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Umpires on the bases decide if runners
+            are <b>safe</b> or <b>out</b> when trying to advance. <br />
+            &#8226; <b>Overseeing Plays:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; They monitor and enforce rules for
+            legal pitching, base running, fielding, and hitting. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; They ensure substitutions and changes
+            follow proper procedures.
+            <br />
+            &#8226; <b>Ensuring Fair Play:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Umpires prevent unsportsmanlike
+            behavior, such as arguing excessively, intentional interference, or
+            illegal actions. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; They can eject players, coaches, or
+            managers for serious misconduct.
+            <br />
+            &#8226; <b>Handling Special Situations:</b> <br />
+            &nbsp; &nbsp; &nbsp; &#8226; They make decisions in cases of
+            disputed plays, rain delays, or other unusual circumstances.
+          </p>
+          <h2>Umpire Positions:</h2>
+          <p>
+            &#8226; <b>Home Plate Umpire</b>: Stands behind the catcher and
+            calls balls, strikes, and plays at home plate.
+            <br />
+            &#8226; <b>Base Umpires</b>: Positioned near the bases to oversee
+            base running and plays in the infield.
+            <br />
+            &#8226; <b>Outfield Umpires</b>(in some games): Judge plays in the
+            outfield and help with fair/foul calls.
+            <br />
+          </p>
+          <h2>Why the Umpire is Important:</h2>
+          <p>
+            &#8226; Without umpires, the game could descend into chaos, as
+            players and coaches might argue endlessly over decisions. <br />
+            &#8226; Umpires ensure the game progresses smoothly, fairly, and
+            without bias.
+          </p>
+          <h2>Summary:</h2>
+          <p>
+            <b>Umpires</b> are the guardians of fairness and order in baseball,
+            ensuring every play aligns with the spirit and rules of the game.
+            They make tough calls under pressure and are an essential part of
+            baseball's structure.
+          </p>
+          <div className="mb-3">
+            <label
+              htmlFor="askAI"
+              className="form-label"
+              style={{ fontFamily: "cursive" }}
+            >
+              <b>QnA with AI:</b>
+            </label>
+            <input
+              className="form-control text-form col-auto"
+              id="question14"
+              name="question14"
+              type="text"
+              value={questionInput14}
+              onChange={onChangeValue14}
+              placeholder="Ask our AI anything about the 14th rule..."
+            />
+            <div>
+              <button
+                disabled={questionInput14.length === 0 ? true : false}
+                type="submit"
+                onClick={fetchAIResponse14}
+                className="btn btn-success mb-1 my-2"
+              >
+                Send Question
+              </button>
+            </div>
+          </div>
+          <p
+            className="lead my-2 ai-response"
+            dangerouslySetInnerHTML={{
+              __html: getHtmlFromMarkdown(aiResponse14),
+            }}
+          ></p>
+        </div>
+      </div>
+
+      {/* Rule 15: Winning the Game  */}
+      <div className="container my-5 rules-box">
+        <h1 className="comparison-heading text-start">
+          Rule No. 15: &nbsp;<b>Winning the Game</b>
+        </h1>
+
+        <div className="clearfix text-start">
+          <img
+            src={srcImage}
+            className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+            alt="side_image"
+          />
+          <p className="lead">
+            The ultimate goal of baseball is to{" "}
+            <b>score more runs than the opposing team</b> by the end of the
+            game. Here’s how winners are determined:
+          </p>
+          <h2>Standard Game Length:</h2>
+          <p>
+            <li>
+              A baseball game typically consists of <b>9 innings.</b>
+            </li>
+            <ul>
+              <li>Each inning is divided into two halves: </li>
+              <li>
+                The <b>top half</b>, where the visiting team bats.
+              </li>
+              <li>
+                The <b>bottom half</b>, where the home team bats.
+              </li>
+              <li>
+                The teams take turns batting and fielding, and the inning ends
+                when the fielding team gets <b>three outs</b>.
+              </li>
+            </ul>
+            <li>
+              At the end of the <b>9th inning</b>, the team with the most runs
+              scored is declared the winner.
+            </li>
+          </p>
+          <h2>Tied Games and Extra Innings:</h2>
+          <p>
+            &#8226; If the score is tied at the end of 9 innings, the game goes
+            into <b>extra innings</b> to break the tie.
+            <br />
+            &nbsp; &nbsp; &nbsp; &#8226; Each extra inning follows the same
+            structure as a regular inning.
+            <br />
+            &nbsp; &nbsp; &nbsp; &#8226; The game continues until one team has
+            more runs than the other at the end of a complete inning.
+            <br />
+            &#8226; The goal in extra innings remains the same: outscore the
+            opponent during that inning to secure the win.
+          </p>
+          <h2>Winning Before the 9th Inning (Mercy Rule):</h2>
+          <p>
+            &#8226; In certain leagues, a mercy rule may apply (often in amateur
+            or youth baseball): <br />
+            &nbsp; &nbsp; &nbsp; &#8226; This rule ends the game early if one
+            team has a very large lead after a certain number of innings. <br />
+            &nbsp; &nbsp; &nbsp; &#8226; For example, if a team is ahead by 10
+            or more runs after 7 innings, the game may be called.
+          </p>
+          <h2>Home Team Advantage:</h2>
+          <p>
+            &#8226; If the <b>home team</b> is ahead in the bottom half of the
+            9th inning (or in any extra inning), the game ends immediately, and
+            the home team wins. This is called a <b>walk-off win</b>.
+          </p>
+          <h2>Summary:</h2>
+          <p>
+            The <b>winner of a baseball game</b> is the team that scores the
+            most runs by the end of the game, whether it’s during the standard 9
+            innings or through extra innings in the case of a tie. The structure
+            ensures fairness and excitement for fans until the very last play.
+          </p>
+          <div className="mb-3">
+            <label
+              htmlFor="askAI"
+              className="form-label"
+              style={{ fontFamily: "cursive" }}
+            >
+              <b>QnA with AI:</b>
+            </label>
+            <input
+              className="form-control text-form col-auto"
+              id="question15"
+              name="question15"
+              type="text"
+              value={questionInput15}
+              onChange={onChangeValue15}
+              placeholder="Ask our AI anything about the 15th rule..."
+            />
+            <div>
+              <button
+                disabled={questionInput15.length === 0 ? true : false}
+                type="submit"
+                onClick={fetchAIResponse15}
+                className="btn btn-success mb-1 my-2"
+              >
+                Send Question
+              </button>
+            </div>
+          </div>
+          <p
+            className="lead my-2 ai-response"
+            dangerouslySetInnerHTML={{
+              __html: getHtmlFromMarkdown(aiResponse15),
             }}
           ></p>
         </div>
