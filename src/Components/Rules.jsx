@@ -1,7 +1,22 @@
 import React, { useState } from "react";
 import "../Css/Rules.css";
-import srcImage from "../Images/learn_baseball_logo.jpeg";
+import noOfPlayers from "../Images/no_of_players.jpeg";
+import objectiveOfGame from "../Images/objective_of_game.jpeg";
+import gameStructure from "../Images/game_structure.jpeg";
+import theField from "../Images/the_field.jpeg";
+import theBattersTurn from "../Images/batters_turn.jpeg";
+import baseRunning from "../Images/base_running.jpeg";
+import scoringRuns from "../Images/scoring_runs.jpeg";
+import thePitchersRole from "../Images/pitchers_role.jpeg";
+import fieldingTeamsRole from "../Images/fielding_team.jpeg";
+import outs from "../Images/outs.jpeg";
+import homeRuns from "../Images/home_run.jpeg";
+import specialPlays from "../Images/special_plays.jpeg";
+import fouls from "../Images/fouls.jpeg";
+import umpires from "../Images/umpires.jpeg";
+import winningTheGame from "../Images/winning.jpeg";
 import { marked } from "marked"; // Import marked for converting markdown to HTML
+import RulesTable from "./RulesTable";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -46,7 +61,7 @@ export default function Rules() {
     process.env.API_KEY
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
-  
+
   const fetchAIResponse1 = async () => {
     setAIResponse1("AI is answering...");
     const prompt = questionInput1;
@@ -238,7 +253,7 @@ export default function Rules() {
     setQuestionInput14(""); // Clear the input field
     setQuestionInput15(""); // Clear the input field
   };
-  
+
   const fetchAIResponse9 = async () => {
     setAIResponse9("AI is answering...");
     const prompt = questionInput9;
@@ -262,7 +277,7 @@ export default function Rules() {
     setQuestionInput14(""); // Clear the input field
     setQuestionInput15(""); // Clear the input field
   };
-  
+
   const fetchAIResponse10 = async () => {
     setAIResponse10("AI is answering...");
     const prompt = questionInput10;
@@ -334,7 +349,7 @@ export default function Rules() {
     setQuestionInput14(""); // Clear the input field
     setQuestionInput15(""); // Clear the input field
   };
-  
+
   const fetchAIResponse13 = async () => {
     setAIResponse13("AI is answering...");
     const prompt = questionInput13;
@@ -410,19 +425,19 @@ export default function Rules() {
   const onChangeValue1 = (e) => {
     setQuestionInput1(e.target.value);
   };
- 
+
   const onChangeValue2 = (e) => {
     setQuestionInput2(e.target.value);
   };
 
   const onChangeValue3 = (e) => {
     setQuestionInput3(e.target.value);
-  }; 
+  };
 
   const onChangeValue4 = (e) => {
     setQuestionInput4(e.target.value);
   };
- 
+
   const onChangeValue5 = (e) => {
     setQuestionInput5(e.target.value);
   };
@@ -474,15 +489,20 @@ export default function Rules() {
 
   return (
     <>
+      <RulesTable />
+
       {/* Rule 1: No. of Players  */}
-      <div className="container my-2 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule1" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 1: &nbsp;<b>Number of Players in Baseball</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={noOfPlayers}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -496,32 +516,65 @@ export default function Rules() {
             The team on the field has <b>9 players</b>, each with a specific
             role:
             <br />
-            1. <b>Pitcher</b>: Throws the ball to the batter. <br />
-            2. <b>Catcher</b>: Catches the ball behind the batter. <br />
-            3. <b>First Baseman</b>: Guards first base. <br />
-            4. <b>Second Baseman</b>: Guards second base. <br />
-            5. <b>Third Baseman</b>: Guards third base. <br />
-            6. <b>Shortstop</b>: Plays between second and third base. <br />
-            7. <b>Left Fielder</b>: Covers the left outfield. <br />
-            8. <b>Center Fielder</b>: Covers the center outfield. <br />
-            9. <b>Right Fielder</b>: Covers the right outfield. <br />
+            <ol>
+              <li>
+                <b>Pitcher</b>: Throws the ball to the batter.
+              </li>
+              <li>
+                <b>Catcher</b>: Catches the ball behind the batter.
+              </li>
+              <li>
+                <b>First Baseman</b>: Guards first base.
+              </li>
+              <li>
+                <b>Second Baseman</b>: Guards second base.
+              </li>
+              <li>
+                <b>Third Baseman</b>: Guards third base.
+              </li>
+              <li>
+                <b>Shortstop</b>: Plays between second and third base.
+              </li>
+              <li>
+                <b>Left Fielder</b>: Covers the left outfield.
+              </li>
+              <li>
+                <b>Center Fielder</b>: Covers the center outfield.
+              </li>
+              <li>
+                <b>Right Fielder</b>: Covers the right outfield.
+              </li>
+            </ol>
           </p>
           <h2>When Attacking:</h2>
           <p>
-            Players take turns one at a time to bat and try to score runs by
-            hitting the ball and running around the bases.
+            <ul>
+              <li>
+                Players take turns one at a time to bat and try to score runs by
+                hitting the ball and running around the bases.
+              </li>
+            </ul>
           </p>
           <h2>How Many Players in Total?</h2>
           <p>
-            Each team has a <b>roster of 25-26 players</b>, but only{" "}
-            <b>9 players</b> from the defending team are active on the field at
-            any time.
+            <ul>
+              <li>
+                Each team has a <b>roster of 25-26 players</b>, but only{" "}
+                <b>9 players</b> from the defending team are active on the field
+                at any time.
+              </li>
+            </ul>
           </p>
-          <h2>In Simple Words:</h2>
+          <h2>Summary:</h2>
           <p>
-            1. <b>9 players</b> are on the field when a team is defending.
-            <br />
-            2. <b>1 player</b> bats at a time when attacking.
+            <ul>
+              <li>
+                <b>9 players</b> are on the field when a team is defending.
+              </li>
+              <li>
+                <b>1 player</b> bats at a time when attacking.
+              </li>
+            </ul>
           </p>
 
           <div className="mb-3">
@@ -563,14 +616,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 2: Objective of the Game  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule2" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 2: &nbsp;<b>Objective of the Game</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={objectiveOfGame}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -580,68 +636,97 @@ export default function Rules() {
             the most runs at the end of the game wins. Let’s break it down in
             more detail:
           </p>
-          <h2>1. Scoring Runs:</h2>
+          <h2>Scoring Runs:</h2>
           <p>
             A run is scored when a player completes a full circuit around the
             four bases (first base, second base, third base, and home plate) and
             touches each one in order.
-            <br />
-            1. <b>The Batter’s Role</b>: When it’s their turn, a player steps up
-            to the plate as a batter. They must hit the ball pitched to them to
-            start the action. <br />
-            2. <b>Becoming a Runner</b>: Once the batter successfully hits the
-            ball, they transition into a runner and try to advance to as many
-            bases as possible without getting "out." <br />
+            <ul>
+              <li>
+                <b>The Batter’s Role</b>: When it’s their turn, a player steps
+                up to the plate as a batter. They must hit the ball pitched to
+                them to start the action.
+              </li>
+              <li>
+                <b>Becoming a Runner</b>: Once the batter successfully hits the
+                ball, they transition into a runner and try to advance to as
+                many bases as possible without getting "out."
+              </li>
+            </ul>
           </p>
-          <h2>2. Running the Bases:</h2>
+          <h2>Running the Bases:</h2>
           <p>
-            1. <b>Base Path</b>: Players must run within a specific path to move
-            from one base to the next. <br />
-            2. <b>Stopping at a Base</b>: A runner can choose to stop at a base
-            if advancing further seems too risky (e.g., the ball is being
-            fielded close by). They can continue to the next base during a
-            future play. <br />
-            3. <b>Home Plate</b>: Returning to home plate after touching all
-            other bases in sequence earns a run for the team. <br />
+            <ul>
+              <li>
+                <b>Base Path</b>: Players must run within a specific path to
+                move from one base to the next.
+              </li>
+              <li>
+                <b>Stopping at a Base</b>: A runner can choose to stop at a base
+                if advancing further seems too risky (e.g., the ball is being
+                fielded close by). They can continue to the next base during a
+                future play.
+              </li>
+              <li>
+                <b>Home Plate</b>: Returning to home plate after touching all
+                other bases in sequence earns a run for the team.
+              </li>
+            </ul>
           </p>
-          <h2>3. The Fielding Team's Goal:</h2>
+          <h2>The Fielding Team's Goal:</h2>
           <p>
             The fielding team’s job is to prevent the batting team from scoring
             by:
-            <br />
-            1. <b>Catching</b>: If they catch a hit ball before it touches the
-            ground, the batter is out. <br />
-            2. <b>Throwing</b>: Fielders can throw the ball to a base before a
-            runner gets there, making the runner "out." <br />
-            3. <b>Tagging</b>: A runner can also be tagged out if they are not
-            on a base and a fielder touches them with the ball. <br />
+            <ul>
+              <li>
+                <b>Catching</b>: If they catch a hit ball before it touches the
+                ground, the batter is out.
+              </li>
+              <li>
+                <b>Throwing</b>: Fielders can throw the ball to a base before a
+                runner gets there, making the runner "out."
+              </li>
+              <li>
+                <b>Tagging</b>: A runner can also be tagged out if they are not
+                on a base and a fielder touches them with the ball.
+              </li>
+            </ul>
           </p>
 
-          <h2>4. Strategic Plays:</h2>
+          <h2>Strategic Plays:</h2>
           <p>
-            1. <b>Base Hits</b>: A single hit that allows the batter to reach
-            first base is a "single," while reaching further bases on one hit
-            can result in a "double," "triple," or even a "home run." <br />
-            2. <b>Home Run</b>: A home run occurs when the batter hits the ball
-            out of the playing field in fair territory. The batter and any
-            runners on base automatically score runs. <br />
-            3. <b>Sacrifices and Bunting</b>: Sometimes, batters will
-            intentionally make small hits to allow teammates to advance on the
-            bases.
-            <br />
+            <ul>
+              <li>
+                <b>Base Hits</b>: A single hit that allows the batter to reach
+                first base is a "single," while reaching further bases on one
+                hit can result in a "double," "triple," or even a "home run."
+              </li>
+              <li>
+                <b>Home Run</b>: A home run occurs when the batter hits the ball
+                out of the playing field in fair territory. The batter and any
+                runners on base automatically score runs.
+              </li>
+              <li>
+                <b>Sacrifices and Bunting</b>: Sometimes, batters will
+                intentionally make small hits to allow teammates to advance on
+                the bases.
+              </li>
+            </ul>
           </p>
 
-          <h2>5. Winning the Game:</h2>
+          <h2>Winning the Game:</h2>
           <p>
-            &#8226; A baseball game is typically played over nine innings.
-            <br />
-            &#8226; Each team gets a turn to bat and field in every inning.{" "}
-            <br />
-            &#8226; At the end of nine innings, the team with the most runs
-            wins. <br />
-            &#8226; If the score is tied, extra innings are played until a
-            winner is determined.
-            <br />
+            <ul>
+              <li>A baseball game is typically played over nine innings.</li>
+              <li>Each team gets a turn to bat and field in every inning.</li>
+              <li>
+                At the end of nine innings, the team with the most runs wins.
+              </li>
+              <li>
+                If the score is tied, extra innings are played until a winner is
+                determined.
+              </li>
+            </ul>
           </p>
 
           <div className="mb-3">
@@ -683,14 +768,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 3: Game Structure  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule3" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 3: &nbsp;<b>Game Structure</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={gameStructure}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -699,40 +787,66 @@ export default function Rules() {
             Baseball has a unique structure that ensures fairness and flow
             between the two teams. Let’s break this rule into simpler parts:
           </p>
-          <h2>1. Innings:</h2>
+          <h2>Innings:</h2>
           <p>
-            &#8226; A baseball game is divided into innings. <br />
-            &#8226; Each inning has two halves: <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. <b>Top Half</b>: One team bats
-            while the other fields. <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. <b>Bottom Half</b>: The roles
-            switch. <br />
-            &#8226; Most games are played over nine innings. If the score is
-            tied, extra innings are played until one team wins.
+            <ul>
+              <li>A baseball game is divided into innings.</li>
+              <li>Each inning has two halves:</li>
+              <ol>
+                <li>
+                  <b>Top Half</b>: One team bats while the other fields.
+                </li>
+                <li>
+                  <b>Bottom Half</b>: The roles switch.
+                </li>
+              </ol>
+              <li>
+                Most games are played over nine innings. If the score is tied,
+                extra innings are played until one team wins.
+              </li>
+            </ul>
           </p>
-          <h2>2. Turns: Batting and Fielding:</h2>
+          <h2>Turns: Batting and Fielding:</h2>
           <p>
-            &#8226; Each team gets a turn to bat (try to score runs) and field
-            (try to stop the other team from scoring). <br />
-            &#8226; A turn ends when the batting team gets three outs. <br />
-            &#8226; Once both teams have had a turn tobat and field, the inning
-            is over.
+            <ul>
+              <li>
+                Each team gets a turn to bat (try to score runs) and field (try
+                to stop the other team from scoring).
+              </li>
+              <li>A turn ends when the batting team gets three outs.</li>
+              <li>
+                Once both teams have had a turn tobat and field, the inning is
+                over.
+              </li>
+            </ul>
           </p>
-          <h2>3. The Transition Between Roles:</h2>
+          <h2>The Transition Between Roles:</h2>
           <p>
-            &#8226; After three outs, the fielding team becomes the batting
-            team, and the batting team goes into the field. <br />
-            &#8226; These transitions keep the game balanced, giving both teams
-            equal chances to score runs.
+            <ul>
+              <li>
+                After three outs, the fielding team becomes the batting team,
+                and the batting team goes into the field.
+              </li>
+              <li>
+                These transitions keep the game balanced, giving both teams
+                equal chances to score runs.
+              </li>
+            </ul>
           </p>
-          <h2>4. Why is the Structure Important?</h2>
+          <h2>Why is the Structure Important?</h2>
           <p>
-            &#8226; Innings and turns make the game fair and strategic. <br />
-            &#8226; Teams plan their moves carefully, whether it’s about scoring
-            runs while batting or stopping the other team when fielding. <br />
-            &#8226; The flow ensures that both teams face the same number of
-            opportunities to score, making baseball a game of skill and strategy
-            rather than chance.
+            <ul>
+              <li>Innings and turns make the game fair and strategic.</li>
+              <li>
+                Teams plan their moves carefully, whether it’s about scoring
+                runs while batting or stopping the other team when fielding.
+              </li>
+              <li>
+                The flow ensures that both teams face the same number of
+                opportunities to score, making baseball a game of skill and
+                strategy rather than chance.
+              </li>
+            </ul>
           </p>
 
           <div className="mb-3">
@@ -774,14 +888,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 4 - The Field  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule4" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 4: &nbsp;<b>The Field</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={theField}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -790,36 +907,62 @@ export default function Rules() {
             The baseball field is carefully designed to create a fair and
             exciting game. Let’s break it down:
           </p>
-          <h2>1. Basic Layout:</h2>
+          <h2>Basic Layout:</h2>
           <p>
             The field is shaped like a diamond and is divided into two main
             areas:
-            <br />
-            &nbsp; &nbsp; &#8226; <b>Infield</b>: The inner part of the field
-            where the bases and pitcher’s mound are located. <br />
-            &nbsp; &nbsp; &#8226; <b>Outfield</b>: The grassy area beyond the
-            infield. <br />
+            <ul>
+              <li>
+                <b>Infield</b>: The inner part of the field where the bases and
+                pitcher’s mound are located.
+              </li>
+              <li>
+                <b>Outfield</b>: The grassy area beyond the infield.
+              </li>
+            </ul>
           </p>
-          <h2>2. Bases:</h2>
+          <h2>Bases:</h2>
           <p>
-            &#8226; <b>There are four bases</b> arranged in a diamond shape:{" "}
-            <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; 1. <b>Home Plate</b>: Where the batter
-            stands and starts their turn. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; 2. <b>First Base</b> <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; 3. <b>Second Base</b> <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; 4. <b>Third Base</b> <br />
-            &#8226; The goal is for runners to touch all four bases in sequence
-            to score a run.
+            <ul>
+              <li>
+                <b>There are four bases</b> arranged in a diamond shape:
+              </li>
+              <ol>
+                <li>
+                  <b>Home Plate</b>: Where the batter stands and starts their
+                  turn.
+                </li>
+                <li>
+                  <b>First Base</b>
+                </li>
+                <li>
+                  <b>Second Base</b>
+                </li>
+                <li>
+                  <b>Third Base</b>
+                </li>
+              </ol>
+              <li>
+                The goal is for runners to touch all four bases in sequence to
+                score a run.
+              </li>
+            </ul>
           </p>
-          <h2>3. Pitcher’s Mound:</h2>
+          <h2>Pitcher’s Mound:</h2>
           <p>
-            &#8226; A raised area in the center of the infield. <br />
-            &#8226; The <b>pitcher</b> stands here to throw the ball toward the
-            batter. <br />
-            &#8226; It is positioned at a specific distance from home plate to
-            ensure fairness.
+            <ul>
+              <li>A raised area in the center of the infield.</li>
+              <li>
+                The <b>pitcher</b> stands here to throw the ball toward the
+                batter.
+              </li>
+              <li>
+                It is positioned at a specific distance from home plate to
+                ensure fairness.
+              </li>
+            </ul>
           </p>
+          <h2>Summary:</h2>
           <p>
             This layout creates a dynamic game environment, with specific roles
             for players and clear objectives for both offense and defense.
@@ -864,14 +1007,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 5: The Batter’s Turn  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule5" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 5: &nbsp;<b>The Batter’s Turn</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={theBattersTurn}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -881,42 +1027,71 @@ export default function Rules() {
             tries to hit the ball and advance their team’s chances of scoring.
             Let’s break it down:
           </p>
-          <h2>1. Hitting the Ball:</h2>
+          <h2>Hitting the Ball:</h2>
           <p>
-            &#8226; The batter’s main job is to hit the ball thrown by the
-            pitcher. <br />
-            &#8226; If the ball is hit into the field of play, the batter runs
-            toward first base and tries to advance as far as possible.
+            <ul>
+              <li>
+                The batter’s main job is to hit the ball thrown by the pitcher.
+              </li>
+              <li>
+                If the ball is hit into the field of play, the batter runs
+                toward first base and tries to advance as far as possible.
+              </li>
+            </ul>
           </p>
-          <h2>2. Strikes and Balls:</h2>
+          <h2>Strikes and Balls:</h2>
           <p>
-            1. <b>Strikes:</b> <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &#8226; If the batter swings and misses,
-            it’s a strike. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &#8226; If the batter does not swing and
-            the ball passes through the strike zone, it's a strike. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &#8226; Three strikes result in the
-            batter being “out.” <br />
-            2. <b>Balls:</b> <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &#8226; If the pitcher throws the ball
-            outside the strike zone and the batter doesn’t swing, it’s a ball.{" "}
-            <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &#8226; Four balls allow the batter to
-            walk to first base (this is called a "walk"). <br />
+            <ul>
+              <li>
+                <b>Strikes:</b>
+              </li>
+              <ul>
+                <li>If the batter swings and misses, it’s a strike.</li>
+                <li>
+                  If the batter does not swing and the ball passes through the
+                  strike zone, it's a strike.
+                </li>
+                <li>Three strikes result in the batter being “out.”</li>
+              </ul>
+              <li>
+                <b>Balls:</b>
+              </li>
+              <ul>
+                <li>
+                  If the pitcher throws the ball outside the strike zone and the
+                  batter doesn’t swing, it’s a ball.
+                </li>
+                <li>
+                  Four balls allow the batter to walk to first base (this is
+                  called a "walk").
+                </li>
+              </ul>
+            </ul>
           </p>
-          <h2>3. How a Batter is “Out”:</h2>
+          <h2>How a Batter is “Out”:</h2>
           <p>
-            A batter can be declared out in several ways: <br />
-            1. <b>Three Strikes</b>: The batter fails to hit the ball after
-            three strikes. <br />
-            2. <b>Caught Ball</b>: If a fielder catches the ball in the air
-            before it touches the ground. <br />
-            3. <b>Thrown Out:</b> The ball is thrown to first base before the
-            batter arrives. Interference: If the batter interferes with the
-            catcher or another player. <br />
-            4. <b>Interference</b>: If the batter interferes with the catcher or
-            another player.
+            A batter can be declared out in several ways:
+            <ul>
+              <li>
+                <b>Three Strikes</b>: The batter fails to hit the ball after
+                three strikes.
+              </li>
+              <li>
+                <b>Caught Ball</b>: If a fielder catches the ball in the air
+                before it touches the ground.
+              </li>
+              <li>
+                <b>Thrown Out:</b> The ball is thrown to first base before the
+                batter arrives. Interference: If the batter interferes with the
+                catcher or another player.
+              </li>
+              <li>
+                <b>Interference</b>: If the batter interferes with the catcher
+                or another player.
+              </li>
+            </ul>
           </p>
+          <h2>Summary:</h2>
           <p>
             Understanding the batter’s turn helps players and fans grasp the
             excitement and strategy behind every pitch and swing!
@@ -960,14 +1135,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 6: Base Running  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule6" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 6: &nbsp;<b>Base Running</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={baseRunning}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -976,43 +1154,85 @@ export default function Rules() {
             Base running is a crucial part of baseball where players move around
             the bases to score runs. Let’s break it down:
           </p>
-          <h2>1. Running Between Bases:</h2>
+          <h2>Running Between Bases:</h2>
           <p>
-            &#8226; <b>Starting Point</b>: After hitting the ball, the batter
-            becomes a runner and heads toward first base. <br />
-            &#8226; <b>Sequence</b>: The runner’s goal is to advance from first
-            base to second base, then to third base, and finally to home plate
-            to score a run. <br />
-            &#8226; <b>Decision Making</b>: Runners must decide whether to stop
-            at a base or keep running, depending on how far the ball is hit and
-            the fielders’ actions.
+            <ul>
+              <li>
+                <b>Starting Point</b>: After hitting the ball, the batter
+                becomes a runner and heads toward first base.
+              </li>
+              <li>
+                <b>Sequence</b>: The runner’s goal is to advance from first base
+                to second base, then to third base, and finally to home plate to
+                score a run.
+              </li>
+              <li>
+                <b>Decision Making</b>: Runners must decide whether to stop at a
+                base or keep running, depending on how far the ball is hit and
+                the fielders’ actions.
+              </li>
+            </ul>
           </p>
-          <h2>2. Rules for Staying on Base or Advancing:</h2>
+          <h2>Rules for Staying on Base or Advancing:</h2>
           <p>
-            &#8226; <b>Safe on Base:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A runner is <b>safe</b> if they reach a
-            base before being tagged or if the base is not “forced.” <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Once on a base, the runner can stay
-            there until the next play. <br />
-            &#8226; <b>Force Out:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A runner must advance if another runner
-            is behind them and the bases are full. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If the fielding team throws the ball to
-            the next base before the runner gets there, the runner is <b>out</b>
-            . <br />
-            &#8226; <b>Tagging Up:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; On a caught fly ball, the runner must{" "}
-            <b>tag</b> their current base before advancing to the next one.{" "}
-            <br />
-            &#8226; <b>Stealing Bases:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A runner can try to advance to the next
-            base without the ball being hit, known as <b>stealing a base</b>,
-            but risks being tagged out. <br />
-            &#8226; <b>Overrunning First Base:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Runners can run past <b>first</b> base
-            without being tagged out, as long as they stay within the baseline
-            and don’t attempt to go to second base.
+            <ul>
+              <li>
+                <b>Safe on Base:</b>
+              </li>
+              <ul>
+                <li>
+                  A runner is <b>safe</b> if they reach a base before being
+                  tagged or if the base is not “forced.”
+                </li>
+                <li>
+                  Once on a base, the runner can stay there until the next play.
+                </li>
+              </ul>
+              <li>
+                <b>Force Out:</b>
+              </li>
+              <ul>
+                <li>
+                  A runner must advance if another runner is behind them and the
+                  bases are full.
+                </li>
+                <li>
+                  If the fielding team throws the ball to the next base before
+                  the runner gets there, the runner is <b>out</b>.
+                </li>
+              </ul>
+              <li>
+                <b>Tagging Up:</b>
+              </li>
+              <ul>
+                <li>
+                  On a caught fly ball, the runner must <b>tag</b> their current
+                  base before advancing to the next one.
+                </li>
+              </ul>
+              <li>
+                <b>Stealing Bases:</b>
+              </li>
+              <ul>
+                <li>
+                  A runner can try to advance to the next base without the ball
+                  being hit, known as <b>stealing a base</b>, but risks being
+                  tagged out.
+                </li>
+              </ul>
+              <li>
+                <b>Overrunning First Base:</b>
+              </li>
+              <ul>
+                <li>
+                  Runners can run past <b>first</b> base without being tagged
+                  out, as long as they stay within the baseline and don’t
+                  attempt to go to second base.
+                </li>
+              </ul>
+            </ul>
           </p>
+          <h2>Summary:</h2>
           <p>
             Base running combines speed, timing, and strategy, making it an
             exciting part of the game as players try to outsmart the defense!
@@ -1057,14 +1277,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 7: Scoring Runs  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule7" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 7: &nbsp;<b>Scoring Runs</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={scoringRuns}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1074,39 +1297,71 @@ export default function Rules() {
             runs by completing a full circuit around the bases. Here’s how it
             works:
           </p>
-          <h2>1. Completing a Run:</h2>
+          <h2>Completing a Run:</h2>
           <p>
-            &#8226; A player starts at home plate as a batter, progresses
-            through first base, second base, and third base, and finally returns
-            to home plate to score a run. <br />
-            &#8226; The player must touch each base in order while avoiding
-            being tagged or forced out by the fielding team.
+            <ul>
+              <li>
+                A player starts at home plate as a batter, progresses through
+                first base, second base, and third base, and finally returns to
+                home plate to score a run.
+              </li>
+              <li>
+                The player must touch each base in order while avoiding being
+                tagged or forced out by the fielding team.
+              </li>
+            </ul>
           </p>
-          <h2>2. Timing and Strategy:</h2>
+          <h2>Timing and Strategy:</h2>
           <p>
-            &#8226; <b>When to Advance:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Players advance based on how far the
-            ball is hit and the positioning of the fielders. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A well-hit ball (e.g., a double,
-            triple, or home run) makes it easier to complete a run. <br />
-            &#8226; <b>Multiple Runs in One Play:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If there are runners already on base
-            when the ball is hit, those runners can also advance and score if
-            they successfully reach home plate.
+            <ul>
+              <li>
+                <b>When to Advance:</b>
+              </li>
+              <ul>
+                <li>
+                  Players advance based on how far the ball is hit and the
+                  positioning of the fielders.
+                </li>
+                <li>
+                  A well-hit ball (e.g., a double, triple, or home run) makes it
+                  easier to complete a run.
+                </li>
+              </ul>
+              <li>
+                <b>Multiple Runs in One Play:</b>
+              </li>
+              <ul>
+                <li>
+                  If there are runners already on base when the ball is hit,
+                  those runners can also advance and score if they successfully
+                  reach home plate.
+                </li>
+              </ul>
+            </ul>
           </p>
-          <h2>3. Home Runs:</h2>
+          <h2>Home Runs:</h2>
           <p>
-            &#8226; A <b>home</b> run happens when the batter hits the ball out
-            of the field of play (over the fence in fair territory). <br />
-            &#8226; In this case, the batter and all base runners automatically
-            score without the risk of being tagged or forced out.
+            <ul>
+              <li>
+                A <b>home</b> run happens when the batter hits the ball out of
+                the field of play (over the fence in fair territory).
+              </li>
+              <li>
+                In this case, the batter and all base runners automatically
+                score without the risk of being tagged or forced out.
+              </li>
+            </ul>
           </p>
-          <h2>4. Errors and Extra Opportunities:</h2>
+          <h2>Errors and Extra Opportunities:</h2>
           <p>
-            &#8226; Errors by the fielding team (e.g., missed catches or bad
-            throws) can give runners additional chances to advance and score.
+            <ul>
+              <li>
+                Errors by the fielding team (e.g., missed catches or bad throws)
+                can give runners additional chances to advance and score.
+              </li>
+            </ul>
           </p>
-          <br />
+          <h2>Summary:</h2>
           <p>
             The goal for each team is to score as many runs as possible during
             their turn at bat, outpacing their opponents to win the game!
@@ -1151,14 +1406,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 8: The Pitcher’s Role  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule8" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 8: &nbsp;<b>The Pitcher’s Role</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={thePitchersRole}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1170,49 +1428,108 @@ export default function Rules() {
           </p>
           <h2>How Pitching Works:</h2>
           <p>
-            &#8226; <b>Starting the Play:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The pitcher throws the ball from the
-            pitcher’s mound towards the batter at home plate. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The goal is to make it difficult for
-            the batter to hit the ball while staying within the rules.
-            <br /> &#8226; <b>Types of Pitches:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Pitchers use a variety of techniques to
-            throw the ball, such as:
-            <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Fastballs</b>: Thrown
-            at high speed. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Curveballs</b>: Spin
-            the ball to make it curve mid-air. &nbsp; <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Changeups</b>: Appear
-            fast but are slower to deceive the batter.
+            <ul>
+              <li>
+                <b>Starting the Play:</b>
+              </li>
+              <ul>
+                <li>
+                  The pitcher throws the ball from the pitcher’s mound towards
+                  the batter at home plate.
+                </li>
+                <li>
+                  The goal is to make it difficult for the batter to hit the
+                  ball while staying within the rules.
+                </li>
+              </ul>
+              <li>
+                <b>Types of Pitches:</b>
+              </li>
+              <ul>
+                <li>
+                  Pitchers use a variety of techniques to throw the ball, such
+                  as:
+                </li>
+                <ul>
+                  <li>
+                    <b>Fastballs</b>: Thrown at high speed.
+                  </li>
+                  <li>
+                    <b>Curveballs</b>: Spin the ball to make it curve mid-air.
+                  </li>
+                  <li>
+                    <b>Changeups</b>: Appear fast but are slower to deceive the
+                    batter.
+                  </li>
+                </ul>
+              </ul>
+            </ul>
           </p>
-          <h2>Legal Pitches:</h2>
+          <h2>Legal Pitches</h2>
           <p>
-            &#8226; A pitch must be thrown with one foot in contact with the
-            pitching rubber. <br />
-            &#8226; The pitcher must throw the ball overhand or sidearm, aiming
-            for the strike zone: <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The strike zone is an imaginary box
-            above home plate, from the batter's knees to their chest.
+            <ul>
+              <li>
+                A pitch must be thrown with one foot in contact with the
+                pitching rubber.
+              </li>
+              <li>
+                The pitcher must throw the ball overhand or sidearm, aiming for
+                the strike zone:
+              </li>
+              <ul>
+                <li>
+                  The strike zone is an imaginary box above home plate, from the
+                  batter's knees to their chest.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Illegal Pitches:</h2>
           <p>
-            &#8226; <b>Balk:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If the pitcher starts a pitching motion
-            but doesn’t throw the ball, or performs deceptive movements, it’s
-            called a balk, allowing base runners to advance. <br />
-            &#8226; <b>Throwing at the Batter:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Pitchers must not intentionally throw
-            at the batter. Doing so can result in warnings or ejection.
+            <ul>
+              <li>
+                <b>Balk:</b>
+              </li>
+              <ul>
+                <li>
+                  If the pitcher starts a pitching motion but doesn’t throw the
+                  ball, or performs deceptive movements, it’s called a balk,
+                  allowing base runners to advance.
+                </li>
+              </ul>
+              <li>
+                <b>Throwing at the Batter:</b>
+              </li>
+              <ul>
+                <li>
+                  Pitchers must not intentionally throw at the batter. Doing so
+                  can result in warnings or ejection.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Strategy and Skill:</h2>
           <p>
-            &#8226; <b>Reading the Batter:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The pitcher studies the batter’s
-            weaknesses and adjusts their pitches accordingly. <br />
-            &#8226; <b>Maintaining Control:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A great pitcher must balance speed,
-            accuracy, and deception to keep the batter guessing.
+            <ul>
+              <li>
+                <b>Reading the Batter:</b>
+              </li>
+              <ul>
+                <li>
+                  The pitcher studies the batter’s weaknesses and adjusts their
+                  pitches accordingly.
+                </li>
+              </ul>
+              <li>
+                <b>Maintaining Control:</b>
+              </li>
+              <ul>
+                <li>
+                  A great pitcher must balance speed, accuracy, and deception to
+                  keep the batter guessing.
+                </li>
+              </ul>
+            </ul>
           </p>
 
           <h2>Summary:</h2>
@@ -1260,14 +1577,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 9: The Fielding Team's Role  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule9" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 9: &nbsp;<b>The Fielding Team's Role</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={fieldingTeamsRole}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1280,42 +1600,73 @@ export default function Rules() {
           <h2>Getting Batters and Runners Out:</h2>
           <p>
             The fielding team has several ways to achieve an out:
-            <br />
-            &#8226; <b>Catching:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If a batter hits the ball into the air
-            and a fielder catches it before it touches the ground, the batter is
-            out. <br />
-            &#8226; <b>Tagging:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A fielder can tag a runner by touching
-            them with the ball (or the glove holding the ball) when the runner
-            is not on a base. <br />
-            &#8226; <b>Force-Outs:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; When a runner is forced to advance to
-            the next base because the batter hits the ball, the fielding team
-            can throw the ball to that base before the runner gets there. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Example: If the batter runs to first
-            base, the fielder at first base just needs to touch the base while
-            holding the ball to record a force-out.
+            <ul>
+              <li>
+                <b>Catching:</b>
+              </li>
+              <ul>
+                <li>
+                  If a batter hits the ball into the air and a fielder catches
+                  it before it touches the ground, the batter is out.
+                </li>
+              </ul>
+              <li>
+                <b>Tagging:</b>
+              </li>
+              <ul>
+                <li>
+                  A fielder can tag a runner by touching them with the ball (or
+                  the glove holding the ball) when the runner is not on a base.
+                </li>
+              </ul>
+              <li>
+                <b>Force-Outs:</b>
+              </li>
+              <ul>
+                <li>
+                  When a runner is forced to advance to the next base because
+                  the batter hits the ball, the fielding team can throw the ball
+                  to that base before the runner gets there.
+                </li>
+                <li>
+                  Example: If the batter runs to first base, the fielder at
+                  first base just needs to touch the base while holding the ball
+                  to record a force-out.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Defensive Players and Their Roles:</h2>
           <p>
             Each player on the fielding team has a specific position and role in
-            preventing runs: <br />
-            &nbsp; &nbsp; &nbsp; &#8226; <b>Pitcher</b>: Throws the ball to the
-            batter. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; <b>Catcher</b>: Catches the pitcher’s
-            throws and defends home plate. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; <b>Infielders</b>: Defend the area
-            around the bases (first base, second base, third base, and
-            shortstop). Outfielders: Cover the outfield to catch long hits and
-            prevent extra bases.
+            preventing runs:
+            <ul>
+              <li>
+                <b>Pitcher</b>: Throws the ball to the batter.
+              </li>
+              <li>
+                <b>Catcher</b>: Catches the pitcher’s throws and defends home
+                plate.
+              </li>
+              <li>
+                <b>Infielders</b>: Defend the area around the bases (first base,
+                second base, third base, and shortstop). Outfielders: Cover the
+                outfield to catch long hits and prevent extra bases.
+              </li>
+            </ul>
           </p>
           <h2>Team Coordination:</h2>
           <p>
-            &#8226; Fielders work together to execute plays, such as double
-            plays (getting two outs in one sequence). <br />
-            &#8226; Good communication and awareness are key to efficiently
-            fielding the ball and making outs.
+            <ul>
+              <li>
+                Fielders work together to execute plays, such as double plays
+                (getting two outs in one sequence).
+              </li>
+              <li>
+                Good communication and awareness are key to efficiently fielding
+                the ball and making outs.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1363,14 +1714,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 10: Outs and Switching Sides  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule10" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 10: &nbsp;<b>Outs and Switching Sides</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={outs}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1382,36 +1736,75 @@ export default function Rules() {
           </p>
           <h2>Three Outs to End a Half-Inning:</h2>
           <p>
-            &#8226; <b>What is an Out?</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; An out occurs when the fielding team
-            successfully stops the batting team through actions like catching a
-            fly ball, tagging a runner, or force-outs. <br />
-            &#8226; <b>How Many Outs Are Needed?</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The batting team continues to hit until
-            the fielding team gets three outs. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Once three outs are made, the batting
-            team's turn ends, and the roles switch: the fielding team goes to
-            bat, and the batting team takes the field.
+            <ul>
+              <li>
+                <b>What is an Out?</b>
+              </li>
+              <ul>
+                <li>
+                  An out occurs when the fielding team successfully stops the
+                  batting team through actions like catching a fly ball, tagging
+                  a runner, or force-outs.
+                </li>
+              </ul>
+              <li>
+                <b>How Many Outs Are Needed?</b>
+              </li>
+              <ul>
+                <li>
+                  The batting team continues to hit until the fielding team gets
+                  three outs.
+                </li>
+                <li>
+                  Once three outs are made, the batting team's turn ends, and
+                  the roles switch. the fielding team goes to bat, and the
+                  batting team takes the field.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Switching Sides:</h2>
           <p>
-            &#8226; <b>When Does It Happen?</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; After three outs, both teams change
-            positions on the field. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The fielding team comes to bat, and the
-            batting team takes their places on the field. <br />
-            &#8226; <b>Half-Inning Completion:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Each team gets one turn to bat and one
-            turn to field per inning. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A full inning is completed once both
-            teams have had their chance to bat.
+            <ul>
+              <li>
+                <b>When Does It Happen?</b>
+              </li>
+              <ul>
+                <li>
+                  After three outs, both teams change positions on the field.
+                </li>
+                <li>
+                  The fielding team comes to bat, and the batting team takes
+                  their places on the field.
+                </li>
+              </ul>
+              <li>
+                <b>Half-Inning Completion:</b>
+              </li>
+              <ul>
+                <li>
+                  Each team gets one turn to bat and one turn to field per
+                  inning.
+                </li>
+                <li>
+                  A full inning is completed once both teams have had their
+                  chance to bat.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Why This Rule is Important?</h2>
           <p>
-            &#8226; This structure ensures fairness, as each team gets an equal
-            opportunity to score runs and defend. <br />
-            &#8226; The switch between roles keeps the game dynamic, with
-            players needing to adapt from batting to fielding and vice versa.
+            <ul>
+              <li>
+                This structure ensures fairness, as each team gets an equal
+                opportunity to score runs and defend.
+              </li>
+              <li>
+                The switch between roles keeps the game dynamic, with players
+                needing to adapt from batting to fielding and vice versa.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1459,14 +1852,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 11: Home Runs */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule11" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 11: &nbsp;<b>Home Runs</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={homeRuns}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1478,41 +1874,78 @@ export default function Rules() {
           </p>
           <h2>What Happens During a Home Run?</h2>
           <p>
-            &#8226; <b>Automatic Scoring:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The batter and any runners already on
-            base automatically score.. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; This means the team gets one run for
-            the batter and one additional run for each player who was on base
-            when the ball was hit. <br />
-            &#8226; <b>No Need to Run Quickly:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Since the ball is out of play, no
-            fielders can retrieve it. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The batter and runners can jog around
-            the bases at their own pace, touching each base (first, second,
-            third, and home).
+            <ul>
+              <li>
+                <b>Automatic Scoring:</b>
+              </li>
+              <ul>
+                <li>
+                  The batter and any runners already on base automatically
+                  score.
+                </li>
+                <li>
+                  This means the team gets one run for the batter and one
+                  additional run for each player who was on base when the ball
+                  was hit.
+                </li>
+              </ul>
+              <li>
+                <b>No Need to Run Quickly:</b>
+              </li>
+              <ul>
+                <li>
+                  Since the ball is out of play, no fielders can retrieve it.
+                </li>
+                <li>
+                  The batter and runners can jog around the bases at their own
+                  pace, touching each base (first, second, third, and home).
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Types of Home Runs:</h2>
           <p>
-            &#8226; <b>Solo Home Run:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If there are no runners on base, only
-            the batter scores. <br />
-            &#8226; <b>Two-Run, Three-Run, or Grand Slam:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If there are runners on base: <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Two-Run Home Run</b>:
-            One runner on base. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Three-Run Home Run</b>
-            : Two runners on base. <br />
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#8226; <b>Grand Slam</b>: Bases
-            are fully loaded, scoring four runs in total!
+            <ul>
+              <li>
+                <b>Solo Home Run:</b>
+              </li>
+              <ul>
+                <li>
+                  If there are no runners on base, only the batter scores.
+                </li>
+              </ul>
+              <li>
+                <b>Two-Run, Three-Run, or Grand Slam:</b>
+              </li>
+              <ul>
+                <li>If there are runners on base:</li>
+                <ul>
+                  <li>
+                    <b>Two-Run Home Run</b>: One runner on base.
+                  </li>
+                  <li>
+                    <b>Three-Run Home Run</b>: Two runners on base.
+                  </li>
+                  <li>
+                    <b>Grand Slam</b>: Bases are fully loaded, scoring four runs
+                    in total!
+                  </li>
+                </ul>
+              </ul>
+            </ul>
           </p>
           <h2>Why Are Home Runs Special?</h2>
           <p>
-            &#8226; A home run is the quickest way to score multiple runs.{" "}
-            <br />
-            &#8226; It often shifts the momentum of the game and excites fans.{" "}
-            <br />
-            &#8226; Some players are known for their ability to hit home runs,
-            making it a celebrated skill in baseball.
+            <ul>
+              <li>A home run is the quickest way to score multiple runs.</li>
+              <li>
+                It often shifts the momentum of the game and excites fans.
+              </li>
+              <li>
+                Some players are known for their ability to hit home runs,
+                making it a celebrated skill in baseball.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1560,14 +1993,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 12: Special Plays  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule12" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 12: &nbsp;<b>Special Plays</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={specialPlays}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1578,58 +2014,92 @@ export default function Rules() {
           </p>
           <h2>Double Plays:</h2>
           <p>
-            &#8226; A double play occurs when the fielding team records two outs
-            during a single play. <br />
-            &#8226; Example: A batter hits a ground ball to the shortstop. The
-            shortstop throws to second base for one out, and the second baseman
-            throws to first base for the second out.
+            <ul>
+              <li>
+                A double play occurs when the fielding team records two outs
+                during a single play.
+              </li>
+              <li>
+                Example: A batter hits a ground ball to the shortstop. The
+                shortstop throws to second base for one out, and the second
+                baseman throws to first base for the second out.
+              </li>
+            </ul>
           </p>
           <h2>Triple Plays:</h2>
           <p>
-            &#8226; A rare and impressive feat where the fielding team gets
-            three outs in a single play. <br />
-            &#8226; Example: If the bases are loaded and the batter hits a line
-            drive that’s caught, runners may be caught off their bases, allowing
-            the fielders to tag two more players out.
+            <ul>
+              <li>
+                A rare and impressive feat where the fielding team gets three
+                outs in a single play.
+              </li>
+              <li>
+                Example: If the bases are loaded and the batter hits a line
+                drive that’s caught, runners may be caught off their bases,
+                allowing the fielders to tag two more players out.
+              </li>
+            </ul>
           </p>
           <h2>The Bunt:</h2>
           <p>
             A bunt is when the batter lightly taps the ball with the bat instead
-            of swinging. <br />
-            &#8226; <b>Purpose: </b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Advance runners to the next base.{" "}
-            <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Catch the fielding team off guard.{" "}
-            <br />
-            &#8226; <b>Risk</b>: The ball must stay within fair territory and be
-            hard enough to avoid an easy out.
+            of swinging.
+            <ul>
+              <li>
+                <b>Purpose: </b>
+              </li>
+              <ul>
+                <li>Advance runners to the next base.</li>
+                <li>Catch the fielding team off guard.</li>
+              </ul>
+              <li>
+                <b>Risk</b>: The ball must stay within fair territory and be
+                hard enough to avoid an easy out.
+              </li>
+            </ul>
           </p>
           <h2>Stolen Base:</h2>
           <p>
-            &#8226; A stolen base happens when a runner advances to the next
-            base <b>while the pitcher is delivering the ball</b> to the batter.{" "}
-            <br />
-            &#8226; Success depends on speed and timing. <br />
-            &#8226; <b>Risks</b>: The catcher may throw the ball to the base
-            ahead, potentially tagging the runner out.
-          </p>{" "}
+            <ul>
+              <li>
+                A stolen base happens when a runner advances to the next base{" "}
+                <b>while the pitcher is delivering the ball</b> to the batter.
+              </li>
+              <li>Success depends on speed and timing.</li>
+              <li>
+                <b>Risks</b>: The catcher may throw the ball to the base ahead,
+                potentially tagging the runner out.
+              </li>
+            </ul>
+          </p>
           <h2>Sacrifice Fly:</h2>
           <p>
-            &#8226; When a batter hits a fly ball deep enough for a runner on
-            base to tag up and advance, usually scoring a run. <br />
-            &#8226; The batter is out, but the team gains a run.
+            <ul>
+              <li>
+                When a batter hits a fly ball deep enough for a runner on base
+                to tag up and advance, usually scoring a run.
+              </li>
+              <li>The batter is out, but the team gains a run.</li>
+            </ul>
           </p>
           <h2>Pick-Off:</h2>
           <p>
-            &#8226; A defensive move where the pitcher or catcher throws the
-            ball to a base to tag out a runner who’s leading off too far.
+            <ul>
+              <li>
+                A defensive move where the pitcher or catcher throws the ball to
+                a base to tag out a runner who’s leading off too far.
+              </li>
+            </ul>
           </p>
           <h2>Why Are Special Plays Important?</h2>
           <p>
-            &#8226; These plays showcase strategy, skill, and quick
-            decision-making. <br />
-            &#8226; They add excitement and unpredictability to the game. <br />
-            &#8226; Mastering these plays can give a team a competitive edge.
+            <ul>
+              <li>
+                These plays showcase strategy, skill, and quick decision-making.
+              </li>
+              <li>They add excitement and unpredictability to the game.</li>
+              <li>Mastering these plays can give a team a competitive edge.</li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1674,14 +2144,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 13: Fouls  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule13" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 13: &nbsp;<b>Fouls</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={fouls}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1692,54 +2165,91 @@ export default function Rules() {
           </p>
           <h2>What is a Foul Ball?</h2>
           <p>
-            A foul ball occurs when the ball: <br />
-            &nbsp; &nbsp; &nbsp; &#8226; <b>
-              Touches the ground or a player
-            </b>{" "}
-            outside the foul lines. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; <b>
-              Does not land in fair territory
-            </b>{" "}
-            before reaching first or third base. <br />
-            &nbsp; &nbsp; &nbsp; &#8226;{" "}
-            <b>Hits a structure or spectator area</b> outside the foul lines.
+            A foul ball occurs when the ball:
+            <ul>
+              <li>
+                <b>Touches the ground or a player</b> outside the foul lines.
+              </li>
+              <li>
+                <b>Does not land in fair territory</b>
+              </li>
+              <li>
+                <b>Hits a structure or spectator area</b> outside the foul
+                lines.
+              </li>
+            </ul>
           </p>
           <h2>The Foul Lines:</h2>
           <p>
-            &#8226; The foul lines run from home plate to the outfield fence
-            along first and third base. <br />
-            &#8226; A ball is considered fair if it lands on or inside these
-            lines.
+            <ul>
+              <li>
+                The foul lines run from home plate to the outfield fence along
+                first and third base.
+              </li>
+              <li>
+                A ball is considered fair if it lands on or inside these lines.
+              </li>
+            </ul>
           </p>
           <h2>Consequences of a Foul Ball:</h2>
           <p>
-            &#8226; <b>For the Batter:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A foul counts as a strike unless the
-            batter already has two strikes. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; A batter cannot strike out on a foul
-            ball (except on a bunt). <br />
-            &nbsp; &nbsp; &nbsp; &#8226; If the foul ball is caught in the air
-            by a fielder, the batter is out. <br />
-            &#8226; <b>For the Runners:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Runners must return to their bases
-            unless the ball is caught in the air and they are tagging up to
-            advance.
+            <ul>
+              <li>
+                <b>For the Batter:</b>
+              </li>
+              <ul>
+                <li>
+                  A foul counts as a strike unless the batter already has two
+                  strikes.
+                </li>
+                <li>
+                  A batter cannot strike out on a foul ball (except on a bunt).
+                </li>
+                <li>
+                  If the foul ball is caught in the air by a fielder, the batter
+                  is out.
+                </li>
+              </ul>
+              <li>
+                <b>For the Runners:</b>
+              </li>
+              <ul>
+                <li>
+                  Runners must return to their bases unless the ball is caught
+                  in the air and they are tagging up to advance.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Special Cases:</h2>
           <p>
-            &#8226; A ball hit into the air near the foul line may be caught by
-            a fielder in foul territory. This results in an out. <br />
-            &#8226; If a ball initially lands in fair territory but rolls foul
-            before passing first or third base and isn’t touched, it’s a foul.
-          </p>{" "}
+            <ul>
+              <li>
+                A ball hit into the air near the foul line may be caught by a
+                fielder in foul territory. This results in an out.
+              </li>
+              <li>
+                If a ball initially lands in fair territory but rolls foul
+                before passing first or third base and isn’t touched, it’s a
+                foul.
+              </li>
+            </ul>
+          </p>
           <h2>Why Do Fouls Matter?</h2>
           <p>
-            &#8226; Fouls help pitchers defend against batters by adding
-            strikes. <br />
-            &#8226; They require batters to adjust their hitting strategy to
-            keep the ball in play. <br />
-            &#8226; Fielders use fouls as opportunities to make catches and
-            secure outs.
+            <ul>
+              <li>
+                Fouls help pitchers defend against batters by adding strikes.
+              </li>
+              <li>
+                They require batters to adjust their hitting strategy to keep
+                the ball in play.
+              </li>
+              <li>
+                Fielders use fouls as opportunities to make catches and secure
+                outs.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1784,14 +2294,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 14: Umpire and Rules Enforcement  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule14" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 14: &nbsp;<b>Umpire and Rules Enforcement</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={umpires}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1803,55 +2316,105 @@ export default function Rules() {
           </p>
           <h2>Roles of the Umpire:</h2>
           <p>
-            &#8226; <b>Enforcing Rules:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Umpires ensure all players and teams
-            follow the official rules of baseball. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; They make judgments on plays, such as
-            whether a pitch is a ball or a strike, whether a runner is safe or
-            out, and whether a ball is fair or foul.
-            <br />
-            &#8226; <b>Calling Pitches:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The home plate umpire determines
-            whether a pitch is a strike (inside the strike zone) or a ball
-            (outside the strike zone). <br />
-            &#8226; <b>Making Safe/Out Calls:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Umpires on the bases decide if runners
-            are <b>safe</b> or <b>out</b> when trying to advance. <br />
-            &#8226; <b>Overseeing Plays:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; They monitor and enforce rules for
-            legal pitching, base running, fielding, and hitting. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; They ensure substitutions and changes
-            follow proper procedures.
-            <br />
-            &#8226; <b>Ensuring Fair Play:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Umpires prevent unsportsmanlike
-            behavior, such as arguing excessively, intentional interference, or
-            illegal actions. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; They can eject players, coaches, or
-            managers for serious misconduct.
-            <br />
-            &#8226; <b>Handling Special Situations:</b> <br />
-            &nbsp; &nbsp; &nbsp; &#8226; They make decisions in cases of
-            disputed plays, rain delays, or other unusual circumstances.
+            <ul>
+              <li>
+                <b>Enforcing Rules:</b>
+              </li>
+              <ul>
+                <li>
+                  Umpires ensure all players and teams follow the official rules
+                  of baseball.
+                </li>
+                <li>
+                  They make judgments on plays, such as whether a pitch is a
+                  ball or a strike, whether a runner is safe or out, and whether
+                  a ball is fair or foul.
+                </li>
+              </ul>
+              <li>
+                <b>Calling Pitches:</b>
+              </li>
+              <ul>
+                <li>
+                  The home plate umpire determines whether a pitch is a strike
+                  (inside the strike zone) or a ball (outside the strike zone).
+                </li>
+              </ul>
+              <li>
+                <b>Making Safe/Out Calls:</b>
+              </li>
+              <ul>
+                <li>
+                  Umpires on the bases decide if runners are <b>safe</b> or{" "}
+                  <b>out</b> when trying to advance.
+                </li>
+              </ul>
+              <li>
+                <b>Overseeing Plays:</b>
+              </li>
+              <ul>
+                <li>
+                  They monitor and enforce rules for legal pitching, base
+                  running, fielding, and hitting.
+                </li>
+                <li>
+                  They ensure substitutions and changes follow proper
+                  procedures.
+                </li>
+              </ul>
+              <li>
+                <b>Ensuring Fair Play:</b>
+              </li>
+              <ul>
+                <li>
+                  Umpires prevent unsportsmanlike behavior, such as arguing
+                  excessively, intentional interference, or illegal actions.
+                </li>
+                <li>
+                  They can eject players, coaches, or managers for serious
+                  misconduct.
+                </li>
+              </ul>
+              <li>
+                <b>Handling Special Situations:</b>
+              </li>
+              <ul>
+                <li>
+                  They make decisions in cases of disputed plays, rain delays,
+                  or other unusual circumstances.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Umpire Positions:</h2>
           <p>
-            &#8226; <b>Home Plate Umpire</b>: Stands behind the catcher and
-            calls balls, strikes, and plays at home plate.
-            <br />
-            &#8226; <b>Base Umpires</b>: Positioned near the bases to oversee
-            base running and plays in the infield.
-            <br />
-            &#8226; <b>Outfield Umpires</b>(in some games): Judge plays in the
-            outfield and help with fair/foul calls.
-            <br />
+            <ul>
+              <li>
+                <b>Home Plate Umpire</b>: Stands behind the catcher and calls
+                balls, strikes, and plays at home plate.
+              </li>
+              <li>
+                <b>Base Umpires</b>: Positioned near the bases to oversee base
+                running and plays in the infield.
+              </li>
+              <li>
+                <b>Outfield Umpires</b>(in some games): Judge plays in the
+                outfield and help with fair/foul calls.
+              </li>
+            </ul>
           </p>
           <h2>Why the Umpire is Important:</h2>
           <p>
-            &#8226; Without umpires, the game could descend into chaos, as
-            players and coaches might argue endlessly over decisions. <br />
-            &#8226; Umpires ensure the game progresses smoothly, fairly, and
-            without bias.
+            <ul>
+              <li>
+                Without umpires, the game could descend into chaos, as players
+                and coaches might argue endlessly over decisions.
+              </li>
+              <li>
+                Umpires ensure the game progresses smoothly, fairly, and without
+                bias.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
@@ -1898,14 +2461,17 @@ export default function Rules() {
       </div>
 
       {/* Rule 15: Winning the Game  */}
-      <div className="container my-5 rules-box">
-        <h1 className="comparison-heading text-start">
+      <div id="rule15" className="container my-5 rules-box">
+        <h1
+          className="comparison-heading text-start"
+          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+        >
           Rule No. 15: &nbsp;<b>Winning the Game</b>
         </h1>
 
         <div className="clearfix text-start">
           <img
-            src={srcImage}
+            src={winningTheGame}
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
@@ -1916,55 +2482,78 @@ export default function Rules() {
           </p>
           <h2>Standard Game Length:</h2>
           <p>
-            <li>
-              A baseball game typically consists of <b>9 innings.</b>
-            </li>
             <ul>
-              <li>Each inning is divided into two halves: </li>
               <li>
-                The <b>top half</b>, where the visiting team bats.
+                A baseball game typically consists of <b>9 innings.</b>
               </li>
+              <ul>
+                <li>Each inning is divided into two halves: </li>
+                <li>
+                  The <b>top half</b>, where the visiting team bats.
+                </li>
+                <li>
+                  The <b>bottom half</b>, where the home team bats.
+                </li>
+                <li>
+                  The teams take turns batting and fielding, and the inning ends
+                  when the fielding team gets <b>three outs</b>.
+                </li>
+              </ul>
               <li>
-                The <b>bottom half</b>, where the home team bats.
-              </li>
-              <li>
-                The teams take turns batting and fielding, and the inning ends
-                when the fielding team gets <b>three outs</b>.
+                At the end of the <b>9th inning</b>, the team with the most runs
+                scored is declared the winner.
               </li>
             </ul>
-            <li>
-              At the end of the <b>9th inning</b>, the team with the most runs
-              scored is declared the winner.
-            </li>
           </p>
           <h2>Tied Games and Extra Innings:</h2>
           <p>
-            &#8226; If the score is tied at the end of 9 innings, the game goes
-            into <b>extra innings</b> to break the tie.
-            <br />
-            &nbsp; &nbsp; &nbsp; &#8226; Each extra inning follows the same
-            structure as a regular inning.
-            <br />
-            &nbsp; &nbsp; &nbsp; &#8226; The game continues until one team has
-            more runs than the other at the end of a complete inning.
-            <br />
-            &#8226; The goal in extra innings remains the same: outscore the
-            opponent during that inning to secure the win.
+            <ul>
+              <li>
+                If the score is tied at the end of 9 innings, the game goes into{" "}
+                <b>extra innings</b> to break the tie.
+              </li>
+              <li>
+                Each extra inning follows the same structure as a regular
+                inning.
+              </li>
+              <li>
+                The game continues until one team has more runs than the other
+                at the end of a complete inning.
+              </li>
+              <li>
+                The goal in extra innings remains the same: outscore the
+                opponent during that inning to secure the win.
+              </li>
+            </ul>
           </p>
           <h2>Winning Before the 9th Inning (Mercy Rule):</h2>
           <p>
-            &#8226; In certain leagues, a mercy rule may apply (often in amateur
-            or youth baseball): <br />
-            &nbsp; &nbsp; &nbsp; &#8226; This rule ends the game early if one
-            team has a very large lead after a certain number of innings. <br />
-            &nbsp; &nbsp; &nbsp; &#8226; For example, if a team is ahead by 10
-            or more runs after 7 innings, the game may be called.
+            <ul>
+              <li>
+                In certain leagues, a mercy rule may apply (often in amateur or
+                youth baseball):
+              </li>
+              <ul>
+                <li>
+                  This rule ends the game early if one team has a very large
+                  lead after a certain number of innings.
+                </li>
+                <li>
+                  For example, if a team is ahead by 10 or more runs after 7
+                  innings, the game may be called.
+                </li>
+              </ul>
+            </ul>
           </p>
           <h2>Home Team Advantage:</h2>
           <p>
-            &#8226; If the <b>home team</b> is ahead in the bottom half of the
-            9th inning (or in any extra inning), the game ends immediately, and
-            the home team wins. This is called a <b>walk-off win</b>.
+            <ul>
+              <li>
+                If the <b>home team</b> is ahead in the bottom half of the 9th
+                inning (or in any extra inning), the game ends immediately, and
+                the home team wins. This is called a <b>walk-off win</b>.
+              </li>
+            </ul>
           </p>
           <h2>Summary:</h2>
           <p>
