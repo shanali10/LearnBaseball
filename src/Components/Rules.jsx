@@ -17,6 +17,7 @@ import umpires from "../Images/umpires.jpeg";
 import winningTheGame from "../Images/winning.jpeg";
 import { marked } from "marked"; // Import marked for converting markdown to HTML
 import RulesTable from "./RulesTable";
+import Slider from "./Slider";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -489,13 +490,14 @@ export default function Rules() {
 
   return (
     <>
+      <Slider/>
       <RulesTable />
 
       {/* Rule 1: No. of Players  */}
       <div id="rule1" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 1: &nbsp;<b>Number of Players in Baseball</b>
         </h1>
@@ -592,6 +594,7 @@ export default function Rules() {
               type="text"
               value={questionInput1}
               onChange={onChangeValue1}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse1() : "")}
               placeholder="Ask our AI anything about the 1st rule..."
             />
             <div>
@@ -619,7 +622,7 @@ export default function Rules() {
       <div id="rule2" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 2: &nbsp;<b>Objective of the Game</b>
         </h1>
@@ -744,6 +747,7 @@ export default function Rules() {
               type="text"
               value={questionInput2}
               onChange={onChangeValue2}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse2() : "")}
               placeholder="Ask our AI anything about the 2nd rule..."
             />
             <div>
@@ -771,7 +775,7 @@ export default function Rules() {
       <div id="rule3" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 3: &nbsp;<b>Game Structure</b>
         </h1>
@@ -864,6 +868,7 @@ export default function Rules() {
               type="text"
               value={questionInput3}
               onChange={onChangeValue3}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse3() : "")}
               placeholder="Ask our AI anything about the 3rd rule..."
             />
             <div>
@@ -891,7 +896,7 @@ export default function Rules() {
       <div id="rule4" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 4: &nbsp;<b>The Field</b>
         </h1>
@@ -983,6 +988,7 @@ export default function Rules() {
               type="text"
               value={questionInput4}
               onChange={onChangeValue4}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse4() : "")}
               placeholder="Ask our AI anything about the 4th rule..."
             />
             <div>
@@ -1010,7 +1016,7 @@ export default function Rules() {
       <div id="rule5" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 5: &nbsp;<b>The Batter’s Turn</b>
         </h1>
@@ -1112,6 +1118,7 @@ export default function Rules() {
               type="text"
               value={questionInput5}
               onChange={onChangeValue5}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse5() : "")}
               placeholder="Ask our AI anything about the 5th rule..."
             />
             <div>
@@ -1138,7 +1145,7 @@ export default function Rules() {
       <div id="rule6" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 6: &nbsp;<b>Base Running</b>
         </h1>
@@ -1253,6 +1260,7 @@ export default function Rules() {
               type="text"
               value={questionInput6}
               onChange={onChangeValue6}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse6() : "")}
               placeholder="Ask our AI anything about the 6th rule..."
             />
             <div>
@@ -1280,7 +1288,7 @@ export default function Rules() {
       <div id="rule7" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 7: &nbsp;<b>Scoring Runs</b>
         </h1>
@@ -1382,6 +1390,7 @@ export default function Rules() {
               type="text"
               value={questionInput7}
               onChange={onChangeValue7}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse7() : "")}
               placeholder="Ask our AI anything about the 7th rule..."
             />
             <div>
@@ -1409,7 +1418,7 @@ export default function Rules() {
       <div id="rule8" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 8: &nbsp;<b>The Pitcher’s Role</b>
         </h1>
@@ -1553,6 +1562,7 @@ export default function Rules() {
               type="text"
               value={questionInput8}
               onChange={onChangeValue8}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse8() : "")}
               placeholder="Ask our AI anything about the 8th rule..."
             />
             <div>
@@ -1580,7 +1590,7 @@ export default function Rules() {
       <div id="rule9" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 9: &nbsp;<b>The Fielding Team's Role</b>
         </h1>
@@ -1690,6 +1700,7 @@ export default function Rules() {
               type="text"
               value={questionInput9}
               onChange={onChangeValue9}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse9() : "")}
               placeholder="Ask our AI anything about the 9th rule..."
             />
             <div>
@@ -1717,7 +1728,7 @@ export default function Rules() {
       <div id="rule10" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 10: &nbsp;<b>Outs and Switching Sides</b>
         </h1>
@@ -1828,6 +1839,7 @@ export default function Rules() {
               type="text"
               value={questionInput10}
               onChange={onChangeValue10}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse10() : "")}
               placeholder="Ask our AI anything about the 10th rule..."
             />
             <div>
@@ -1855,7 +1867,7 @@ export default function Rules() {
       <div id="rule11" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 11: &nbsp;<b>Home Runs</b>
         </h1>
@@ -1969,6 +1981,7 @@ export default function Rules() {
               type="text"
               value={questionInput11}
               onChange={onChangeValue11}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse11() : "")}
               placeholder="Ask our AI anything about the 11th rule..."
             />
             <div>
@@ -1996,7 +2009,7 @@ export default function Rules() {
       <div id="rule12" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 12: &nbsp;<b>Special Plays</b>
         </h1>
@@ -2121,6 +2134,7 @@ export default function Rules() {
               type="text"
               value={questionInput12}
               onChange={onChangeValue12}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse12() : "")}
               placeholder="Ask our AI anything about the 12th rule..."
             />
             <div>
@@ -2147,7 +2161,7 @@ export default function Rules() {
       <div id="rule13" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 13: &nbsp;<b>Fouls</b>
         </h1>
@@ -2271,6 +2285,7 @@ export default function Rules() {
               type="text"
               value={questionInput13}
               onChange={onChangeValue13}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse13() : "")}
               placeholder="Ask our AI anything about the 13th rule..."
             />
             <div>
@@ -2297,7 +2312,7 @@ export default function Rules() {
       <div id="rule14" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 14: &nbsp;<b>Umpire and Rules Enforcement</b>
         </h1>
@@ -2438,6 +2453,7 @@ export default function Rules() {
               type="text"
               value={questionInput14}
               onChange={onChangeValue14}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse14() : "")}
               placeholder="Ask our AI anything about the 14th rule..."
             />
             <div>
@@ -2464,7 +2480,7 @@ export default function Rules() {
       <div id="rule15" className="container my-5 rules-box">
         <h1
           className="comparison-heading text-start"
-          style={{ backgroundColor: "rgb(46, 1, 1)" }}
+          style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
           Rule No. 15: &nbsp;<b>Winning the Game</b>
         </h1>
@@ -2577,6 +2593,7 @@ export default function Rules() {
               type="text"
               value={questionInput15}
               onChange={onChangeValue15}
+              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse15() : "")}
               placeholder="Ask our AI anything about the 15th rule..."
             />
             <div>

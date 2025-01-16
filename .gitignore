@@ -26,9 +26,9 @@ yarn-error.log*
 README
 
 # ignoring the firebase files 
-.firebase
-.firebaserc
-firebase.json
+/.firebase
+/.firebaserc
+/firebase.json
 
 #env file
 .env

@@ -36,23 +36,13 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/news" || location.pathname==="/news/"?"active":""}`} to="/news">
-                  News
+                <Link className={`nav-link ${location.pathname==="/chat" || location.pathname==="/news/"?"active":""}`} to="/chat">
+                  Chat
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/about" || location.pathname==="/about/"?"active":""}`} to="/about">
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/contact" || location.pathname==="/contact/"?"active":""}`} to="/contact">
-                  Contact
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/privacy-policy" || location.pathname==="/privacy-policy/"?"active":""}`} to="/privacy-policy">
-                  Privacy Policy
+                <Link className={`nav-link ${location.pathname==="/playersChat" || location.pathname==="/about/"?"active":""}`} to="/playersChat">
+                  PlayersChat
                 </Link>
               </li>
             </ul>

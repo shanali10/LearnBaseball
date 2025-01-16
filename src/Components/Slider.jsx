@@ -20,13 +20,14 @@ export default function Slider() {
       });
     }, 3000);
 
-    // Cleanup interval when the component unmounts or updates
+    // Cleaning interval when the component unmounts or updates
     return () => clearInterval(interval);
   }, []); // Empty dependency array ensures this runs only once on mount
   return (
     <div className="slider-container container">
       <img className="slider-image img-fluid" src={slider} alt="slider"></img>
-      <h1 style={{ backgroundColor: " rgb(1, 28, 46)", color: "white", border: "2px solid yellow" }}>
+      <h1 style={{ backgroundColor: " rgb(1, 28, 46)", color: "white", border: "2px solid yellow"
+       }}>
         Learn Baseball from Beginning to Advance with AI for New Fans
       </h1>
     </div>
