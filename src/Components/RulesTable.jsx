@@ -15,7 +15,7 @@ export default function RulesTable() {
             marginTop: "50px",
           }}
         >
-          Table of Content (Baseball Rules)
+          Baseball Rules - Table of Content ↓
         </h1>
       </div>
       <div className="list-group container my-2 list-group-horizontal">

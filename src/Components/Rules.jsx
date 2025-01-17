@@ -58,9 +58,7 @@ export default function Rules() {
   const aiJob =
     "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
 
-  const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
-  );
+  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const fetchAIResponse1 = async () => {
@@ -490,7 +488,7 @@ export default function Rules() {
 
   return (
     <>
-      <Slider/>
+      <Slider />
       <RulesTable />
 
       {/* Rule 1: No. of Players  */}

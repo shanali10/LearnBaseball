@@ -38,58 +38,72 @@ export default function Chat() {
 
   return (
     <>
-      <div className="slider-container container">
-        <img className="slider-image img-fluid" src={aiLogo} alt="slider"></img>
-      </div>
-      <div
-        id="rule1"
-        className="container my-1 rules-box"
-        style={{ marginTop: "100px" }}
-      >
-        <h1
-          className="comparison-heading text-center"
-          style={{ backgroundColor: "rgb(1, 41, 37)" }}
+      <div style={{ marginTop: "100px" }}>
+        <div
+          className="container my-1 rules-box"
+          style={{ marginTop: "100px" }}
         >
-          <b>Learn Baseball with our Advance AI</b>
-        </h1>
+          <h1
+            className="comparison-heading text-start"
+            style={{ backgroundColor: "rgb(1, 41, 37)" }}
+          >
+            <b>Learn Baseball with our Advance AI</b>
+          </h1>
 
-        <div className="clearfix text-start">
-          <div className="mb-3">
-            <label
-              htmlFor="askAI"
-              className="form-label"
-              style={{ fontFamily: "cursive" }}
-            >
-              <b>Start Chatting with AI:</b>
-            </label>
-            <input
-              className="form-control text-form col-auto"
-              id="question1"
-              name="question1"
-              type="text"
-              value={questionInput}
-              onChange={onChangeValue}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse() : "")}
-              placeholder="Ask our AI anything about the Baseball..."
+          <div className="clearfix text-start">
+            <img
+              src={aiLogo}
+              className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
+              alt="side_image"
             />
-            <div>
-              <button
-                disabled={questionInput.length === 0 ? true : false}
-                type="submit"
-                onClick={fetchAIResponse}
-                className="btn btn-success mb-1 my-2"
-              >
-                Send Question
-              </button>
-            </div>
-          </div>
 
-          <p
-            className="lead my-2 ai-response"
-            dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse),
-            }}
-          ></p>
+            <p>
+              I’m your AI coach, here to unlock the world of baseball for you!
+              ⚾ Whether you’re a total rookie or aiming to master advanced
+              strategies, I’ve got your back. From explaining the rules to
+              diving into the nitty-gritty of gameplay, I’ll make sure you’re
+              ready to step up to the plate. Got questions? Feeling curious?
+              Let’s swing into action and chat about anything baseball—let’s
+              make it a grand slam! 🚀
+            </p>
+
+            <div className="mb-3">
+              <label
+                htmlFor="askAI"
+                className="form-label"
+                style={{ fontFamily: "cursive" }}
+              >
+                <b>Start Chatting with AI:</b>
+              </label>
+              <input
+                className="form-control text-form col-auto"
+                id="question1"
+                name="question1"
+                type="text"
+                value={questionInput}
+                onChange={onChangeValue}
+                onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse() : "")}
+                placeholder="Ask me anything about the Baseball..."
+              />
+              <div>
+                <button
+                  disabled={questionInput.length === 0 ? true : false}
+                  type="submit"
+                  onClick={fetchAIResponse}
+                  className="btn btn-success mb-1 my-2"
+                >
+                  Send Question
+                </button>
+              </div>
+            </div>
+
+            <p
+              className="lead my-2 ai-response"
+              dangerouslySetInnerHTML={{
+                __html: getHtmlFromMarkdown(aiResponse),
+              }}
+            ></p>
+          </div>
         </div>
       </div>
     </>

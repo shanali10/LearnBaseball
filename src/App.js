@@ -9,6 +9,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Quiz from "./Components/Quiz";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function AppContent() {
         <Routes>
           <Route exact path="/" element={<Rules />} />
           <Route exact path="/chat" element={<Chat />} />
-          <Route exact path="/playersChat" element={<Rules />} />
+          <Route exact path="/quiz" element={<Quiz />} />
         </Routes>
       </div>
 

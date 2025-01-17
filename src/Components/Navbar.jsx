@@ -6,7 +6,6 @@ import {Link, useLocation} from "react-router-dom"
 export default function Navbar() {
   let location = useLocation();
   useEffect(() => {
-    console.log(location.pathname)
   }, [location]);
   return (
     <>
@@ -36,13 +35,13 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/chat" || location.pathname==="/news/"?"active":""}`} to="/chat">
+                <Link className={`nav-link ${location.pathname==="/chat" || location.pathname==="/chat/"?"active":""}`} to="/chat">
                   Chat
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname==="/playersChat" || location.pathname==="/about/"?"active":""}`} to="/playersChat">
-                  PlayersChat
+                <Link className={`nav-link ${location.pathname==="/quiz" || location.pathname==="/quiz/"?"active":""}`} to="/quiz">
+                  Quiz
                 </Link>
               </li>
             </ul>
