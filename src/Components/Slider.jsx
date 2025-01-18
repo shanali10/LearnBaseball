@@ -26,7 +26,7 @@ export default function Slider() {
   return (
     <div className="slider-container container">
       <img className="slider-image img-fluid" src={slider} alt="slider"></img>
-      <h1 style={{ backgroundColor: " rgb(1, 28, 46)", color: "white", border: "2px solid yellow"
+      <h1 style={{border: "2px solid white"
        }}>
         Learn Baseball from Beginning to Advance with AI for New Fans
       </h1>

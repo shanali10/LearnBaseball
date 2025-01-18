@@ -1,84 +1,84 @@
-.container{
-    margin-bottom: 25px;
+.container {
+  margin-bottom: 25px;
 }
 
-.rules-box{
-    border: 2px solid white;
-    border-radius: 10px;
-    background-color: #0b0e0e;
+.rules-box {
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: #0b0e0e;
 }
 
-h1{
-    background-color: rgb(1, 28, 46);
-    border: 2px solid white;
+h1 {
+  background-color: rgb(1, 41, 37);
+  border: 2px solid white;
 }
 
 h2 {
-    color: rgb(185, 250, 177);
-    font-size: x-large;
-    margin-left: 1vw;
+  color: rgb(185, 250, 177);
+  font-size: x-large;
+  margin-left: 1vw;
 
-    font-family: "Lato", serif;
-    font-weight: 800;
-    font-style: normal;
+  font-family: "Lato", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
-p{
-    color: white;
-    margin-left: 1vw;
-    font-size: 20px;
-    
-    font-family: "Lato", serif;
-    font-weight: 300;
-    font-style: normal;
+p {
+  color: white;
+  margin-left: 1vw;
+  font-size: 20px;
+
+  font-family: "Lato", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.comparison-image{
-    width: 25vw;
-    border-radius: 20px;
+.comparison-image {
+  width: 25vw;
+  border-radius: 20px;
 }
 
-.comparison-heading{
-    font-size: xx-large;
-    color: rgb(255, 255, 255);
-    margin-left: 1vw;
-    margin-right: 1vw;
-    padding: 10px;
+.comparison-heading {
+  font-size: xx-large;
+  color: rgb(255, 255, 255);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 10px;
 }
 
-.mb-3{
-    color: rgb(204, 255, 219);
-    font-size: 20px;
-    margin-left: 1vw;
+.mb-3 {
+  color: rgb(204, 255, 219);
+  font-size: 20px;
+  margin-left: 1vw;
 }
 
 .text-form {
-    background-color: #030303; 
-    color: #fff; 
-    border: 1px solid #fdfdfd; 
-    height: 45px;
+  background-color: #030303;
+  color: #fff;
+  border: 1px solid #fdfdfd;
+  height: 45px;
 }
 
 .text-form:focus {
-    background-color: #030303;
-    color: #fff; 
-    border: 1px solid #ffffff;
-    box-shadow: none; 
-    outline: none;
+  background-color: #030303;
+  color: #fff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+  outline: none;
 }
 
 .text-form:hover {
-    border-color: #aaa;
+  border-color: #aaa;
 }
 
 .text-form::placeholder {
-    color: #aaa;
-    font-style: italic; 
-    font-size: 15px; 
+  color: #aaa;
+  font-style: italic;
+  font-size: 15px;
 }
 
-.ai-response{
-    font-size: 17px;
-    color: rgb(199, 255, 199);
-    font-weight: 300;
+.ai-response {
+  font-size: 17px;
+  color: rgb(199, 255, 199);
+  font-weight: 300;
 }

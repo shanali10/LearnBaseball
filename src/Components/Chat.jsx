@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Css/Chat.css";
 import aiLogo from "../Images/ai_logo.jpeg";
-
 import { marked } from "marked"; // Import marked for converting markdown to HTML
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -25,6 +24,10 @@ export default function Chat() {
     );
     setAIResponse(result.response.text()); // Set the actual AI response after fetching
     setQuestionInput(""); // Clear the input field
+
+    alert(
+      "Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌"
+    );
   };
 
   const onChangeValue = (e) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import quizLogo from "../Images/quiz_logo.jpeg";
 
 import { marked } from "marked"; // Import marked for converting markdown to HTML
@@ -14,6 +14,10 @@ export default function Quiz() {
   const [buttonText, setButtonText] = useState("Start Quiz"); // button text for Starting Quiz and submitting the answer of the question
   const [quizQuestionNumber, setQuizQuestionNumber] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [previousQuizQuestions, setPreviousQuizQuestions] = useState(""); // This state will hold the previous asked questions data array
+  const [isQuizNull, setIsQuizNull] = useState(true); // This state will check either the quiz array is null or not
+  const [highScore, setHighScore] = useState(0); // This state will check either the high score element should be shown or not
+  const [isHighScore, setIsHighScore] = useState(false); // This state will check either the high score element should be shown or not
 
   const aiQuizPrompt = `You are a seasoned baseball expert and enthusiastic teacher. A new baseball fan has just learned the key rules of the game, including:  
   
@@ -33,11 +37,12 @@ export default function Quiz() {
   14. Umpire and Rules Enforcement: Ensuring fair play on the field.  
   15. Winning the Game: Deciding the victor after 9 innings or extra innings if needed.  
   
-  Your mission is to test their understanding of these rules with insightful questions. Provide four answer choices for each question (each possible answer should be coming in line by line ont in one line) guiding them toward mastery of the game. Make it fun, engaging, and informative! Important Note: Ask only 1 question at a time!!!`;
+  Your mission is to test their understanding of these rules with insightful questions. Provide four answer choices for each question (each possible answer should be coming in line by line ont in one line) guiding them toward mastery of the game. Make it fun, engaging, and informative! Important Note: Ask only 1 question at a time!!!\n Always title your questions as New Question not like Question 1 or Question 2 etc. Just New Question!! \n
+  `;
 
   const aiCheckingAnswerPrompt = `You are a baseball expert and enthusiastic teacher, engaging in a quiz challenge with me, a new baseball fan who has been learning the rules and gameplay of baseball. You just asked the question: ${aiQuestion}\n I responded with: ${questionInput}\n  Now, your task is to evaluate my answer. If it’s correct, celebrate my achievement with an applause and positive reinforcement. If it’s incorrect, gently explain why the answer is not right, provide the correct answer with a brief and helpful explanation. Keep it fun and encouraging to make the learning experience enjoyable! don't give titles in the response like 'applause and positive reinforcement' or something like that. just answer in pure coach way with realistic coach's approach!!`;
 
-  const analyzeCorrectAnswerPrompt = `You are a passionate baseball expert and quizmaster engaging with me, a new baseball fan. You previously asked the question: ${aiQuestion}\n I answered: ${questionInput}\n Your task now is simple: Check my answer and the question provided, If my answer is correct, respond with "correct." If it's not, respond with "incorrect." Provide no additional details or commentary!`;
+  const analyzeCorrectAnswerPrompt = `You are a passionate baseball expert and quizmaster engaging with me, a new baseball fan. You previously asked the question: ${aiQuestion}\n I answered: ${questionInput}\n Your task now is simple: Check my answer and the question provided, If my answer is correct, respond with "correct." If it's not, respond with "incorrect." read the question and answer with focus according to baseball rules and then answer!! Provide no additional details or commentary!`;
 
   const genAI = new GoogleGenerativeAI(
     process.env.API_KEY
@@ -45,11 +50,22 @@ export default function Quiz() {
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const getAIQuizQuestion = async () => {
-    setAIQuestion("AI is Generating Question...");
+    setAIQuestion("AI is generating question...");
     setAIResponse("");
-    const result = await model.generateContent(aiQuizPrompt);
+    getPreviousQuizes();
+
+    let result;
+    if (isQuizNull) {
+      result = await model.generateContent(aiQuizPrompt);
+    } else {
+      result = await model.generateContent(
+        `${aiQuizPrompt}\n   Important Note: Here are the previous questions you already asked! try not to repeat any of these questions:\n${previousQuizQuestions}`
+      );
+    }
     setAIQuestion(result.response.text()); // Set the actual AI response after fetching
     setButtonText("Submit Answer");
+
+    // updating the question number of the quiz
     setQuizQuestionNumber(quizQuestionNumber + 1);
 
     if (quizQuestionNumber === 10) {
@@ -60,16 +76,36 @@ export default function Quiz() {
 
   const fetchAIResponse = async () => {
     setAIResponse("AI is analyzing your answer...");
-    const result = await model.generateContent(aiCheckingAnswerPrompt);
-    // getting the correct answer and updating the score!
-    correctAnswerAiResponse();
 
-    setAIResponse(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput(""); // Clear the input field
-    setButtonText("Next Question");
+    try {
+      const result = await model.generateContent(aiCheckingAnswerPrompt);
 
-    if (quizQuestionNumber === 3) {
-      setButtonText("Start New Quiz");
+      // Getting the correct answer and updating the score
+      correctAnswerAiResponse();
+
+      const aiResponseText = result.response.text();
+      setAIResponse(aiResponseText); // Set the actual AI response after fetching
+      setQuestionInput(""); // Clear the input field
+      setButtonText("Next Question");
+
+      // Check if the user has completed 10 questions
+      if (quizQuestionNumber === 10) {
+        setButtonText("Start New Quiz");
+        if (highScore < correctAnswers) {
+          localStorage.setItem("highScore", correctAnswers);
+        }
+        localStorage.setItem("isHighScore", true);
+      }
+
+      storeQuestionAnswer(
+        `Question:\n${aiQuestion}`,
+        `Answer:\n${result.response.text()}`
+      );
+
+      setIsQuizNull(false);
+    } catch (error) {
+      console.error("Error fetching AI response:", error);
+      setAIResponse("Something went wrong. Please try again.");
     }
   };
 
@@ -83,6 +119,14 @@ export default function Quiz() {
     }
   };
 
+  // Function to store question and answer in local storage
+  const storeQuestionAnswer = (question, answer) => {
+    const existingData = JSON.parse(localStorage.getItem("quizData")) || [];
+    const newEntry = { question, answer };
+    existingData.push(newEntry);
+    localStorage.setItem("quizData", JSON.stringify(existingData));
+  };
+
   const onChangeValue = (e) => {
     setQuestionInput(e.target.value);
   };
@@ -91,6 +135,45 @@ export default function Quiz() {
   const getHtmlFromMarkdown = (markdown) => {
     return marked(markdown); // Convert Markdown to HTML
   };
+
+  // function to get all the previous quizes
+  const getPreviousQuizes = () => {
+    const quizData = JSON.parse(localStorage.getItem("quizData"));
+    if (quizData !== null) {
+      // Initialize a letiable to build the string
+      let allQuestions = "";
+
+      // Loop through the quiz data to concatenate questions
+      for (let i = 0; i < quizData.length; i++) {
+        allQuestions += `\n ${quizData[i].question} \n`;
+      }
+
+      // Update the state after constructing the full string
+      setPreviousQuizQuestions(allQuestions);
+
+      setIsQuizNull(false);
+    } else {
+      setIsQuizNull(true);
+    }
+  };
+
+  useEffect(() => {
+    getPreviousQuizes();
+    // get high score from local storage if available
+    let getHighScore = localStorage.getItem("highScore");
+    let getIsHighScore = localStorage.getItem("isHighScore");
+    if (getHighScore !== null) {
+      setHighScore(getHighScore);
+    }
+    if (getIsHighScore !== null) {
+      setIsHighScore(getIsHighScore);
+    }
+
+    if (quizQuestionNumber === 10){
+      alert(
+        `Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌`)
+    }
+  }, []);
 
   return (
     <>
@@ -124,8 +207,12 @@ export default function Quiz() {
                 name="question"
                 type="text"
                 value={questionInput}
-                onChange={buttonText === "Submit Answer" ? onChangeValue : () => {}}
-                onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse() : null)}
+                onChange={
+                  buttonText === "Submit Answer" ? onChangeValue : () => {}
+                }
+                onKeyDown={(e) =>
+                  e.key === "Enter" ? fetchAIResponse() : null
+                }
                 placeholder="Enter your answer here..."
               />
               <div>
@@ -166,7 +253,7 @@ export default function Quiz() {
                 fontWeight: 700,
               }}
             >
-              Quiz: {quizQuestionNumber}/10
+              Questions: {quizQuestionNumber}/10
             </h2>
             <h2
               style={{
@@ -178,6 +265,19 @@ export default function Quiz() {
               Correct Answers:{" "}
               {correctAnswers < 10 ? ` 0${correctAnswers}` : correctAnswers}
             </h2>
+
+            {isHighScore && (
+              <h2
+                style={{
+                  fontSize: "20px",
+                  fontFamily: "Lato",
+                  fontWeight: 700,
+                  color: "yellow",
+                }}
+              >
+                High Score:{` ${highScore}/10`}
+              </h2>
+            )}
           </div>
         </div>
       </div>
