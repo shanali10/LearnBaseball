@@ -1,6 +1,8 @@
 .navbar-title {
-    color: rgb(206, 234, 253);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color:  rgb(188, 255, 248);
+    font-family: "Lato", serif;
+    font-weight: 800;
+    font-style: normal;
 }
 
 .logo {

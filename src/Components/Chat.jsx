@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/Chat.css";
 import aiLogo from "../Images/ai_logo.jpeg";
 import { marked } from "marked"; // Import marked for converting markdown to HTML
@@ -7,8 +7,10 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 export default function Chat() {
   const [questionInput, setQuestionInput] = useState(""); // State to write text in input field
   const [aiResponse, setAIResponse] = useState(""); // State to hold AI response
+  const [previousChat, setPreviousChat] = useState(""); // This state will hold the previous chat history data
+  const [isChatNull, setIsChatNull] = useState(true); // This state will check either the chat array is null or not
 
-  const aiJob =
+  const aiJobPrompt =
     "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
 
   const genAI = new GoogleGenerativeAI(
@@ -18,16 +20,57 @@ export default function Chat() {
 
   const fetchAIResponse = async () => {
     setAIResponse("AI is answering...");
-    const prompt = questionInput;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
+    getPreviousChatHistory();
+
+    let prompt = questionInput;
+    let result;
+    if (isChatNull) {
+      result = await model.generateContent(`${aiJobPrompt} <br/> Prompt: ${prompt}`);
+    } else {
+      result = await model.generateContent(
+        `${aiJobPrompt} <br/> Prompt: ${prompt}<br/> Here is the previous chat history you had with me!\n${previousChat}`
+      );
+    }
     setAIResponse(result.response.text()); // Set the actual AI response after fetching
     setQuestionInput(""); // Clear the input field
 
-    alert(
-      "Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌"
+    storeChatHistory(
+      `Question:\n${questionInput}`,
+      `Answer:\n${result.response.text()}`
     );
+
+    setIsChatNull(false);
+
+  };
+
+  
+  // Function to store question and answer in local storage
+  const storeChatHistory = (question, answer) => {
+    const existingData = JSON.parse(localStorage.getItem("chatHistory")) || [];
+    const newEntry = { question, answer };
+    existingData.push(newEntry);
+    localStorage.setItem("chatHistory", JSON.stringify(existingData));
+  };
+  
+  // function to get all the previous quizes
+  const getPreviousChatHistory = () => {
+    const chatHistoryData = JSON.parse(localStorage.getItem("chatHistory"));
+    if (chatHistoryData !== null) {
+      // Initialize a letiable to build the string
+      let allQuestions = "";
+
+      // Loop through the quiz data to concatenate questions
+      for (let i = 0; i < chatHistoryData.length; i++) {
+        allQuestions += `<br/> ${chatHistoryData[i].question} <br/>${chatHistoryData[i].answer}`;
+      }
+
+      // Update the state after constructing the full string
+      setPreviousChat(allQuestions);
+
+      setIsChatNull(false);
+    } else {
+      setIsChatNull(true);
+    }
   };
 
   const onChangeValue = (e) => {
@@ -38,6 +81,10 @@ export default function Chat() {
   const getHtmlFromMarkdown = (markdown) => {
     return marked(markdown); // Convert Markdown to HTML
   };
+
+  useEffect(()=>{
+    getPreviousChatHistory();
+  }, [])
 
   return (
     <>

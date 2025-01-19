@@ -14,10 +14,11 @@ export default function Quiz() {
   const [buttonText, setButtonText] = useState("Start Quiz"); // button text for Starting Quiz and submitting the answer of the question
   const [quizQuestionNumber, setQuizQuestionNumber] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [previousQuizQuestions, setPreviousQuizQuestions] = useState(""); // This state will hold the previous asked questions data array
+  const [previousQuizQuestions, setPreviousQuizQuestions] = useState(""); // This state will hold the previous asked questions data
   const [isQuizNull, setIsQuizNull] = useState(true); // This state will check either the quiz array is null or not
   const [highScore, setHighScore] = useState(0); // This state will check either the high score element should be shown or not
   const [isHighScore, setIsHighScore] = useState(false); // This state will check either the high score element should be shown or not
+  const [congratsMessage, setCongratsMessage] = useState(false); // We will show a congrats message after quiz if it's true
 
   const aiQuizPrompt = `You are a seasoned baseball expert and enthusiastic teacher. A new baseball fan has just learned the key rules of the game, including:  
   
@@ -71,6 +72,7 @@ export default function Quiz() {
     if (quizQuestionNumber === 10) {
       setQuizQuestionNumber(1);
       setCorrectAnswers(0);
+      setCongratsMessage(false);
     }
   };
 
@@ -79,9 +81,7 @@ export default function Quiz() {
 
     try {
       const result = await model.generateContent(aiCheckingAnswerPrompt);
-
       // Getting the correct answer and updating the score
-      correctAnswerAiResponse();
 
       const aiResponseText = result.response.text();
       setAIResponse(aiResponseText); // Set the actual AI response after fetching
@@ -91,10 +91,7 @@ export default function Quiz() {
       // Check if the user has completed 10 questions
       if (quizQuestionNumber === 10) {
         setButtonText("Start New Quiz");
-        if (highScore < correctAnswers) {
-          localStorage.setItem("highScore", correctAnswers);
-        }
-        localStorage.setItem("isHighScore", true);
+        setCongratsMessage(true);
       }
 
       storeQuestionAnswer(
@@ -103,6 +100,7 @@ export default function Quiz() {
       );
 
       setIsQuizNull(false);
+      correctAnswerAiResponse();
     } catch (error) {
       console.error("Error fetching AI response:", error);
       setAIResponse("Something went wrong. Please try again.");
@@ -116,6 +114,24 @@ export default function Quiz() {
       result.response.text() === "Correct"
     ) {
       setCorrectAnswers(correctAnswers + 1);
+    }
+
+    if (
+      quizQuestionNumber === 10 &&
+      (result.response.text() === "correct" ||
+        result.response.text() === "Correct")
+    ) {
+      if (highScore < correctAnswers) {
+        localStorage.setItem("highScore", correctAnswers + 1);
+        setHighScore(correctAnswers + 1);
+      }
+      localStorage.setItem("isHighScore", true);
+    } else if (quizQuestionNumber === 10) {
+      if (highScore < correctAnswers) {
+        localStorage.setItem("highScore", correctAnswers);
+        setHighScore(correctAnswers);
+      }
+      localStorage.setItem("isHighScore", true);
     }
   };
 
@@ -145,7 +161,7 @@ export default function Quiz() {
 
       // Loop through the quiz data to concatenate questions
       for (let i = 0; i < quizData.length; i++) {
-        allQuestions += `\n ${quizData[i].question} \n`;
+        allQuestions += `<br/> ${quizData[i].question}`;
       }
 
       // Update the state after constructing the full string
@@ -167,11 +183,6 @@ export default function Quiz() {
     }
     if (getIsHighScore !== null) {
       setIsHighScore(getIsHighScore);
-    }
-
-    if (quizQuestionNumber === 10){
-      alert(
-        `Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌`)
     }
   }, []);
 
@@ -272,11 +283,25 @@ export default function Quiz() {
                   fontSize: "20px",
                   fontFamily: "Lato",
                   fontWeight: 700,
-                  color: "yellow",
+                  color: "orange",
                 }}
               >
                 High Score:{` ${highScore}/10`}
               </h2>
+            )}
+            <br />
+            {congratsMessage && (
+              <p
+                style={{
+                  fontSize: "20px",
+                  fontFamily: "Lato",
+                  fontWeight: 700,
+                  color: "yellow",
+                }}
+              >
+                {`Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an
+             impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌`}
+              </p>
             )}
           </div>
         </div>
