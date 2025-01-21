@@ -44,6 +44,11 @@ export default function Navbar() {
                   Quiz
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className={`nav-link ${location.pathname==="/privacy-policy" || location.pathname==="/privacy-policy/"?"active":""}`} to="/privacy-policy">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

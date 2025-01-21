@@ -4,12 +4,13 @@ import Navbar from "./Components/Navbar";
 import Rules from "./Components/Rules";
 import ScrollTop from "./Components/ScrollTop";
 import Chat from "./Components/Chat";
+import Quiz from "./Components/Quiz";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 
 import {
   Routes,
   Route,
 } from "react-router-dom";
-import Quiz from "./Components/Quiz";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function AppContent() {
           <Route exact path="/" element={<Rules />} />
           <Route exact path="/chat" element={<Chat />} />
           <Route exact path="/quiz" element={<Quiz />} />
+          <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
 
