@@ -46,7 +46,7 @@ export default function Quiz() {
   const analyzeCorrectAnswerPrompt = `You are a passionate baseball expert and quizmaster engaging with me, a new baseball fan. You previously asked the question: ${aiQuestion}\n I answered: ${questionInput}\n Your task now is simple: Check my answer and the question provided, If my answer is correct, respond with "correct." If it's not, respond with "incorrect." read the question and answer with focus according to baseball rules and then answer!! Provide no additional details or commentary!`;
 
   const genAI = new GoogleGenerativeAI(
-    "AIzaSyAOXLqIhyFtvCiGoHvVEtw0OwK0R9-KKcc"
+    process.env.API_KEY
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
