@@ -22,38 +22,43 @@ import Slider from "./Slider";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Rules() {
-  // question inputs from different rules sections
-  const [questionInput1, setQuestionInput1] = useState(""); // State to write text in input field
-  const [questionInput2, setQuestionInput2] = useState(""); // State to write text in input field
-  const [questionInput3, setQuestionInput3] = useState(""); // State to write text in input field
-  const [questionInput4, setQuestionInput4] = useState(""); // State to write text in input field
-  const [questionInput5, setQuestionInput5] = useState(""); // State to write text in input field
-  const [questionInput6, setQuestionInput6] = useState(""); // State to write text in input field
-  const [questionInput7, setQuestionInput7] = useState(""); // State to write text in input field
-  const [questionInput8, setQuestionInput8] = useState(""); // State to write text in input field
-  const [questionInput9, setQuestionInput9] = useState(""); // State to write text in input field
-  const [questionInput10, setQuestionInput10] = useState(""); // State to write text in input field
-  const [questionInput11, setQuestionInput11] = useState(""); // State to write text in input field
-  const [questionInput12, setQuestionInput12] = useState(""); // State to write text in input field
-  const [questionInput13, setQuestionInput13] = useState(""); // State to write text in input field
-  const [questionInput14, setQuestionInput14] = useState(""); // State to write text in input field
-  const [questionInput15, setQuestionInput15] = useState(""); // State to write text in input field
-  // ai responses from different rules sections
-  const [aiResponse1, setAIResponse1] = useState(""); // State to hold AI response
-  const [aiResponse2, setAIResponse2] = useState(""); // State to hold AI response
-  const [aiResponse3, setAIResponse3] = useState(""); // State to hold AI response
-  const [aiResponse4, setAIResponse4] = useState(""); // State to hold AI response
-  const [aiResponse5, setAIResponse5] = useState(""); // State to hold AI response
-  const [aiResponse6, setAIResponse6] = useState(""); // State to hold AI response
-  const [aiResponse7, setAIResponse7] = useState(""); // State to hold AI response
-  const [aiResponse8, setAIResponse8] = useState(""); // State to hold AI response
-  const [aiResponse9, setAIResponse9] = useState(""); // State to hold AI response
-  const [aiResponse10, setAIResponse10] = useState(""); // State to hold AI response
-  const [aiResponse11, setAIResponse11] = useState(""); // State to hold AI response
-  const [aiResponse12, setAIResponse12] = useState(""); // State to hold AI response
-  const [aiResponse13, setAIResponse13] = useState(""); // State to hold AI response
-  const [aiResponse14, setAIResponse14] = useState(""); // State to hold AI response
-  const [aiResponse15, setAIResponse15] = useState(""); // State to hold AI response
+  const [questions, setQuestions] = useState({
+    // state to hold the input field (Questions) values
+    question1: "",
+    question2: "",
+    question3: "",
+    question4: "",
+    question5: "",
+    question6: "",
+    question7: "",
+    question8: "",
+    question9: "",
+    question10: "",
+    question11: "",
+    question12: "",
+    question13: "",
+    question14: "",
+    question15: "",
+  });
+
+  const [responses, setResponses] = useState({
+    // state to hold the AI responses for different rules section
+    response1: "",
+    response2: "",
+    response3: "",
+    response4: "",
+    response5: "",
+    response6: "",
+    response7: "",
+    response8: "",
+    response9: "",
+    response10: "",
+    response11: "",
+    response12: "",
+    response13: "",
+    response14: "",
+    response15: "",
+  });
 
   const aiJob =
     "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
@@ -63,424 +68,211 @@ export default function Rules() {
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
-  const fetchAIResponse1 = async () => {
-    setAIResponse1("AI is answering...");
-    const prompt = questionInput1;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse1(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
+  const fetchAIResponse = async (rule) => {
+    if (rule === "rule1") {
+      setResponses((prev) => ({
+        ...prev,
+        response1: "AI is answering...",
+      }));
+
+      const prompt = questions.question1;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+
+      setResponses((prev) => ({ ...prev, response1: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule2") {
+      setResponses((prev) => ({
+        ...prev,
+        response2: "AI is answering...",
+      }));
+      const prompt = questions.question2;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response2: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule3") {
+      setResponses((prev) => ({
+        ...prev,
+        response3: "AI is answering...",
+      }));
+      const prompt = questions.question3;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response3: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule4") {
+      setResponses((prev) => ({
+        ...prev,
+        response4: "AI is answering...",
+      }));
+      const prompt = questions.question4;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response4: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule5") {
+      setResponses((prev) => ({
+        ...prev,
+        response5: "AI is answering...",
+      }));
+      const prompt = questions.question5;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response5: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule6") {
+      setResponses((prev) => ({
+        ...prev,
+        response6: "AI is answering...",
+      }));
+      const prompt = questions.question6;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response6: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule7") {
+      setResponses((prev) => ({
+        ...prev,
+        response7: "AI is answering...",
+      }));
+      const prompt = questions.question7;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response7: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule8") {
+      setResponses((prev) => ({
+        ...prev,
+        response8: "AI is answering...",
+      }));
+      const prompt = questions.question8;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response8: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule9") {
+      setResponses((prev) => ({
+        ...prev,
+        response9: "AI is answering...",
+      }));
+      const prompt = questions.question9;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response9: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule10") {
+      setResponses((prev) => ({
+        ...prev,
+        response10: "AI is answering...",
+      }));
+      const prompt = questions.question10;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response10: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule11") {
+      setResponses((prev) => ({
+        ...prev,
+        response11: "AI is answering...",
+      }));
+      const prompt = questions.question11;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response11: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule12") {
+      setResponses((prev) => ({
+        ...prev,
+        response12: "AI is answering...",
+      }));
+      const prompt = questions.question12;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response12: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule13") {
+      setResponses((prev) => ({
+        ...prev,
+        response13: "AI is answering...",
+      }));
+      const prompt = questions.question13;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response13: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule14") {
+      setResponses((prev) => ({
+        ...prev,
+        response14: "AI is answering...",
+      }));
+      const prompt = questions.question14;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response14: result.response.text() })); // Set the actual AI response after fetching
+    } else if (rule === "rule15") {
+      setResponses((prev) => ({
+        ...prev,
+        response15: "AI is answering...",
+      }));
+      const prompt = questions.question15;
+      const result = await model.generateContent(
+        aiJob + "\n\nPrompt:\n" + prompt
+      );
+      setResponses((prev) => ({ ...prev, response15: result.response.text() })); // Set the actual AI response after fetching
+    }
+
+    // clearing all the input fields
+    setQuestions((prev) => ({ ...prev, question1: "" }));
+    setQuestions((prev) => ({ ...prev, question2: "" }));
+    setQuestions((prev) => ({ ...prev, question3: "" }));
+    setQuestions((prev) => ({ ...prev, question4: "" }));
+    setQuestions((prev) => ({ ...prev, question5: "" }));
+    setQuestions((prev) => ({ ...prev, question6: "" }));
+    setQuestions((prev) => ({ ...prev, question7: "" }));
+    setQuestions((prev) => ({ ...prev, question8: "" }));
+    setQuestions((prev) => ({ ...prev, question9: "" }));
+    setQuestions((prev) => ({ ...prev, question10: "" }));
+    setQuestions((prev) => ({ ...prev, question11: "" }));
+    setQuestions((prev) => ({ ...prev, question12: "" }));
+    setQuestions((prev) => ({ ...prev, question13: "" }));
+    setQuestions((prev) => ({ ...prev, question14: "" }));
+    setQuestions((prev) => ({ ...prev, question15: "" }));
   };
 
-  const fetchAIResponse2 = async () => {
-    setAIResponse2("AI is answering...");
-    const prompt = questionInput2;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse2(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse3 = async () => {
-    setAIResponse3("AI is answering...");
-    const prompt = questionInput3;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse3(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse4 = async () => {
-    setAIResponse4("AI is answering...");
-    const prompt = questionInput4;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse4(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse5 = async () => {
-    setAIResponse5("AI is answering...");
-    const prompt = questionInput5;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse5(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse6 = async () => {
-    setAIResponse6("AI is answering...");
-    const prompt = questionInput6;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse6(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse7 = async () => {
-    setAIResponse7("AI is answering...");
-    const prompt = questionInput7;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse7(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse8 = async () => {
-    setAIResponse8("AI is answering...");
-    const prompt = questionInput8;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse8(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse9 = async () => {
-    setAIResponse9("AI is answering...");
-    const prompt = questionInput9;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse9(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse10 = async () => {
-    setAIResponse10("AI is answering...");
-    const prompt = questionInput10;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse10(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse11 = async () => {
-    setAIResponse11("AI is answering...");
-    const prompt = questionInput11;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse11(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse12 = async () => {
-    setAIResponse12("AI is answering...");
-    const prompt = questionInput12;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse12(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse13 = async () => {
-    setAIResponse13("AI is answering...");
-    const prompt = questionInput13;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse13(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse14 = async () => {
-    setAIResponse14("AI is answering...");
-    const prompt = questionInput14;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse14(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const fetchAIResponse15 = async () => {
-    setAIResponse15("AI is answering...");
-    const prompt = questionInput15;
-    const result = await model.generateContent(
-      aiJob + "\n\nPrompt:\n" + prompt
-    );
-    setAIResponse15(result.response.text()); // Set the actual AI response after fetching
-    setQuestionInput1(""); // Clear the input field
-    setQuestionInput2(""); // Clear the input field
-    setQuestionInput3(""); // Clear the input field
-    setQuestionInput4(""); // Clear the input field
-    setQuestionInput5(""); // Clear the input field
-    setQuestionInput6(""); // Clear the input field
-    setQuestionInput7(""); // Clear the input field
-    setQuestionInput8(""); // Clear the input field
-    setQuestionInput9(""); // Clear the input field
-    setQuestionInput10(""); // Clear the input field
-    setQuestionInput11(""); // Clear the input field
-    setQuestionInput12(""); // Clear the input field
-    setQuestionInput13(""); // Clear the input field
-    setQuestionInput14(""); // Clear the input field
-    setQuestionInput15(""); // Clear the input field
-  };
-
-  const onChangeValue1 = (e) => {
-    setQuestionInput1(e.target.value);
-  };
-
-  const onChangeValue2 = (e) => {
-    setQuestionInput2(e.target.value);
-  };
-
-  const onChangeValue3 = (e) => {
-    setQuestionInput3(e.target.value);
-  };
-
-  const onChangeValue4 = (e) => {
-    setQuestionInput4(e.target.value);
-  };
-
-  const onChangeValue5 = (e) => {
-    setQuestionInput5(e.target.value);
-  };
-
-  const onChangeValue6 = (e) => {
-    setQuestionInput6(e.target.value);
-  };
-
-  const onChangeValue7 = (e) => {
-    setQuestionInput7(e.target.value);
-  };
-
-  const onChangeValue8 = (e) => {
-    setQuestionInput8(e.target.value);
-  };
-
-  const onChangeValue9 = (e) => {
-    setQuestionInput9(e.target.value);
-  };
-
-  const onChangeValue10 = (e) => {
-    setQuestionInput10(e.target.value);
-  };
-
-  const onChangeValue11 = (e) => {
-    setQuestionInput11(e.target.value);
-  };
-
-  const onChangeValue12 = (e) => {
-    setQuestionInput12(e.target.value);
-  };
-
-  const onChangeValue13 = (e) => {
-    setQuestionInput13(e.target.value);
-  };
-
-  const onChangeValue14 = (e) => {
-    setQuestionInput14(e.target.value);
-  };
-
-  const onChangeValue15 = (e) => {
-    setQuestionInput15(e.target.value);
+  const onChangeValue = (e, rule) => {
+    if (rule === "rule1") {
+      setQuestions((prev) => ({ ...prev, question1: e.target.value }));
+    } else if (rule === "rule2") {
+      setQuestions((prev) => ({ ...prev, question2: e.target.value }));
+    } else if (rule === "rule3") {
+      setQuestions((prev) => ({ ...prev, question3: e.target.value }));
+    } else if (rule === "rule4") {
+      setQuestions((prev) => ({ ...prev, question4: e.target.value }));
+    } else if (rule === "rule5") {
+      setQuestions((prev) => ({ ...prev, question5: e.target.value }));
+    } else if (rule === "rule6") {
+      setQuestions((prev) => ({ ...prev, question6: e.target.value }));
+    } else if (rule === "rule7") {
+      setQuestions((prev) => ({ ...prev, question7: e.target.value }));
+    } else if (rule === "rule8") {
+      setQuestions((prev) => ({ ...prev, question8: e.target.value }));
+    } else if (rule === "rule9") {
+      setQuestions((prev) => ({ ...prev, question9: e.target.value }));
+    } else if (rule === "rule10") {
+      setQuestions((prev) => ({ ...prev, question10: e.target.value }));
+    } else if (rule === "rule11") {
+      setQuestions((prev) => ({ ...prev, question11: e.target.value }));
+    } else if (rule === "rule12") {
+      setQuestions((prev) => ({ ...prev, question12: e.target.value }));
+    } else if (rule === "rule13") {
+      setQuestions((prev) => ({ ...prev, question13: e.target.value }));
+    } else if (rule === "rule14") {
+      setQuestions((prev) => ({ ...prev, question14: e.target.value }));
+    } else if (rule === "rule15") {
+      setQuestions((prev) => ({ ...prev, question15: e.target.value }));
+    }
   };
 
   // Convert the Markdown response into HTML using marked
@@ -592,16 +384,18 @@ export default function Rules() {
               id="question1"
               name="question1"
               type="text"
-              value={questionInput1}
-              onChange={onChangeValue1}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse1() : "")}
+              value={questions.question1}
+              onChange={(e) => onChangeValue(e, "rule1")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule1") : ""
+              }
               placeholder="Ask our AI anything about the 1st rule..."
             />
             <div>
               <button
-                disabled={questionInput1.length === 0 ? true : false}
+                disabled={questions.question1.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse1}
+                onClick={() => fetchAIResponse("rule1")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -612,7 +406,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse1),
+              __html: getHtmlFromMarkdown(responses.response1),
             }}
           ></p>
         </div>
@@ -745,16 +539,18 @@ export default function Rules() {
               id="question2"
               name="question2"
               type="text"
-              value={questionInput2}
-              onChange={onChangeValue2}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse2() : "")}
+              value={questions.question2}
+              onChange={(e) => onChangeValue(e, "rule2")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule2") : ""
+              }
               placeholder="Ask our AI anything about the 2nd rule..."
             />
             <div>
               <button
-                disabled={questionInput2.length === 0 ? true : false}
+                disabled={questions.question2.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse2}
+                onClick={() => fetchAIResponse("rule2")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -765,7 +561,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse2),
+              __html: getHtmlFromMarkdown(responses.response2),
             }}
           ></p>
         </div>
@@ -866,16 +662,18 @@ export default function Rules() {
               id="question3"
               name="question3"
               type="text"
-              value={questionInput3}
-              onChange={onChangeValue3}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse3() : "")}
+              value={questions.question3}
+              onChange={(e) => onChangeValue(e, "rule3")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule3") : ""
+              }
               placeholder="Ask our AI anything about the 3rd rule..."
             />
             <div>
               <button
-                disabled={questionInput3.length === 0 ? true : false}
+                disabled={questions.question3.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse3}
+                onClick={() => fetchAIResponse("rule3")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -886,7 +684,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse3),
+              __html: getHtmlFromMarkdown(responses.response3),
             }}
           ></p>
         </div>
@@ -986,16 +784,18 @@ export default function Rules() {
               id="question4"
               name="question4"
               type="text"
-              value={questionInput4}
-              onChange={onChangeValue4}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse4() : "")}
+              value={questions.question4}
+              onChange={(e) => onChangeValue(e, "rule4")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule4") : ""
+              }
               placeholder="Ask our AI anything about the 4th rule..."
             />
             <div>
               <button
-                disabled={questionInput4.length === 0 ? true : false}
+                disabled={questions.question4.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse4}
+                onClick={() => fetchAIResponse("rule4")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1006,7 +806,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse4),
+              __html: getHtmlFromMarkdown(responses.response4),
             }}
           ></p>
         </div>
@@ -1116,16 +916,18 @@ export default function Rules() {
               id="question5"
               name="question5"
               type="text"
-              value={questionInput5}
-              onChange={onChangeValue5}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse5() : "")}
+              value={questions.question5}
+              onChange={(e) => onChangeValue(e, "rule5")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule5") : ""
+              }
               placeholder="Ask our AI anything about the 5th rule..."
             />
             <div>
               <button
-                disabled={questionInput5.length === 0 ? true : false}
+                disabled={questions.question5.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse5}
+                onClick={() => fetchAIResponse("rule5")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1135,7 +937,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse5),
+              __html: getHtmlFromMarkdown(responses.response5),
             }}
           ></p>
         </div>
@@ -1258,16 +1060,18 @@ export default function Rules() {
               id="question6"
               name="question6"
               type="text"
-              value={questionInput6}
-              onChange={onChangeValue6}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse6() : "")}
+              value={questions.question6}
+              onChange={(e) => onChangeValue(e, "rule6")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule6") : ""
+              }
               placeholder="Ask our AI anything about the 6th rule..."
             />
             <div>
               <button
-                disabled={questionInput6.length === 0 ? true : false}
+                disabled={questions.question6.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse6}
+                onClick={() => fetchAIResponse("rule6")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1278,7 +1082,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse6),
+              __html: getHtmlFromMarkdown(responses.response6),
             }}
           ></p>
         </div>
@@ -1388,16 +1192,18 @@ export default function Rules() {
               id="question7"
               name="question7"
               type="text"
-              value={questionInput7}
-              onChange={onChangeValue7}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse7() : "")}
+              value={questions.question7}
+              onChange={(e) => onChangeValue(e, "rule7")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule7") : ""
+              }
               placeholder="Ask our AI anything about the 7th rule..."
             />
             <div>
               <button
-                disabled={questionInput7.length === 0 ? true : false}
+                disabled={questions.question7.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse7}
+                onClick={() => fetchAIResponse("rule7")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1408,7 +1214,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse7),
+              __html: getHtmlFromMarkdown(responses.response7),
             }}
           ></p>
         </div>
@@ -1560,16 +1366,18 @@ export default function Rules() {
               id="question8"
               name="question8"
               type="text"
-              value={questionInput8}
-              onChange={onChangeValue8}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse8() : "")}
+              value={questions.question8}
+              onChange={(e) => onChangeValue(e, "rule8")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule8") : ""
+              }
               placeholder="Ask our AI anything about the 8th rule..."
             />
             <div>
               <button
-                disabled={questionInput8.length === 0 ? true : false}
+                disabled={questions.question8.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse8}
+                onClick={() => fetchAIResponse("rule8")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1580,7 +1388,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse8),
+              __html: getHtmlFromMarkdown(responses.response8),
             }}
           ></p>
         </div>
@@ -1698,16 +1506,18 @@ export default function Rules() {
               id="question9"
               name="question9"
               type="text"
-              value={questionInput9}
-              onChange={onChangeValue9}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse9() : "")}
+              value={questions.question9}
+              onChange={(e) => onChangeValue(e, "rule9")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule9") : ""
+              }
               placeholder="Ask our AI anything about the 9th rule..."
             />
             <div>
               <button
-                disabled={questionInput9.length === 0 ? true : false}
+                disabled={questions.question9.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse9}
+                onClick={() => fetchAIResponse("rule9")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1718,7 +1528,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse9),
+              __html: getHtmlFromMarkdown(responses.response9),
             }}
           ></p>
         </div>
@@ -1837,16 +1647,18 @@ export default function Rules() {
               id="question10"
               name="question10"
               type="text"
-              value={questionInput10}
-              onChange={onChangeValue10}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse10() : "")}
+              value={questions.question10}
+              onChange={(e) => onChangeValue(e, "rule10")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule10") : ""
+              }
               placeholder="Ask our AI anything about the 10th rule..."
             />
             <div>
               <button
-                disabled={questionInput10.length === 0 ? true : false}
+                disabled={questions.question10.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse10}
+                onClick={() => fetchAIResponse("rule10")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1857,7 +1669,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse10),
+              __html: getHtmlFromMarkdown(responses.response10),
             }}
           ></p>
         </div>
@@ -1979,16 +1791,18 @@ export default function Rules() {
               id="question11"
               name="question11"
               type="text"
-              value={questionInput11}
-              onChange={onChangeValue11}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse11() : "")}
+              value={questions.question11}
+              onChange={(e) => onChangeValue(e, "rule11")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule11") : ""
+              }
               placeholder="Ask our AI anything about the 11th rule..."
             />
             <div>
               <button
-                disabled={questionInput11.length === 0 ? true : false}
+                disabled={questions.question11.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse11}
+                onClick={() => fetchAIResponse("rule11")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -1999,7 +1813,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse11),
+              __html: getHtmlFromMarkdown(responses.response11),
             }}
           ></p>
         </div>
@@ -2132,16 +1946,18 @@ export default function Rules() {
               id="question12"
               name="question12"
               type="text"
-              value={questionInput12}
-              onChange={onChangeValue12}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse12() : "")}
+              value={questions.question12}
+              onChange={(e) => onChangeValue(e, "rule12")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule12") : ""
+              }
               placeholder="Ask our AI anything about the 12th rule..."
             />
             <div>
               <button
-                disabled={questionInput12.length === 0 ? true : false}
+                disabled={questions.question12.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse12}
+                onClick={() => fetchAIResponse("rule12")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -2151,7 +1967,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse12),
+              __html: getHtmlFromMarkdown(responses.response12),
             }}
           ></p>
         </div>
@@ -2283,16 +2099,18 @@ export default function Rules() {
               id="question13"
               name="question13"
               type="text"
-              value={questionInput13}
-              onChange={onChangeValue13}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse13() : "")}
+              value={questions.question13}
+              onChange={(e) => onChangeValue(e, "rule13")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule13") : ""
+              }
               placeholder="Ask our AI anything about the 13th rule..."
             />
             <div>
               <button
-                disabled={questionInput13.length === 0 ? true : false}
+                disabled={questions.question13.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse13}
+                onClick={() => fetchAIResponse("rule13")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -2302,7 +2120,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse13),
+              __html: getHtmlFromMarkdown(responses.response13),
             }}
           ></p>
         </div>
@@ -2451,16 +2269,18 @@ export default function Rules() {
               id="question14"
               name="question14"
               type="text"
-              value={questionInput14}
-              onChange={onChangeValue14}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse14() : "")}
+              value={questions.question14}
+              onChange={(e) => onChangeValue(e, "rule14")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule14") : ""
+              }
               placeholder="Ask our AI anything about the 14th rule..."
             />
             <div>
               <button
-                disabled={questionInput14.length === 0 ? true : false}
+                disabled={questions.question14.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse14}
+                onClick={() => fetchAIResponse("rule14")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -2470,7 +2290,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse14),
+              __html: getHtmlFromMarkdown(responses.response14),
             }}
           ></p>
         </div>
@@ -2591,16 +2411,18 @@ export default function Rules() {
               id="question15"
               name="question15"
               type="text"
-              value={questionInput15}
-              onChange={onChangeValue15}
-              onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse15() : "")}
+              value={questions.question15}
+              onChange={(e) => onChangeValue(e, "rule15")}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? fetchAIResponse("rule15") : ""
+              }
               placeholder="Ask our AI anything about the 15th rule..."
             />
             <div>
               <button
-                disabled={questionInput15.length === 0 ? true : false}
+                disabled={questions.question15.length === 0 ? true : false}
                 type="submit"
-                onClick={fetchAIResponse15}
+                onClick={() => fetchAIResponse("rule15")}
                 className="btn btn-success mb-1 my-2"
               >
                 Send Question
@@ -2610,7 +2432,7 @@ export default function Rules() {
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
-              __html: getHtmlFromMarkdown(aiResponse15),
+              __html: getHtmlFromMarkdown(responses.response15),
             }}
           ></p>
         </div>
