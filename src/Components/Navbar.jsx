@@ -7,7 +7,7 @@ import i18n from "../i18n";
 
 export default function Navbar() {
   let location = useLocation();
-  let [currentLanguage, setCurrentLanguage] = useState("English");
+  let [currentLanguage, setCurrentLanguage] = useState("");
 
   const setLanguage = (lang) => {
     if (lang === "English") {
@@ -171,7 +171,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("English")}
                     >
-                      <span class="fi fi-us"></span> English
+                      <span className="fi fi-us"></span> English
                     </Link>
                   </li>
                 ) : (
@@ -185,7 +185,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("French")}
                     >
-                      <span class="fi fi-fr"></span> French
+                      <span className="fi fi-fr"></span> French
                     </Link>
                   </li>
                 ) : (
@@ -199,7 +199,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("German")}
                     >
-                      <span class="fi fi-de"></span> German
+                      <span className="fi fi-de"></span> German
                     </Link>
                   </li>
                 ) : (
@@ -213,7 +213,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("Spanish")}
                     >
-                      <span class="fi fi-es"></span> Spanish
+                      <span className="fi fi-es"></span> Spanish
                     </Link>
                   </li>
                 ) : (
@@ -227,7 +227,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("Arabic")}
                     >
-                      <span class="fi fi-ae"></span> Arabic
+                      <span className="fi fi-ae"></span> Arabic
                     </Link>
                   </li>
                 ) : (
@@ -241,7 +241,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("Urdu")}
                     >
-                      <span class="fi fi-pk"></span> Urdu
+                      <span className="fi fi-pk"></span> Urdu
                     </Link>
                   </li>
                 ) : (
@@ -255,7 +255,7 @@ export default function Navbar() {
                       href="#"
                       onClick={() => setLanguage("Hindi")}
                     >
-                      <span class="fi fi-in"></span> Hindi
+                      <span className="fi fi-in"></span> Hindi
                     </Link>
                   </li>
                 ) : (

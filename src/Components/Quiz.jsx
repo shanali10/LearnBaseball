@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import quizLogo from "../Images/quiz_logo.jpeg";
 
 import { marked } from "marked"; // Import marked for converting markdown to HTML
+import { useTranslation } from "react-i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Quiz() {
+  const {t} = useTranslation() // for language translation
   const [questionInput, setQuestionInput] = useState(""); // State to write text in input field
-  const [aiQuestion, setAIQuestion] = useState(
-    "Congratulations on learning the rules and gameplay of the baseball with the help of AI! 🎉 Now, let’s put your knowledge to the test. I’m your AI coach, ready to quiz you with some exciting questions about baseball. Each question will have four possible answers—choose the right one and show off your understanding of the game. Let’s see how well you know your baseball! 🏟️⚾"
-  );
+  const [aiQuestion, setAIQuestion] = useState(t("quizDescription"));
 
   const [aiResponse, setAIResponse] = useState(""); // State to hold AI response
   const [buttonText, setButtonText] = useState("Start Quiz"); // button text for Starting Quiz and submitting the answer of the question
@@ -20,26 +20,7 @@ export default function Quiz() {
   const [isHighScore, setIsHighScore] = useState(false); // This state will check either the high score element should be shown or not
   const [congratsMessage, setCongratsMessage] = useState(false); // We will show a congrats message after quiz if it's true
 
-  const aiQuizPrompt = `You are a seasoned baseball expert and enthusiastic teacher. A new baseball fan has just learned the key rules of the game, including:  
-  
-  1. Number of Players: The team setup and player roles.  
-  2. Objective of the Game: Scoring runs by hitting the ball and running bases.  
-  3. Game Structure: Innings, turns, and the dynamic switch between batting and fielding.  
-  4. The Field: A closer look at the infield, outfield, bases, and pitcher’s mound.  
-  5. The Batter’s Turn: Mastering hits, strikes, balls, and outs.  
-  6. Base Running: Rules for advancing and staying safe on the bases.  
-  7. Scoring Runs: Completing a run around all bases to score.  
-  8. The Pitcher’s Role: The art of pitching, legal moves, and avoiding illegal ones.  
-  9. The Fielding Team's Role: Getting batters and runners out with catches, tags, and force plays.  
-  10. Outs and Switching Sides: How three outs wrap up a half-inning and switch team roles.  
-  11. Home Runs: The thrill of hitting the ball out of the field.  
-  12. Special Plays: Double plays, triple plays, bunts, stolen bases, and more.  
-  13. Fouls: Identifying foul balls and their consequences.  
-  14. Umpire and Rules Enforcement: Ensuring fair play on the field.  
-  15. Winning the Game: Deciding the victor after 9 innings or extra innings if needed.  
-  
-  Your mission is to test their understanding of these rules with insightful questions. Provide four answer choices for each question (each possible answer should be coming in line by line ont in one line) guiding them toward mastery of the game. Make it fun, engaging, and informative! Important Note: Ask only 1 question at a time!!!\n Always title your questions as New Question not like Question 1 or Question 2 etc. Just New Question!! \n
-  `;
+  const aiQuizPrompt = `${t("quizPrompt")}`;
 
   const aiCheckingAnswerPrompt = `You are a baseball expert and enthusiastic teacher, engaging in a quiz challenge with me, a new baseball fan who has been learning the rules and gameplay of baseball. You just asked the question: ${aiQuestion}\n I responded with: ${questionInput}\n  Now, your task is to evaluate my answer. If it’s correct, celebrate my achievement with an applause and positive reinforcement. If it’s incorrect, gently explain why the answer is not right, provide the correct answer with a brief and helpful explanation. Keep it fun and encouraging to make the learning experience enjoyable! don't give titles in the response like 'applause and positive reinforcement' or something like that. just answer in pure coach way with realistic coach's approach!!`;
 
@@ -51,7 +32,7 @@ export default function Quiz() {
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const getAIQuizQuestion = async () => {
-    setAIQuestion("AI is generating question...");
+    setAIQuestion(t("aiGeneratingQuestion"));
     setAIResponse("");
     getPreviousQuizes();
 
@@ -60,7 +41,7 @@ export default function Quiz() {
       result = await model.generateContent(aiQuizPrompt);
     } else {
       result = await model.generateContent(
-        `${aiQuizPrompt}\n   Important Note: Here are the previous questions you already asked! try not to repeat any of these questions:\n${previousQuizQuestions}`
+        `${aiQuizPrompt}\n  ${t("impNote")}\n${previousQuizQuestions}`
       );
     }
     setAIQuestion(result.response.text()); // Set the actual AI response after fetching
@@ -77,7 +58,7 @@ export default function Quiz() {
   };
 
   const fetchAIResponse = async () => {
-    setAIResponse("AI is analyzing your answer...");
+    setAIResponse(t("aiAnalyzingResponse"));
 
     try {
       const result = await model.generateContent(aiCheckingAnswerPrompt);
@@ -184,6 +165,7 @@ export default function Quiz() {
     if (getIsHighScore !== null) {
       setIsHighScore(getIsHighScore);
     }
+
   }, []);
 
   return (
@@ -194,7 +176,7 @@ export default function Quiz() {
             className="comparison-heading text-start"
             style={{ backgroundColor: "rgb(1, 41, 37)" }}
           >
-            <b>Baseball Quiz with AI</b>
+            <b>{t("quizTitle")}</b>
           </h1>
 
           <div className="clearfix text-start">
@@ -224,7 +206,7 @@ export default function Quiz() {
                 onKeyDown={(e) =>
                   e.key === "Enter" ? fetchAIResponse() : null
                 }
-                placeholder="Enter your answer here..."
+                placeholder={t("quizHint")}
               />
               <div>
                 <button
@@ -264,7 +246,7 @@ export default function Quiz() {
                 fontWeight: 700,
               }}
             >
-              Questions: {quizQuestionNumber}/10
+              {t("questions")} {quizQuestionNumber}/10
             </h2>
             <h2
               style={{
@@ -273,7 +255,7 @@ export default function Quiz() {
                 fontWeight: 700,
               }}
             >
-              Correct Answers:{" "}
+              {t("correctAnswers")}{" "}
               {correctAnswers < 10 ? ` 0${correctAnswers}` : correctAnswers}
             </h2>
 
@@ -286,7 +268,7 @@ export default function Quiz() {
                   color: "orange",
                 }}
               >
-                High Score:{` ${highScore}/10`}
+                {t("highScore")}{` ${highScore}/10`}
               </h2>
             )}
             <br />
@@ -299,8 +281,7 @@ export default function Quiz() {
                   color: "yellow",
                 }}
               >
-                {`Congratulations🎉 Way to go! You scored ${correctAnswers}/10 – an
-             impressive achievement for a New Fan! ⚾🌟 Keep shining! 🌟🙌`}
+                {t("congratsMessage")}
               </p>
             )}
           </div>

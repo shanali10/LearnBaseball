@@ -1,7 +1,10 @@
 import React from "react";
 import "../Css/RulesTable.css";
+import { useTranslation } from "react-i18next";
 
 export default function RulesTable() {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Table of content (Rules)  */}
@@ -15,7 +18,7 @@ export default function RulesTable() {
             marginTop: "50px",
           }}
         >
-          Baseball Rules - Table of Content ↓
+          {t("contentTableTitle")}
         </h1>
       </div>
       <div className="list-group container my-2 list-group-horizontal">
@@ -26,7 +29,7 @@ export default function RulesTable() {
           aria-current="true"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          1. &nbsp; No. of Players
+          {t("content1")}
         </a>
         <a
           href="#rule2"
@@ -34,28 +37,28 @@ export default function RulesTable() {
           aria-current="true"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          2. &nbsp; Objective of the Game
+          {t("content2")}
         </a>
         <a
           href="#rule3"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          3. &nbsp; Game Structure
+          {t("content3")}
         </a>
         <a
           href="#rule4"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          4. &nbsp; The Field
+          {t("content4")}
         </a>
         <a
           href="#rule5"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          5. &nbsp; The Batter’s Turn
+          {t("content5")}
         </a>
       </div>
       <div className="list-group container my-2 list-group-horizontal">
@@ -64,28 +67,28 @@ export default function RulesTable() {
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          6. &nbsp; Base Running
+          {t("content6")}
         </a>
         <a
           href="#rule7"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          7. &nbsp; Scoring Runs
+          {t("content7")}
         </a>
         <a
           href="#rule8"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          8. &nbsp; The Pitcher’s Role
+          {t("content8")}
         </a>
         <a
           href="#rule9"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          9. &nbsp; Fielding Team's Role
+          {t("content9")}
         </a>
         <a
           href="#rule10"
@@ -93,7 +96,7 @@ export default function RulesTable() {
           aria-current="true"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          10. &nbsp; Outs, Switching Sides
+          {t("content10")}
         </a>
       </div>
       <div className="list-group container list-group-horizontal">
@@ -102,35 +105,35 @@ export default function RulesTable() {
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          11. &nbsp; Home Runs
+          {t("content11")}
         </a>
         <a
           href="#rule12"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          12. &nbsp; Special Plays
+          {t("content12")}
         </a>
         <a
           href="#rule13"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          13. &nbsp; Fouls
+          {t("content13")}
         </a>
         <a
           href="#rule14"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          14. &nbsp; Umpire and Rules
+          {t("content14")}
         </a>
         <a
           href="#rule15"
           className="list-group-item list-group-item-action"
           style={{ backgroundColor: "black", color: "white" }}
         >
-          15. &nbsp; Winning the Game
+          {t("content15")}
         </a>
       </div>
     </>

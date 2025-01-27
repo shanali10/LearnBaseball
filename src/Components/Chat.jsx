@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "../Css/Chat.css";
 import aiLogo from "../Images/ai_logo.jpeg";
 import { marked } from "marked"; // Import marked for converting markdown to HTML
+import { useTranslation } from "react-i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Chat() {
+  const {t} = useTranslation(); // for language translation
+
   const [questionInput, setQuestionInput] = useState(""); // State to write text in input field
   const [aiResponse, setAIResponse] = useState(""); // State to hold AI response  
 
-  const aiJobPrompt =
-    "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
+  const aiJobPrompt = `${t("chatAIPrompt")}`
 
   const genAI = new GoogleGenerativeAI(
     process.env.API_KEY
@@ -17,7 +19,8 @@ export default function Chat() {
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const fetchAIResponse = async () => {
-    setAIResponse("AI is answering...");
+    setAIResponse(t("aiAnswering"));
+    console.log(aiJobPrompt)
     
     let prompt = questionInput;
     let result = await model.generateContent(`${aiJobPrompt} <br/> Prompt: ${prompt}`);
@@ -46,7 +49,7 @@ export default function Chat() {
             className="comparison-heading text-start"
             style={{ backgroundColor: "rgb(1, 41, 37)" }}
           >
-            <b>Learn Baseball with our Advance AI</b>
+            <b>{t("chatTitle")}</b>
           </h1>
 
           <div className="clearfix text-start">
@@ -57,13 +60,7 @@ export default function Chat() {
             />
 
             <p>
-              I’m your AI coach, here to unlock the world of baseball for you!
-              ⚾ Whether you’re a total rookie or aiming to master advanced
-              strategies, I’ve got your back. From explaining the rules to
-              diving into the nitty-gritty of gameplay, I’ll make sure you’re
-              ready to step up to the plate. Got questions? Feeling curious?
-              Let’s swing into action and chat about anything baseball—let’s
-              make it a grand slam! 🚀
+              {t("chatDescription")}
             </p>
 
             <div className="mb-3">
@@ -72,7 +69,7 @@ export default function Chat() {
                 className="form-label"
                 style={{ fontFamily: "cursive" }}
               >
-                <b>Start Chatting with AI:</b>
+                <b>{t("chatLabel")}</b>
               </label>
               <input
                 className="form-control text-form col-auto"
@@ -82,7 +79,7 @@ export default function Chat() {
                 value={questionInput}
                 onChange={onChangeValue}
                 onKeyDown={(e) => (e.key === "Enter" ? fetchAIResponse() : "")}
-                placeholder="Ask me anything about the Baseball..."
+                placeholder={t("chatHint")}
               />
               <div>
                 <button
@@ -91,7 +88,7 @@ export default function Chat() {
                   onClick={fetchAIResponse}
                   className="btn btn-success mb-1 my-2"
                 >
-                  Send Question
+                  {t("sendQuestion")}
                 </button>
               </div>
             </div>

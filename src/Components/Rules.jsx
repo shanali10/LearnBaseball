@@ -18,10 +18,13 @@ import winningTheGame from "../Images/winning.jpeg";
 import { marked } from "marked"; // Import marked for converting markdown to HTML
 import RulesTable from "./RulesTable";
 import Slider from "./Slider";
+import { useTranslation } from "react-i18next";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Rules() {
+  const { t } = useTranslation(); // for the language translation
+
   const [questions, setQuestions] = useState({
     // state to hold the input field (Questions) values
     question1: "",
@@ -60,19 +63,16 @@ export default function Rules() {
     response15: "",
   });
 
-  const aiJob =
-    "You are a baseball expert and teacher. Your role is to guide and educate a new fan who wants to learn about baseball. Always provide clear, accurate, and detailed answers that help the user understand the sport. Respond only as a baseball expert, explaining the rules, history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball or any other sport. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!";
+  const aiJob = `${t("chatAIPrompt")}`;
 
-  const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
-  );
+  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const fetchAIResponse = async (rule) => {
     if (rule === "rule1") {
       setResponses((prev) => ({
         ...prev,
-        response1: "AI is answering...",
+        response1: `${t("aiAnswering")}`,
       }));
 
       const prompt = questions.question1;
@@ -84,7 +84,7 @@ export default function Rules() {
     } else if (rule === "rule2") {
       setResponses((prev) => ({
         ...prev,
-        response2: "AI is answering...",
+        response2: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question2;
       const result = await model.generateContent(
@@ -94,7 +94,7 @@ export default function Rules() {
     } else if (rule === "rule3") {
       setResponses((prev) => ({
         ...prev,
-        response3: "AI is answering...",
+        response3: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question3;
       const result = await model.generateContent(
@@ -104,7 +104,7 @@ export default function Rules() {
     } else if (rule === "rule4") {
       setResponses((prev) => ({
         ...prev,
-        response4: "AI is answering...",
+        response4: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question4;
       const result = await model.generateContent(
@@ -114,7 +114,7 @@ export default function Rules() {
     } else if (rule === "rule5") {
       setResponses((prev) => ({
         ...prev,
-        response5: "AI is answering...",
+        response5: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question5;
       const result = await model.generateContent(
@@ -124,7 +124,7 @@ export default function Rules() {
     } else if (rule === "rule6") {
       setResponses((prev) => ({
         ...prev,
-        response6: "AI is answering...",
+        response6: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question6;
       const result = await model.generateContent(
@@ -134,7 +134,7 @@ export default function Rules() {
     } else if (rule === "rule7") {
       setResponses((prev) => ({
         ...prev,
-        response7: "AI is answering...",
+        response7: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question7;
       const result = await model.generateContent(
@@ -144,7 +144,7 @@ export default function Rules() {
     } else if (rule === "rule8") {
       setResponses((prev) => ({
         ...prev,
-        response8: "AI is answering...",
+        response8: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question8;
       const result = await model.generateContent(
@@ -154,7 +154,7 @@ export default function Rules() {
     } else if (rule === "rule9") {
       setResponses((prev) => ({
         ...prev,
-        response9: "AI is answering...",
+        response9: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question9;
       const result = await model.generateContent(
@@ -164,7 +164,7 @@ export default function Rules() {
     } else if (rule === "rule10") {
       setResponses((prev) => ({
         ...prev,
-        response10: "AI is answering...",
+        response10: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question10;
       const result = await model.generateContent(
@@ -174,7 +174,7 @@ export default function Rules() {
     } else if (rule === "rule11") {
       setResponses((prev) => ({
         ...prev,
-        response11: "AI is answering...",
+        response11: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question11;
       const result = await model.generateContent(
@@ -184,7 +184,7 @@ export default function Rules() {
     } else if (rule === "rule12") {
       setResponses((prev) => ({
         ...prev,
-        response12: "AI is answering...",
+        response12: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question12;
       const result = await model.generateContent(
@@ -194,7 +194,7 @@ export default function Rules() {
     } else if (rule === "rule13") {
       setResponses((prev) => ({
         ...prev,
-        response13: "AI is answering...",
+        response13: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question13;
       const result = await model.generateContent(
@@ -204,7 +204,7 @@ export default function Rules() {
     } else if (rule === "rule14") {
       setResponses((prev) => ({
         ...prev,
-        response14: "AI is answering...",
+        response14: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question14;
       const result = await model.generateContent(
@@ -214,7 +214,7 @@ export default function Rules() {
     } else if (rule === "rule15") {
       setResponses((prev) => ({
         ...prev,
-        response15: "AI is answering...",
+        response15: `${t("aiAnswering")}`,
       }));
       const prompt = questions.question15;
       const result = await model.generateContent(
@@ -291,7 +291,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 1: &nbsp;<b>Number of Players in Baseball</b>
+          {t("rule1")} &nbsp;<b>{t("rule1Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -301,72 +301,70 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            Baseball is played between two teams, and here's how the players are
-            divided:
-          </p>
-          <h2>When Defending:</h2>
+          <p className="lead">{t("rule1Subtitle")}</p>
+          <h2>{t("whenDefending")}</h2>
           <p>
-            The team on the field has <b>9 players</b>, each with a specific
-            role:
+            {t("whenDefendingSubtitle")}
             <br />
             <ol>
               <li>
-                <b>Pitcher</b>: Throws the ball to the batter.
+                <b>{t("pitcher")}</b>
+                {t("pitcherDetail")}
               </li>
               <li>
-                <b>Catcher</b>: Catches the ball behind the batter.
+                <b>{t("catcher")}</b>
+                {t("catcherDetail")}
               </li>
               <li>
-                <b>First Baseman</b>: Guards first base.
+                <b>{t("firstBaseman")}</b>
+                {t("firstBasemanDetail")}
               </li>
               <li>
-                <b>Second Baseman</b>: Guards second base.
+                <b>{t("secondBaseman")}</b>
+                {t("secondBasemanDetail")}
               </li>
               <li>
-                <b>Third Baseman</b>: Guards third base.
+                <b>{t("thirdBaseman")}</b>
+                {t("thirdBasemanDetail")}
               </li>
               <li>
-                <b>Shortstop</b>: Plays between second and third base.
+                <b>{t("shortstop")}</b>
+                {t("shortstopDetail")}
               </li>
               <li>
-                <b>Left Fielder</b>: Covers the left outfield.
+                <b>{t("leftFielder")}</b>
+                {t("leftFielderDetail")}
               </li>
               <li>
-                <b>Center Fielder</b>: Covers the center outfield.
+                <b>{t("centerFielder")}</b>
+                {t("centerFielderDetail")}
               </li>
               <li>
-                <b>Right Fielder</b>: Covers the right outfield.
+                <b>{t("rightFielder")}</b>
+                {t("rightFielderDetail")}
               </li>
             </ol>
           </p>
-          <h2>When Attacking:</h2>
+          <h2>{t("whenattacking")}</h2>
           <p>
             <ul>
-              <li>
-                Players take turns one at a time to bat and try to score runs by
-                hitting the ball and running around the bases.
-              </li>
+              <li>{t("whenattackingSubtitle")}</li>
             </ul>
           </p>
-          <h2>How Many Players in Total?</h2>
+          <h2>{t("howManyPlayers")}</h2>
           <p>
             <ul>
-              <li>
-                Each team has a <b>roster of 25-26 players</b>, but only{" "}
-                <b>9 players</b> from the defending team are active on the field
-                at any time.
-              </li>
+              <li>{t("howManyPlayersDetail")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
+          <h2>{t("rule1Summary")}</h2>
           <p>
             <ul>
               <li>
-                <b>9 players</b> are on the field when a team is defending.
+                <b>{t("9Players")}</b> {t("9PlayersDetails")}
               </li>
               <li>
-                <b>1 player</b> bats at a time when attacking.
+                <b>{t("1Player")}</b> {t("1PlayerDetails")}
               </li>
             </ul>
           </p>
@@ -377,7 +375,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -389,7 +387,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule1") : ""
               }
-              placeholder="Ask our AI anything about the 1st rule..."
+              placeholder={t("rule1Hint")}
             />
             <div>
               <button
@@ -398,7 +396,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule1")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -418,7 +416,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 2: &nbsp;<b>Objective of the Game</b>
+          {t("rule2")} &nbsp;<b>{t("rule2Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -428,101 +426,83 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The main objective of baseball is to score runs, and the team with
-            the most runs at the end of the game wins. Let’s break it down in
-            more detail:
-          </p>
-          <h2>Scoring Runs:</h2>
+          <p className="lead">{t("rule2Subtitle")}</p>
+          <h2>{t("scoringRuns")}</h2>
           <p>
-            A run is scored when a player completes a full circuit around the
-            four bases (first base, second base, third base, and home plate) and
-            touches each one in order.
+            {t("scoringRunsSubtitle")}
+
             <ul>
               <li>
-                <b>The Batter’s Role</b>: When it’s their turn, a player steps
-                up to the plate as a batter. They must hit the ball pitched to
-                them to start the action.
+                <b>{t("theBattersRole")}</b>
+                {t("theBattersRoleDetail")}
               </li>
               <li>
-                <b>Becoming a Runner</b>: Once the batter successfully hits the
-                ball, they transition into a runner and try to advance to as
-                many bases as possible without getting "out."
+                <b>{t("becomingARunner")}</b>
+                {t("becomingARunnerDetail")}
               </li>
             </ul>
           </p>
-          <h2>Running the Bases:</h2>
+          <h2>{t("runningTheBases")}</h2>
           <p>
             <ul>
               <li>
-                <b>Base Path</b>: Players must run within a specific path to
-                move from one base to the next.
+                <b>{t("basePath")}</b>
+                {t("basePathDetail")}
               </li>
               <li>
-                <b>Stopping at a Base</b>: A runner can choose to stop at a base
-                if advancing further seems too risky (e.g., the ball is being
-                fielded close by). They can continue to the next base during a
-                future play.
+                <b>{t("stoppingAtBase")}</b>
+                {t("stoppingAtBaseDetail")}
               </li>
               <li>
-                <b>Home Plate</b>: Returning to home plate after touching all
-                other bases in sequence earns a run for the team.
+                <b>{t("homePlate")}</b>
+                {t("homePlateDetail")}
               </li>
             </ul>
           </p>
-          <h2>The Fielding Team's Goal:</h2>
+          <h2>{t("theFieldingTeamsGoal")}</h2>
           <p>
-            The fielding team’s job is to prevent the batting team from scoring
-            by:
+            {t("theFieldingTeamsGoalSutTitle")}
             <ul>
               <li>
-                <b>Catching</b>: If they catch a hit ball before it touches the
-                ground, the batter is out.
+                <b>{t("catching")}</b>
+                {t("catchingDetail")}
               </li>
               <li>
-                <b>Throwing</b>: Fielders can throw the ball to a base before a
-                runner gets there, making the runner "out."
+                <b>{t("throwing")}</b>
+                {t("throwingDetail")}
               </li>
               <li>
-                <b>Tagging</b>: A runner can also be tagged out if they are not
-                on a base and a fielder touches them with the ball.
+                <b>{t("tagging")}</b>
+                {t("taggingDetail")}
               </li>
             </ul>
           </p>
 
-          <h2>Strategic Plays:</h2>
+          <h2>{t("strategicPlays")}</h2>
           <p>
             <ul>
               <li>
-                <b>Base Hits</b>: A single hit that allows the batter to reach
-                first base is a "single," while reaching further bases on one
-                hit can result in a "double," "triple," or even a "home run."
+                <b>{t("baseHits")}</b>
+                {t("baseHitsDetail")}
               </li>
               <li>
-                <b>Home Run</b>: A home run occurs when the batter hits the ball
-                out of the playing field in fair territory. The batter and any
-                runners on base automatically score runs.
+                <b>{t("homeRun")}</b>
+                {t("homeRunDetails")}
               </li>
               <li>
-                <b>Sacrifices and Bunting</b>: Sometimes, batters will
-                intentionally make small hits to allow teammates to advance on
-                the bases.
+                <b>{t("sacrificesAndBunting")}</b>
+                {t("sacrificesAndBuntingDetails")}
               </li>
             </ul>
           </p>
 
-          <h2>Winning the Game:</h2>
+          <h2>{t("winningtheGame")}</h2>
           <p>
             <ul>
-              <li>A baseball game is typically played over nine innings.</li>
-              <li>Each team gets a turn to bat and field in every inning.</li>
-              <li>
-                At the end of nine innings, the team with the most runs wins.
-              </li>
-              <li>
-                If the score is tied, extra innings are played until a winner is
-                determined.
-              </li>
+              <li>{t("winningtheGame1")}</li>
+              <li>{t("winningtheGame2")}</li>
+              <li>{t("winningtheGame3")}</li>
+              <li>{t("winningtheGame4")}</li>
             </ul>
           </p>
 
@@ -532,7 +512,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -544,7 +524,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule2") : ""
               }
-              placeholder="Ask our AI anything about the 2nd rule..."
+              placeholder={t("rule2Hint")}
             />
             <div>
               <button
@@ -553,7 +533,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule2")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -573,7 +553,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 3: &nbsp;<b>Game Structure</b>
+          {t("rule3")} &nbsp;<b>{t("rule3Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -582,70 +562,47 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
+          <p className="lead">{t("rule3Subtitle")}</p>
 
-          <p className="lead">
-            Baseball has a unique structure that ensures fairness and flow
-            between the two teams. Let’s break this rule into simpler parts:
-          </p>
-          <h2>Innings:</h2>
+          <h2>{t("innings")}</h2>
           <p>
             <ul>
-              <li>A baseball game is divided into innings.</li>
-              <li>Each inning has two halves:</li>
+              <li>{t("inningsSubtitle")}</li>
+              <li>{t("inningsHalves")}</li>
               <ol>
                 <li>
-                  <b>Top Half</b>: One team bats while the other fields.
+                  <b>{t("topHalf")}</b>
+                  {t("topHalfDetail")}
                 </li>
                 <li>
-                  <b>Bottom Half</b>: The roles switch.
+                  <b>{t("bottomHalf")}</b>
+                  {t("bottomHalfDetail")}
                 </li>
               </ol>
-              <li>
-                Most games are played over nine innings. If the score is tied,
-                extra innings are played until one team wins.
-              </li>
+              <li>{t("mostInnings")}</li>
             </ul>
           </p>
-          <h2>Turns: Batting and Fielding:</h2>
+          <h2>{t("turnsBattingAndFielding")}</h2>
           <p>
             <ul>
-              <li>
-                Each team gets a turn to bat (try to score runs) and field (try
-                to stop the other team from scoring).
-              </li>
-              <li>A turn ends when the batting team gets three outs.</li>
-              <li>
-                Once both teams have had a turn tobat and field, the inning is
-                over.
-              </li>
+              <li>{t("turnsBattingAndFielding1")}</li>
+              <li>{t("turnsBattingAndFielding2")}</li>
+              <li>{t("turnsBattingAndFielding3")}</li>
             </ul>
           </p>
-          <h2>The Transition Between Roles:</h2>
+          <h2>{t("theTransitionBetweenRoles")}</h2>
           <p>
             <ul>
-              <li>
-                After three outs, the fielding team becomes the batting team,
-                and the batting team goes into the field.
-              </li>
-              <li>
-                These transitions keep the game balanced, giving both teams
-                equal chances to score runs.
-              </li>
+              <li>{t("theTransitionBetweenRoles1")}</li>
+              <li>{t("theTransitionBetweenRoles2")}</li>
             </ul>
           </p>
-          <h2>Why is the Structure Important?</h2>
+          <h2>{t("whyIsTheStructureImportant")}</h2>
           <p>
             <ul>
-              <li>Innings and turns make the game fair and strategic.</li>
-              <li>
-                Teams plan their moves carefully, whether it’s about scoring
-                runs while batting or stopping the other team when fielding.
-              </li>
-              <li>
-                The flow ensures that both teams face the same number of
-                opportunities to score, making baseball a game of skill and
-                strategy rather than chance.
-              </li>
+              <li>{t("whyIsTheStructureImportant1")}</li>
+              <li>{t("whyIsTheStructureImportant2")}</li>
+              <li>{t("whyIsTheStructureImportant3")}</li>
             </ul>
           </p>
 
@@ -655,7 +612,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -667,7 +624,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule3") : ""
               }
-              placeholder="Ask our AI anything about the 3rd rule..."
+              placeholder={t("rule3Hint")}
             />
             <div>
               <button
@@ -676,7 +633,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule3")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -696,7 +653,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 4: &nbsp;<b>The Field</b>
+          {t("rule4")} &nbsp;<b>{t("rule4Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -706,70 +663,55 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The baseball field is carefully designed to create a fair and
-            exciting game. Let’s break it down:
-          </p>
-          <h2>Basic Layout:</h2>
+          <p className="lead">{t("rule4Subtitle")}</p>
+          <h2>{t("basicLayout")}</h2>
           <p>
-            The field is shaped like a diamond and is divided into two main
-            areas:
+            {t("basicLayoutSubtitle")}
             <ul>
               <li>
-                <b>Infield</b>: The inner part of the field where the bases and
-                pitcher’s mound are located.
+                <b>{t("infield")}</b>
+                {t("infieldDetail")}
               </li>
               <li>
-                <b>Outfield</b>: The grassy area beyond the infield.
+                <b>{t("outfield")}</b>
+                {t("outfieldDetail")}
               </li>
             </ul>
           </p>
-          <h2>Bases:</h2>
+          <h2>{t("bases")}</h2>
           <p>
             <ul>
               <li>
-                <b>There are four bases</b> arranged in a diamond shape:
+                <b>{t("basesSubtitle1")}</b> {t("basesSubtitle2")}
               </li>
               <ol>
                 <li>
-                  <b>Home Plate</b>: Where the batter stands and starts their
-                  turn.
+                  <b>{t("homePlate2")}</b>
+                  {t("homePlateDetail2")}
                 </li>
                 <li>
-                  <b>First Base</b>
+                  <b>{t("firstBase")}</b>
                 </li>
                 <li>
-                  <b>Second Base</b>
+                  <b>{t("secondBase")}</b>
                 </li>
                 <li>
-                  <b>Third Base</b>
+                  <b>{t("thirdBase")}</b>
                 </li>
               </ol>
-              <li>
-                The goal is for runners to touch all four bases in sequence to
-                score a run.
-              </li>
+              <li>{t("bases3")}</li>
             </ul>
           </p>
-          <h2>Pitcher’s Mound:</h2>
+          <h2>{t("pitchersMound")}</h2>
           <p>
             <ul>
-              <li>A raised area in the center of the infield.</li>
-              <li>
-                The <b>pitcher</b> stands here to throw the ball toward the
-                batter.
-              </li>
-              <li>
-                It is positioned at a specific distance from home plate to
-                ensure fairness.
-              </li>
+              <li>{t("pitchersMound1")}</li>
+              <li>{t("pitchersMound2")}</li>
+              <li>{t("pitchersMound3")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            This layout creates a dynamic game environment, with specific roles
-            for players and clear objectives for both offense and defense.
-          </p>
+          <h2>{t("rule4Summary")}</h2>
+          <p>{t("rule4SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -777,7 +719,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -789,7 +731,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule4") : ""
               }
-              placeholder="Ask our AI anything about the 4th rule..."
+              placeholder={t("rule4Hint")}
             />
             <div>
               <button
@@ -798,7 +740,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule4")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -818,7 +760,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 5: &nbsp;<b>The Batter’s Turn</b>
+          {t("rule5")} &nbsp;<b>{t("rule5Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -828,80 +770,58 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The batter’s turn is a key moment in baseball, where the player
-            tries to hit the ball and advance their team’s chances of scoring.
-            Let’s break it down:
-          </p>
-          <h2>Hitting the Ball:</h2>
+          <p className="lead">{t("rule5Subtitle")}</p>
+          <h2>{t("hittingTheBall")}</h2>
           <p>
             <ul>
-              <li>
-                The batter’s main job is to hit the ball thrown by the pitcher.
-              </li>
-              <li>
-                If the ball is hit into the field of play, the batter runs
-                toward first base and tries to advance as far as possible.
-              </li>
+              <li>{t("hittingTheBall1")}</li>
+              <li>{t("hittingTheBall2")}</li>
             </ul>
           </p>
-          <h2>Strikes and Balls:</h2>
+          <h2>{t("strikesAndBalls")}</h2>
           <p>
             <ul>
               <li>
-                <b>Strikes:</b>
+                <b>{t("strikes")}</b>
               </li>
               <ul>
-                <li>If the batter swings and misses, it’s a strike.</li>
-                <li>
-                  If the batter does not swing and the ball passes through the
-                  strike zone, it's a strike.
-                </li>
-                <li>Three strikes result in the batter being “out.”</li>
+                <li>{t("strikes1")}</li>
+                <li>{t("strikes2")}</li>
+                <li>{t("strikes3")}</li>
               </ul>
               <li>
-                <b>Balls:</b>
+                <b>{t("Balls")}</b>
               </li>
               <ul>
-                <li>
-                  If the pitcher throws the ball outside the strike zone and the
-                  batter doesn’t swing, it’s a ball.
-                </li>
-                <li>
-                  Four balls allow the batter to walk to first base (this is
-                  called a "walk").
-                </li>
+                <li>{t("Balls1")}</li>
+                <li>{t("Balls2")}</li>
               </ul>
             </ul>
           </p>
-          <h2>How a Batter is “Out”:</h2>
+          <h2>{t("howABatterisOut")}</h2>
           <p>
-            A batter can be declared out in several ways:
+            {t("howABatterisOutSubtitle")}
             <ul>
               <li>
-                <b>Three Strikes</b>: The batter fails to hit the ball after
-                three strikes.
+                <b>{t("threeStrikes")}</b>
+                {t("threeStrikesDetail")}
               </li>
               <li>
-                <b>Caught Ball</b>: If a fielder catches the ball in the air
-                before it touches the ground.
+                <b>{t("caughtBall")}</b>
+                {t("caughtBallDetail")}
               </li>
               <li>
-                <b>Thrown Out:</b> The ball is thrown to first base before the
-                batter arrives. Interference: If the batter interferes with the
-                catcher or another player.
+                <b>{t("thrownOut")}</b>
+                {t("thrownOutDetail")}
               </li>
               <li>
-                <b>Interference</b>: If the batter interferes with the catcher
-                or another player.
+                <b>{t("interference")}</b>
+                {t("interferenceDetail")}
               </li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            Understanding the batter’s turn helps players and fans grasp the
-            excitement and strategy behind every pitch and swing!
-          </p>
+          <h2>{t("rule5Summary")}</h2>
+          <p>{t("rule5SummaryDetails")}</p>
 
           <div className="mb-3">
             <label
@@ -909,7 +829,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -921,7 +841,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule5") : ""
               }
-              placeholder="Ask our AI anything about the 5th rule..."
+              placeholder={t("rule5Hint")}
             />
             <div>
               <button
@@ -930,7 +850,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule5")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -949,7 +869,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 6: &nbsp;<b>Base Running</b>
+          {t("rule6")} &nbsp;<b>{t("rule6Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -959,93 +879,63 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            Base running is a crucial part of baseball where players move around
-            the bases to score runs. Let’s break it down:
-          </p>
-          <h2>Running Between Bases:</h2>
+          <p className="lead">{t("rule6Subtitle")}</p>
+          <h2>{t("runningBetweenBases")}</h2>
           <p>
             <ul>
               <li>
-                <b>Starting Point</b>: After hitting the ball, the batter
-                becomes a runner and heads toward first base.
+                <b>{t("startingPoint")}</b>
+                {t("startingPointDetail")}
               </li>
               <li>
-                <b>Sequence</b>: The runner’s goal is to advance from first base
-                to second base, then to third base, and finally to home plate to
-                score a run.
+                <b>{t("sequence")}</b>
+                {t("sequenceDetail")}
               </li>
               <li>
-                <b>Decision Making</b>: Runners must decide whether to stop at a
-                base or keep running, depending on how far the ball is hit and
-                the fielders’ actions.
+                <b>{t("decisionMaking")}</b>
+                {t("decisionMakingDetail")}
               </li>
             </ul>
           </p>
-          <h2>Rules for Staying on Base or Advancing:</h2>
+          <h2>{t("rulesforStayingOnBaseOrAdvancing")}</h2>
           <p>
             <ul>
               <li>
-                <b>Safe on Base:</b>
+                <b>{t("safeOnBase")}</b>
               </li>
               <ul>
-                <li>
-                  A runner is <b>safe</b> if they reach a base before being
-                  tagged or if the base is not “forced.”
-                </li>
-                <li>
-                  Once on a base, the runner can stay there until the next play.
-                </li>
+                <li>{t("safeOnBase1")}</li>
+                <li>{t("safeOnBase2")}</li>
               </ul>
               <li>
-                <b>Force Out:</b>
+                <b>{t("forceOut")}</b>
               </li>
               <ul>
-                <li>
-                  A runner must advance if another runner is behind them and the
-                  bases are full.
-                </li>
-                <li>
-                  If the fielding team throws the ball to the next base before
-                  the runner gets there, the runner is <b>out</b>.
-                </li>
+                <li>{t("forceOut1")}</li>
+                <li>{t("forceOut2")}</li>
               </ul>
               <li>
-                <b>Tagging Up:</b>
+                <b>{t("taggingUp")}</b>
               </li>
               <ul>
-                <li>
-                  On a caught fly ball, the runner must <b>tag</b> their current
-                  base before advancing to the next one.
-                </li>
+                <li>{t("taggingUp1")}</li>
               </ul>
               <li>
-                <b>Stealing Bases:</b>
+                <b>{t("stealingBases")}</b>
               </li>
               <ul>
-                <li>
-                  A runner can try to advance to the next base without the ball
-                  being hit, known as <b>stealing a base</b>, but risks being
-                  tagged out.
-                </li>
+                <li>{t("stealingBases1")}</li>
               </ul>
               <li>
-                <b>Overrunning First Base:</b>
+                <b>{t("overrunningFirstBase")}</b>
               </li>
               <ul>
-                <li>
-                  Runners can run past <b>first</b> base without being tagged
-                  out, as long as they stay within the baseline and don’t
-                  attempt to go to second base.
-                </li>
+                <li>{t("overrunningFirstBase1")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            Base running combines speed, timing, and strategy, making it an
-            exciting part of the game as players try to outsmart the defense!
-          </p>
+          <h2>{t("rule6Summary")}</h2>
+          <p>{t("rule6SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -1053,7 +943,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1065,7 +955,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule6") : ""
               }
-              placeholder="Ask our AI anything about the 6th rule..."
+              placeholder={t("rule6Hint")}
             />
             <div>
               <button
@@ -1074,7 +964,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule6")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1094,7 +984,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 7: &nbsp;<b>Scoring Runs</b>
+          {t("rule7")} &nbsp;<b>{t("rule7Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1104,80 +994,47 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            Scoring runs is the ultimate objective in baseball. A team earns
-            runs by completing a full circuit around the bases. Here’s how it
-            works:
-          </p>
-          <h2>Completing a Run:</h2>
+          <p className="lead">{t("rule7Subtitle")}</p>
+          <h2>{t("completingARun")}</h2>
           <p>
             <ul>
-              <li>
-                A player starts at home plate as a batter, progresses through
-                first base, second base, and third base, and finally returns to
-                home plate to score a run.
-              </li>
-              <li>
-                The player must touch each base in order while avoiding being
-                tagged or forced out by the fielding team.
-              </li>
+              <li>{t("completingARun1")}</li>
+              <li>{t("completingARun2")}</li>
             </ul>
           </p>
-          <h2>Timing and Strategy:</h2>
+          <h2>{t("timingAndStrategy")}</h2>
           <p>
             <ul>
               <li>
-                <b>When to Advance:</b>
+                <b>{t("whenToAdvance")}</b>
               </li>
               <ul>
-                <li>
-                  Players advance based on how far the ball is hit and the
-                  positioning of the fielders.
-                </li>
-                <li>
-                  A well-hit ball (e.g., a double, triple, or home run) makes it
-                  easier to complete a run.
-                </li>
+                <li>{t("whenToAdvance1")}</li>
+                <li>{t("whenToAdvance2")}</li>
               </ul>
               <li>
-                <b>Multiple Runs in One Play:</b>
+                <b>{t("multipleRuns")}</b>
               </li>
               <ul>
-                <li>
-                  If there are runners already on base when the ball is hit,
-                  those runners can also advance and score if they successfully
-                  reach home plate.
-                </li>
+                <li>{t("multipleRuns1")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Home Runs:</h2>
+          <h2>{t("homeRuns")}</h2>
           <p>
             <ul>
-              <li>
-                A <b>home</b> run happens when the batter hits the ball out of
-                the field of play (over the fence in fair territory).
-              </li>
-              <li>
-                In this case, the batter and all base runners automatically
-                score without the risk of being tagged or forced out.
-              </li>
+              <li>{t("homeRuns1")}</li>
+              <li>{t("homeRuns2")}</li>
             </ul>
           </p>
-          <h2>Errors and Extra Opportunities:</h2>
+          <h2>{t("errors")}</h2>
           <p>
             <ul>
-              <li>
-                Errors by the fielding team (e.g., missed catches or bad throws)
-                can give runners additional chances to advance and score.
-              </li>
+              <li>{t("errors1")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            The goal for each team is to score as many runs as possible during
-            their turn at bat, outpacing their opponents to win the game!
-          </p>
+          <h2>{t("rule7Summary")}</h2>
+          <p>{t("rule7SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -1185,7 +1042,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1197,7 +1054,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule7") : ""
               }
-              placeholder="Ask our AI anything about the 7th rule..."
+              placeholder={t("rule7Hint")}
             />
             <div>
               <button
@@ -1206,7 +1063,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule7")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1226,7 +1083,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 8: &nbsp;<b>The Pitcher’s Role</b>
+          {t("rule8")} &nbsp;<b>{t("rule8Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1236,122 +1093,86 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The pitcher is one of the most crucial players on the field, as they
-            control the pace and outcome of each play. Here’s a breakdown of
-            their role:
-          </p>
-          <h2>How Pitching Works:</h2>
+          <p className="lead">{t("rule8Subtitle")}</p>
+          <h2>{t("howPitchingWorks")}</h2>
           <p>
             <ul>
               <li>
-                <b>Starting the Play:</b>
+                <b>{t("startingThePlay")}</b>
               </li>
               <ul>
-                <li>
-                  The pitcher throws the ball from the pitcher’s mound towards
-                  the batter at home plate.
-                </li>
-                <li>
-                  The goal is to make it difficult for the batter to hit the
-                  ball while staying within the rules.
-                </li>
+                <li>{t("startingThePlay1")}</li>
+                <li>{t("startingThePlay2")}</li>
               </ul>
               <li>
-                <b>Types of Pitches:</b>
+                <b>{t("typeOfPitches")}</b>
               </li>
               <ul>
-                <li>
-                  Pitchers use a variety of techniques to throw the ball, such
-                  as:
-                </li>
+                <li>{t("typeOfPitches1")}</li>
                 <ul>
                   <li>
-                    <b>Fastballs</b>: Thrown at high speed.
+                    <b>{t("fastBalls")}</b>
+                    {t("fastBallsDetail")}
                   </li>
                   <li>
-                    <b>Curveballs</b>: Spin the ball to make it curve mid-air.
+                    <b>{t("curveballs")}</b>
+                    {t("curveballsDetail")}
                   </li>
                   <li>
-                    <b>Changeups</b>: Appear fast but are slower to deceive the
-                    batter.
+                    <b>{t("changeups")}</b>
+                    {t("changeupsDetail")}
                   </li>
                 </ul>
               </ul>
             </ul>
           </p>
-          <h2>Legal Pitches</h2>
+          <h2>{t("legalPitches")}</h2>
           <p>
             <ul>
-              <li>
-                A pitch must be thrown with one foot in contact with the
-                pitching rubber.
-              </li>
-              <li>
-                The pitcher must throw the ball overhand or sidearm, aiming for
-                the strike zone:
-              </li>
+              <li>{t("legalPitches1")}</li>
+              <li>{t("legalPitches2")}</li>
               <ul>
-                <li>
-                  The strike zone is an imaginary box above home plate, from the
-                  batter's knees to their chest.
-                </li>
+                <li>{t("legalPitches3")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Illegal Pitches:</h2>
+          <h2>{t("illegalPitches")}</h2>
           <p>
             <ul>
               <li>
-                <b>Balk:</b>
+                <b>{t("balk")}</b>
               </li>
               <ul>
-                <li>
-                  If the pitcher starts a pitching motion but doesn’t throw the
-                  ball, or performs deceptive movements, it’s called a balk,
-                  allowing base runners to advance.
-                </li>
+                <li>{t("balk1")}</li>
               </ul>
               <li>
-                <b>Throwing at the Batter:</b>
+                <b>{t("throwingAtBatter")}</b>
               </li>
               <ul>
-                <li>
-                  Pitchers must not intentionally throw at the batter. Doing so
-                  can result in warnings or ejection.
-                </li>
+                <li>{t("throwingAtBatter1")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Strategy and Skill:</h2>
+          <h2>{t("strategyAndSkill")}</h2>
           <p>
             <ul>
               <li>
-                <b>Reading the Batter:</b>
+                <b>{t("readingBatter")}</b>
               </li>
               <ul>
-                <li>
-                  The pitcher studies the batter’s weaknesses and adjusts their
-                  pitches accordingly.
-                </li>
+                <li>{t("readingBatter1")}</li>
               </ul>
               <li>
-                <b>Maintaining Control:</b>
+                <b>{t("maintainControl")}</b>
               </li>
               <ul>
-                <li>
-                  A great pitcher must balance speed, accuracy, and deception to
-                  keep the batter guessing.
-                </li>
+                <li>{t("maintainControl1")}</li>
               </ul>
             </ul>
           </p>
 
-          <h2>Summary:</h2>
-          <p>
-            The pitcher sets the stage for every play, blending strategy, skill,
-            and precision to challenge the batter while adhering to the rules.
-          </p>
+          <h2>{t("rule8Summary")}</h2>
+          <p>{t("rule8SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -1359,7 +1180,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1371,7 +1192,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule8") : ""
               }
-              placeholder="Ask our AI anything about the 8th rule..."
+              placeholder={t("rule8Hint")}
             />
             <div>
               <button
@@ -1380,7 +1201,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule8")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1400,7 +1221,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 9: &nbsp;<b>The Fielding Team's Role</b>
+          {t("rule9")} &nbsp;<b>{t("rule9Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1410,88 +1231,59 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The fielding team plays defense, trying to prevent the batting team
-            from scoring runs by getting batters and runners out. Here's how it
-            works:
-          </p>
-          <h2>Getting Batters and Runners Out:</h2>
+          <p className="lead">{t("rule9Subtitle")}</p>
+          <h2>{t("gettingBattersAndRunnersOut")}</h2>
           <p>
-            The fielding team has several ways to achieve an out:
+            {t("gettingBattersAndRunnersOutSub")}
             <ul>
               <li>
-                <b>Catching:</b>
+                <b>{t("catchings")}</b>
               </li>
               <ul>
-                <li>
-                  If a batter hits the ball into the air and a fielder catches
-                  it before it touches the ground, the batter is out.
-                </li>
+                <li>{t("catchingsDetail")}</li>
               </ul>
               <li>
-                <b>Tagging:</b>
+                <b>{t("taggings")}</b>
               </li>
               <ul>
-                <li>
-                  A fielder can tag a runner by touching them with the ball (or
-                  the glove holding the ball) when the runner is not on a base.
-                </li>
+                <li>{t("taggingsDetail")}</li>
               </ul>
               <li>
-                <b>Force-Outs:</b>
+                <b>{t("forceOuts")}</b>
               </li>
               <ul>
-                <li>
-                  When a runner is forced to advance to the next base because
-                  the batter hits the ball, the fielding team can throw the ball
-                  to that base before the runner gets there.
-                </li>
-                <li>
-                  Example: If the batter runs to first base, the fielder at
-                  first base just needs to touch the base while holding the ball
-                  to record a force-out.
-                </li>
+                <li>{t("forceOuts1")}</li>
+                <li>{t("forceOuts2")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Defensive Players and Their Roles:</h2>
+          <h2>{t("defensivePlayers")}</h2>
           <p>
-            Each player on the fielding team has a specific position and role in
-            preventing runs:
+            {t("defensivePlayersSubtitle")}
             <ul>
               <li>
-                <b>Pitcher</b>: Throws the ball to the batter.
+                <b>{t("pitcherRole")}</b>
+                {t("pitcherRoleDetail")}
               </li>
               <li>
-                <b>Catcher</b>: Catches the pitcher’s throws and defends home
-                plate.
+                <b>{t("catcherRole")}</b>
+                {t("catcherRoleDetail")}
               </li>
               <li>
-                <b>Infielders</b>: Defend the area around the bases (first base,
-                second base, third base, and shortstop). Outfielders: Cover the
-                outfield to catch long hits and prevent extra bases.
+                <b>{t("infielderRole")}</b>
+                {t("infielderRoleDetail")}
               </li>
             </ul>
           </p>
-          <h2>Team Coordination:</h2>
+          <h2>{t("teamCoordinates")}</h2>
           <p>
             <ul>
-              <li>
-                Fielders work together to execute plays, such as double plays
-                (getting two outs in one sequence).
-              </li>
-              <li>
-                Good communication and awareness are key to efficiently fielding
-                the ball and making outs.
-              </li>
+              <li>{t("teamCoordinates1")}</li>
+              <li>{t("teamCoordinates2")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            The fielding team’s goal is to stop the batter from hitting safely
-            and to prevent runners from advancing, using tactics like catching,
-            tagging, and force-outs to regain their chance at batting.
-          </p>
+          <h2>{t("rule9Summary")}</h2>
+          <p>{t("rule9SummaryDetails")}</p>
 
           <div className="mb-3">
             <label
@@ -1499,7 +1291,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1511,7 +1303,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule9") : ""
               }
-              placeholder="Ask our AI anything about the 9th rule..."
+              placeholder={t("rule9Hint")}
             />
             <div>
               <button
@@ -1520,7 +1312,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule9")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1540,7 +1332,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 10: &nbsp;<b>Outs and Switching Sides</b>
+          {t("rule10")} &nbsp;<b>{t("rule10Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1550,89 +1342,53 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            The game of baseball is structured into innings, and each inning has
-            two halves: one where a team bats and the other where it fields.
-            Here’s how outs and side-switching work:
-          </p>
-          <h2>Three Outs to End a Half-Inning:</h2>
+          <p className="lead">{t("rule10Subtitle")}</p>
+          <h2>{t("threeOutsToEndAHalfInning")}</h2>
           <p>
             <ul>
               <li>
-                <b>What is an Out?</b>
+                <b>{t("whatsAnOut")}</b>
               </li>
               <ul>
-                <li>
-                  An out occurs when the fielding team successfully stops the
-                  batting team through actions like catching a fly ball, tagging
-                  a runner, or force-outs.
-                </li>
+                <li>{t("whatsAnOut1")}</li>
               </ul>
               <li>
-                <b>How Many Outs Are Needed?</b>
+                <b>{t("howManyOut")}</b>
               </li>
               <ul>
-                <li>
-                  The batting team continues to hit until the fielding team gets
-                  three outs.
-                </li>
-                <li>
-                  Once three outs are made, the batting team's turn ends, and
-                  the roles switch. the fielding team goes to bat, and the
-                  batting team takes the field.
-                </li>
+                <li>{t("howManyOut1")}</li>
+                <li>{t("howManyOut2")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Switching Sides:</h2>
+          <h2>{t("switchingSides")}</h2>
           <p>
             <ul>
               <li>
-                <b>When Does It Happen?</b>
+                <b>{t("whenItHappen")}</b>
               </li>
               <ul>
-                <li>
-                  After three outs, both teams change positions on the field.
-                </li>
-                <li>
-                  The fielding team comes to bat, and the batting team takes
-                  their places on the field.
-                </li>
+                <li>{t("whenItHappen1")} </li>
+                <li>{t("whenItHappen2")}</li>
               </ul>
               <li>
-                <b>Half-Inning Completion:</b>
+                <b>{t("halfInning")}</b>
               </li>
               <ul>
-                <li>
-                  Each team gets one turn to bat and one turn to field per
-                  inning.
-                </li>
-                <li>
-                  A full inning is completed once both teams have had their
-                  chance to bat.
-                </li>
+                <li>{t("halfInning1")}</li>
+                <li>{t("halfInning2")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Why This Rule is Important?</h2>
+          <h2>{t("whyRuleImportant")}</h2>
           <p>
             <ul>
-              <li>
-                This structure ensures fairness, as each team gets an equal
-                opportunity to score runs and defend.
-              </li>
-              <li>
-                The switch between roles keeps the game dynamic, with players
-                needing to adapt from batting to fielding and vice versa.
-              </li>
+              <li>{t("whyRuleImportant1")}</li>
+              <li>{t("whyRuleImportant2")} </li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            The fielding team aims to get <b>three outs</b> to end the batting
-            team’s turn, after which the roles switch, maintaining the balance
-            of offense and defense throughout the game.
-          </p>
+          <h2>{t("rule10Summary")}</h2>
+          <p>{t("rule10SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -1640,7 +1396,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1652,7 +1408,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule10") : ""
               }
-              placeholder="Ask our AI anything about the 10th rule..."
+              placeholder={t("rule10Hint")}
             />
             <div>
               <button
@@ -1661,7 +1417,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule10")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1681,7 +1437,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 11: &nbsp;<b>Home Runs</b>
+          {t("rule11")} &nbsp;<b>{t("rule11Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1691,92 +1447,67 @@ export default function Rules() {
             alt="side_image"
           />
 
-          <p className="lead">
-            A <b>home run</b> is one of the most exciting moments in baseball!
-            It occurs when the batter hits the ball so hard and far that it
-            leaves the field of play, typically beyond the outfield fence.
-          </p>
-          <h2>What Happens During a Home Run?</h2>
+          <p className="lead">{t("rule11Subtitle")}</p>
+          <h2>{t("whatHappenDuringHomeRun")}</h2>
           <p>
             <ul>
               <li>
-                <b>Automatic Scoring:</b>
+                <b>{t("autoScoring")}</b>
               </li>
               <ul>
-                <li>
-                  The batter and any runners already on base automatically
-                  score.
-                </li>
-                <li>
-                  This means the team gets one run for the batter and one
-                  additional run for each player who was on base when the ball
-                  was hit.
-                </li>
+                <li>{t("autoScoring1")}</li>
+                <li>{t("autoScoring2")}</li>
               </ul>
               <li>
-                <b>No Need to Run Quickly:</b>
+                <b>{t("noNeedRunQuickly")}</b>
               </li>
               <ul>
-                <li>
-                  Since the ball is out of play, no fielders can retrieve it.
-                </li>
-                <li>
-                  The batter and runners can jog around the bases at their own
-                  pace, touching each base (first, second, third, and home).
-                </li>
+                <li>{t("noNeedRunQuickly1")}</li>
+                <li>{t("noNeedRunQuickly2")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Types of Home Runs:</h2>
+          <h2>{t("typeOfHomeRuns")}</h2>
           <p>
             <ul>
               <li>
-                <b>Solo Home Run:</b>
+                <b>{t("soloHomeRun")}</b>
               </li>
               <ul>
-                <li>
-                  If there are no runners on base, only the batter scores.
-                </li>
+                <li>{t("soloHomeRun1")}</li>
               </ul>
               <li>
-                <b>Two-Run, Three-Run, or Grand Slam:</b>
+                <b>{t("twoThreeGrandSlam")}</b>
               </li>
               <ul>
-                <li>If there are runners on base:</li>
+                <li>{t("twoThreeGrandSlam1")}</li>
                 <ul>
                   <li>
-                    <b>Two-Run Home Run</b>: One runner on base.
+                    <b>{t("twoRun")}</b>
+                    {t("twoRunDetail")}
                   </li>
                   <li>
-                    <b>Three-Run Home Run</b>: Two runners on base.
+                    <b>{t("threeRun")}</b>
+                    {t("threeRunDetail")}
                   </li>
                   <li>
-                    <b>Grand Slam</b>: Bases are fully loaded, scoring four runs
-                    in total!
+                    <b>{t("grandSlam")}</b>
+                    {t("grandSlamDetail")}
                   </li>
                 </ul>
               </ul>
             </ul>
           </p>
-          <h2>Why Are Home Runs Special?</h2>
+          <h2>{t("whyHomeSpecial")}</h2>
           <p>
             <ul>
-              <li>A home run is the quickest way to score multiple runs.</li>
-              <li>
-                It often shifts the momentum of the game and excites fans.
-              </li>
-              <li>
-                Some players are known for their ability to hit home runs,
-                making it a celebrated skill in baseball.
-              </li>
+              <li>{t("whyHomeSpecial1")}</li>
+              <li>{t("whyHomeSpecial2")}</li>
+              <li>{t("whyHomeSpecial3")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            A home run not only guarantees scoring but also showcases the
-            batter's power and skill, making it one of the most thrilling
-            aspects of the game!
-          </p>
+          <h2>{t("rule11Summary")}</h2>
+          <p>{t("rule11SummaryDetail")}</p>
 
           <div className="mb-3">
             <label
@@ -1784,7 +1515,7 @@ export default function Rules() {
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1796,7 +1527,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule11") : ""
               }
-              placeholder="Ask our AI anything about the 11th rule..."
+              placeholder={t("rule11Hint")}
             />
             <div>
               <button
@@ -1805,7 +1536,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule11")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1825,7 +1556,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 12: &nbsp;<b>Special Plays</b>
+          {t("rule12")} &nbsp;<b>{t("rule12Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1834,112 +1565,79 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
-          <p className="lead">
-            In baseball, special plays are unique situations or strategies that
-            can change the outcome of a game. They often require quick thinking
-            and teamwork. Let’s explore some key special plays:
-          </p>
-          <h2>Double Plays:</h2>
+          <p className="lead">{t("rule12Subtitle")}</p>
+          <h2>{t("doublePlays")}</h2>
           <p>
             <ul>
-              <li>
-                A double play occurs when the fielding team records two outs
-                during a single play.
-              </li>
-              <li>
-                Example: A batter hits a ground ball to the shortstop. The
-                shortstop throws to second base for one out, and the second
-                baseman throws to first base for the second out.
-              </li>
+              <li>{t("doublePlays1")}</li>
+              <li>{t("doublePlays2")}</li>
             </ul>
           </p>
-          <h2>Triple Plays:</h2>
+          <h2>{t("triplePlays")}</h2>
           <p>
             <ul>
-              <li>
-                A rare and impressive feat where the fielding team gets three
-                outs in a single play.
-              </li>
-              <li>
-                Example: If the bases are loaded and the batter hits a line
-                drive that’s caught, runners may be caught off their bases,
-                allowing the fielders to tag two more players out.
-              </li>
+              <li>{t("triplePlays1")}</li>
+              <li>{t("triplePlays2")}</li>
             </ul>
           </p>
-          <h2>The Bunt:</h2>
+          <h2>{t("theBunt")}</h2>
           <p>
-            A bunt is when the batter lightly taps the ball with the bat instead
-            of swinging.
+            {t("theBunt1")}
             <ul>
               <li>
-                <b>Purpose: </b>
+                <b>{t("purpose")}</b>
               </li>
               <ul>
-                <li>Advance runners to the next base.</li>
-                <li>Catch the fielding team off guard.</li>
+                <li>{t("purpose1")}</li>
+                <li>{t("purpose2")}</li>
               </ul>
               <li>
-                <b>Risk</b>: The ball must stay within fair territory and be
-                hard enough to avoid an easy out.
+                <b>{t("risk")}</b>
+                {t("riskDetail")}
               </li>
             </ul>
           </p>
-          <h2>Stolen Base:</h2>
+          <h2>{t("stolenBase")}</h2>
           <p>
             <ul>
+              <li>{t("stolenBase1")}</li>
+              <li>{t("stolenBase2")}</li>
               <li>
-                A stolen base happens when a runner advances to the next base{" "}
-                <b>while the pitcher is delivering the ball</b> to the batter.
-              </li>
-              <li>Success depends on speed and timing.</li>
-              <li>
-                <b>Risks</b>: The catcher may throw the ball to the base ahead,
-                potentially tagging the runner out.
+                <b>{t("risks")}</b>
+                {t("risksDetail")}
               </li>
             </ul>
           </p>
-          <h2>Sacrifice Fly:</h2>
+          <h2>{t("sacrifieceFly")}</h2>
           <p>
             <ul>
-              <li>
-                When a batter hits a fly ball deep enough for a runner on base
-                to tag up and advance, usually scoring a run.
-              </li>
-              <li>The batter is out, but the team gains a run.</li>
+              <li>{t("sacrifieceFly1")}</li>
+              <li>{t("sacrifieceFly2")}</li>
             </ul>
           </p>
-          <h2>Pick-Off:</h2>
+          <h2>{t("pickOff")}</h2>
           <p>
             <ul>
-              <li>
-                A defensive move where the pitcher or catcher throws the ball to
-                a base to tag out a runner who’s leading off too far.
-              </li>
+              <li>{t("pickOff1")}</li>
             </ul>
           </p>
-          <h2>Why Are Special Plays Important?</h2>
+          <h2>{t("whySpecialImportant")}</h2>
           <p>
             <ul>
-              <li>
-                These plays showcase strategy, skill, and quick decision-making.
-              </li>
-              <li>They add excitement and unpredictability to the game.</li>
-              <li>Mastering these plays can give a team a competitive edge.</li>
+              <li>{t("whySpecialImportant1")}</li>
+              <li>{t("whySpecialImportant2")}</li>
+              <li>{t("whySpecialImportant3")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            Special plays are what make baseball not just a physical game but a
-            mental one, rewarding strategy and teamwork!
-          </p>
+          <h2>{t("rule12Summary")}</h2>
+          <p>{t("rule12SummaryDetail")}</p>
           <div className="mb-3">
             <label
               htmlFor="askAI"
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -1951,7 +1649,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule12") : ""
               }
-              placeholder="Ask our AI anything about the 12th rule..."
+              placeholder={t("rule12Hint")}
             />
             <div>
               <button
@@ -1960,7 +1658,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule12")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -1979,7 +1677,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 13: &nbsp;<b>Fouls</b>
+          {t("rule13")} &nbsp;<b>{t("rule13Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -1988,111 +1686,68 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
-          <p className="lead">
-            In baseball, a <b>foul ball</b> is a hit ball that lands or is
-            touched outside the field's foul lines. Let’s break this rule down
-            for clarity:
-          </p>
-          <h2>What is a Foul Ball?</h2>
+          <p className="lead">{t("rule13Subtitle")}</p>
+          <h2>{t("whatIsAFoulBall")}</h2>
           <p>
-            A foul ball occurs when the ball:
+            {t("whatIsAFoulBallSubtitle")}
             <ul>
+              <li>{t("whatIsAFoulBall1")}</li>
               <li>
-                <b>Touches the ground or a player</b> outside the foul lines.
+                <b>{t("whatIsAFoulBall2")}</b>
               </li>
-              <li>
-                <b>Does not land in fair territory</b>
-              </li>
-              <li>
-                <b>Hits a structure or spectator area</b> outside the foul
-                lines.
-              </li>
+              <li>{t("whatIsAFoulBall3")}</li>
             </ul>
           </p>
-          <h2>The Foul Lines:</h2>
+          <h2>{t("whatsFoulLines")}</h2>
           <p>
             <ul>
-              <li>
-                The foul lines run from home plate to the outfield fence along
-                first and third base.
-              </li>
-              <li>
-                A ball is considered fair if it lands on or inside these lines.
-              </li>
+              <li>{t("whatsFoulLines1")}</li>
+              <li>{t("whatsFoulLines2")} </li>
             </ul>
           </p>
-          <h2>Consequences of a Foul Ball:</h2>
+          <h2>{t("consequencesOfFoul")}</h2>
           <p>
             <ul>
               <li>
-                <b>For the Batter:</b>
+                <b>{t("forBatter")}</b>
               </li>
               <ul>
-                <li>
-                  A foul counts as a strike unless the batter already has two
-                  strikes.
-                </li>
-                <li>
-                  A batter cannot strike out on a foul ball (except on a bunt).
-                </li>
-                <li>
-                  If the foul ball is caught in the air by a fielder, the batter
-                  is out.
-                </li>
+                <li>{t("forBatter1")}</li>
+                <li>{t("forBatter2")} </li>
+                <li>{t("forBatter3")}</li>
               </ul>
               <li>
-                <b>For the Runners:</b>
+                <b>{t("forRunner")}</b>
               </li>
               <ul>
-                <li>
-                  Runners must return to their bases unless the ball is caught
-                  in the air and they are tagging up to advance.
-                </li>
+                <li>{t("forRunner1")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Special Cases:</h2>
+          <h2>{t("specialCases")}</h2>
           <p>
             <ul>
-              <li>
-                A ball hit into the air near the foul line may be caught by a
-                fielder in foul territory. This results in an out.
-              </li>
-              <li>
-                If a ball initially lands in fair territory but rolls foul
-                before passing first or third base and isn’t touched, it’s a
-                foul.
-              </li>
+              <li>{t("specialCases1")}</li>
+              <li>{t("specialCases2")}</li>
             </ul>
           </p>
-          <h2>Why Do Fouls Matter?</h2>
+          <h2>{t("whyFouldMatter")}</h2>
           <p>
             <ul>
-              <li>
-                Fouls help pitchers defend against batters by adding strikes.
-              </li>
-              <li>
-                They require batters to adjust their hitting strategy to keep
-                the ball in play.
-              </li>
-              <li>
-                Fielders use fouls as opportunities to make catches and secure
-                outs.
-              </li>
+              <li>{t("whyFouldMatter1")} </li>
+              <li>{t("whyFouldMatter2")}</li>
+              <li>{t("whyFouldMatter3")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            Fouls are an important aspect of baseball, keeping the game fair and
-            challenging for both hitters and defenders!
-          </p>
+          <h2>{t("rule13Summary")}</h2>
+          <p>{t("rule13SummaryDetail")} </p>
           <div className="mb-3">
             <label
               htmlFor="askAI"
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -2104,7 +1759,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule13") : ""
               }
-              placeholder="Ask our AI anything about the 13th rule..."
+              placeholder={t("rule13Hint")}
             />
             <div>
               <button
@@ -2113,7 +1768,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule13")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -2132,7 +1787,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 14: &nbsp;<b>Umpire and Rules Enforcement</b>
+          {t("rule14")} &nbsp;<b>{t("rule14Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -2141,128 +1796,84 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
-          <p className="lead">
-            In baseball, <b>umpires</b> are the officials responsible for
-            ensuring the game is played fairly and according to the rules. They
-            play a critical role in maintaining the integrity of the game and
-            making important decisions during play:
-          </p>
-          <h2>Roles of the Umpire:</h2>
+          <p className="lead">{t("rule14Subtitle")}</p>
+          <h2>{t("rolesOfUmpire")}</h2>
           <p>
             <ul>
               <li>
-                <b>Enforcing Rules:</b>
+                <b>{t("enforcingRole")}</b>
               </li>
               <ul>
-                <li>
-                  Umpires ensure all players and teams follow the official rules
-                  of baseball.
-                </li>
-                <li>
-                  They make judgments on plays, such as whether a pitch is a
-                  ball or a strike, whether a runner is safe or out, and whether
-                  a ball is fair or foul.
-                </li>
+                <li>{t("enforcingRole1")}</li>
+                <li>{t("enforcingRole2")}</li>
               </ul>
               <li>
-                <b>Calling Pitches:</b>
+                <b>{t("callingPitches")}</b>
               </li>
               <ul>
-                <li>
-                  The home plate umpire determines whether a pitch is a strike
-                  (inside the strike zone) or a ball (outside the strike zone).
-                </li>
+                <li>{t("callingPitches1")}</li>
               </ul>
               <li>
-                <b>Making Safe/Out Calls:</b>
+                <b>{t("makeSafeCall")}</b>
               </li>
               <ul>
-                <li>
-                  Umpires on the bases decide if runners are <b>safe</b> or{" "}
-                  <b>out</b> when trying to advance.
-                </li>
+                <li>{t("makeSafeCall1")}</li>
               </ul>
               <li>
-                <b>Overseeing Plays:</b>
+                <b>{t("overseeingPlayer")}</b>
               </li>
               <ul>
-                <li>
-                  They monitor and enforce rules for legal pitching, base
-                  running, fielding, and hitting.
-                </li>
-                <li>
-                  They ensure substitutions and changes follow proper
-                  procedures.
-                </li>
+                <li>{t("overseeingPlayer1")}</li>
+                <li>{t("overseeingPlayer2")}</li>
               </ul>
               <li>
-                <b>Ensuring Fair Play:</b>
+                <b>{t("ensureFairPlay")}</b>
               </li>
               <ul>
-                <li>
-                  Umpires prevent unsportsmanlike behavior, such as arguing
-                  excessively, intentional interference, or illegal actions.
-                </li>
-                <li>
-                  They can eject players, coaches, or managers for serious
-                  misconduct.
-                </li>
+                <li>{t("ensureFairPlay1")}</li>
+                <li>{t("ensureFairPlay2")}</li>
               </ul>
               <li>
-                <b>Handling Special Situations:</b>
+                <b>{t("handleSituation")}</b>
               </li>
               <ul>
-                <li>
-                  They make decisions in cases of disputed plays, rain delays,
-                  or other unusual circumstances.
-                </li>
+                <li>{t("handleSituation1")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Umpire Positions:</h2>
+          <h2>{t("umpirePosition")}</h2>
           <p>
             <ul>
               <li>
-                <b>Home Plate Umpire</b>: Stands behind the catcher and calls
-                balls, strikes, and plays at home plate.
+                <b>{t("homePlateUmp")}</b>
+                {t("homePlateUmpDetail")}
               </li>
               <li>
-                <b>Base Umpires</b>: Positioned near the bases to oversee base
-                running and plays in the infield.
+                <b>{t("baseUmp")}</b>
+                {t("baseUmpDetail")}
               </li>
               <li>
-                <b>Outfield Umpires</b>(in some games): Judge plays in the
-                outfield and help with fair/foul calls.
+                <b>{t("outUmp")}</b>
+                {t("outUmpDetail")}
               </li>
             </ul>
           </p>
-          <h2>Why the Umpire is Important:</h2>
+          <h2>{t("whyUmpImp")}</h2>
           <p>
             <ul>
-              <li>
-                Without umpires, the game could descend into chaos, as players
-                and coaches might argue endlessly over decisions.
-              </li>
-              <li>
-                Umpires ensure the game progresses smoothly, fairly, and without
-                bias.
-              </li>
+              <li>{t("whyUmpImp1")}</li>
+              <li>{t("whyUmpImp2")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            <b>Umpires</b> are the guardians of fairness and order in baseball,
-            ensuring every play aligns with the spirit and rules of the game.
-            They make tough calls under pressure and are an essential part of
-            baseball's structure.
-          </p>
+          <h2>{t("rule14Summary")}</h2>
+          <p>{t("rule14SummaryDetail")}</p>
           <div className="mb-3">
             <label
               htmlFor="askAI"
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -2274,7 +1885,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule14") : ""
               }
-              placeholder="Ask our AI anything about the 14th rule..."
+              placeholder={t("rule14Hint")}
             />
             <div>
               <button
@@ -2283,7 +1894,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule14")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
@@ -2302,7 +1913,7 @@ export default function Rules() {
           className="comparison-heading text-start"
           style={{ backgroundColor: "rgb(1, 41, 37)" }}
         >
-          Rule No. 15: &nbsp;<b>Winning the Game</b>
+          {t("rule15")} &nbsp;<b>{t("rule15Title")}</b>
         </h1>
 
         <div className="clearfix text-start">
@@ -2311,100 +1922,54 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
-          <p className="lead">
-            The ultimate goal of baseball is to{" "}
-            <b>score more runs than the opposing team</b> by the end of the
-            game. Here’s how winners are determined:
-          </p>
-          <h2>Standard Game Length:</h2>
+          <p className="lead">{t("rule15Subtitle")}</p>
+          <h2>{t("standardGameLength")}</h2>
           <p>
             <ul>
-              <li>
-                A baseball game typically consists of <b>9 innings.</b>
-              </li>
+              <li>{t("standardGameLength1")}</li>
               <ul>
-                <li>Each inning is divided into two halves: </li>
-                <li>
-                  The <b>top half</b>, where the visiting team bats.
-                </li>
-                <li>
-                  The <b>bottom half</b>, where the home team bats.
-                </li>
-                <li>
-                  The teams take turns batting and fielding, and the inning ends
-                  when the fielding team gets <b>three outs</b>.
-                </li>
+                <li>{t("standardGameLength2")} </li>
+                <li>{t("standardGameLength3")}</li>
+                <li>{t("standardGameLength4")}</li>
+                <li>{t("standardGameLength5")}</li>
               </ul>
-              <li>
-                At the end of the <b>9th inning</b>, the team with the most runs
-                scored is declared the winner.
-              </li>
+              <li>{t("standardGameLength6")}</li>
             </ul>
           </p>
-          <h2>Tied Games and Extra Innings:</h2>
+          <h2>{t("tiedGame")}</h2>
           <p>
             <ul>
-              <li>
-                If the score is tied at the end of 9 innings, the game goes into{" "}
-                <b>extra innings</b> to break the tie.
-              </li>
-              <li>
-                Each extra inning follows the same structure as a regular
-                inning.
-              </li>
-              <li>
-                The game continues until one team has more runs than the other
-                at the end of a complete inning.
-              </li>
-              <li>
-                The goal in extra innings remains the same: outscore the
-                opponent during that inning to secure the win.
-              </li>
+              <li>{t("tiedGame1")}</li>
+              <li>{t("tiedGame2")}</li>
+              <li>{t("tiedGame3")}</li>
+              <li>{t("tiedGame4")}</li>
             </ul>
           </p>
-          <h2>Winning Before the 9th Inning (Mercy Rule):</h2>
+          <h2>{t("winningBefore9Ing")}</h2>
           <p>
             <ul>
-              <li>
-                In certain leagues, a mercy rule may apply (often in amateur or
-                youth baseball):
-              </li>
+              <li>{t("winningBefore9Ing1")}</li>
               <ul>
-                <li>
-                  This rule ends the game early if one team has a very large
-                  lead after a certain number of innings.
-                </li>
-                <li>
-                  For example, if a team is ahead by 10 or more runs after 7
-                  innings, the game may be called.
-                </li>
+                <li>{t("winningBefore9Ing10")}</li>
+                <li>{t("winningBefore9Ing101")}</li>
               </ul>
             </ul>
           </p>
-          <h2>Home Team Advantage:</h2>
+          <h2>{t("homeAdvantage")}</h2>
           <p>
             <ul>
-              <li>
-                If the <b>home team</b> is ahead in the bottom half of the 9th
-                inning (or in any extra inning), the game ends immediately, and
-                the home team wins. This is called a <b>walk-off win</b>.
-              </li>
+              <li>{t("homeAdvantage1")}</li>
             </ul>
           </p>
-          <h2>Summary:</h2>
-          <p>
-            The <b>winner of a baseball game</b> is the team that scores the
-            most runs by the end of the game, whether it’s during the standard 9
-            innings or through extra innings in the case of a tie. The structure
-            ensures fairness and excitement for fans until the very last play.
-          </p>
+          <h2>{t("rule15Summary")}</h2>
+          <p>{t("rule15SummaryDetail")}</p>
           <div className="mb-3">
             <label
               htmlFor="askAI"
               className="form-label"
               style={{ fontFamily: "cursive" }}
             >
-              <b>QnA with AI:</b>
+              <b>{t("qnawithAI")}</b>
             </label>
             <input
               className="form-control text-form col-auto"
@@ -2416,7 +1981,7 @@ export default function Rules() {
               onKeyDown={(e) =>
                 e.key === "Enter" ? fetchAIResponse("rule15") : ""
               }
-              placeholder="Ask our AI anything about the 15th rule..."
+              placeholder={t("rule15Hint")}
             />
             <div>
               <button
@@ -2425,7 +1990,7 @@ export default function Rules() {
                 onClick={() => fetchAIResponse("rule15")}
                 className="btn btn-success mb-1 my-2"
               >
-                Send Question
+                {t("sendQuestion")}
               </button>
             </div>
           </div>
