@@ -53,7 +53,7 @@ export default function Navbar() {
             <img className="logo" src={logo} alt="logo" width="55px"></img>
           </Link>
           <Link className="navbar-brand navbar-title" to="/">
-            <b>LearnBaseball</b>
+            <b>LearnBaseball</b> 
           </Link>
           <button
             className="navbar-toggler"

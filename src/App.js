@@ -32,7 +32,6 @@ function AppContent() {
           <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
-
       <Footer />
     </div>
   );
