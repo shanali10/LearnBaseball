@@ -62,7 +62,6 @@ export default function Rules() {
     response14: "",
     response15: "",
   });
-
   const aiJob = `${t("chatAIPrompt")}`;
 
   const genAI = new GoogleGenerativeAI(process.env.API_KEY);
