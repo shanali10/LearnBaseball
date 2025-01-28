@@ -18,7 +18,6 @@ export default function Chat() {
 
   const fetchAIResponse = async () => {
     setAIResponse(t("aiAnswering"));
-    console.log(aiJobPrompt);
 
     let prompt = questionInput;
     let result = await model.generateContent(

@@ -33,7 +33,6 @@ export default function Quiz() {
     setAIQuestion(t("aiGeneratingQuestion"));
     setAIResponse("");
     getPreviousQuizes();
-    console.log(aiQuizPrompt);
 
     let result;
     if (isQuizNull) {
