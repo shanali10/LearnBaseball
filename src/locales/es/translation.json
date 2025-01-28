@@ -534,7 +534,10 @@
   "quizTitle": "Quiz de Béisbol con IA",
   "quizDescription": "¡Felicidades por aprender las reglas y el juego del béisbol con la ayuda de la IA! 🎉 Ahora, pongamos a prueba tu conocimiento. Soy tu entrenador AI, listo para hacerte algunas preguntas emocionantes sobre béisbol. Cada pregunta tendrá cuatro respuestas posibles, ¡elige la correcta y demuestra tu comprensión del juego! Vamos a ver qué tanto sabes de béisbol! 🏟️⚾",
   "quizHint": "Ingresa tu respuesta aquí...",
-  "buttonTitle": "Comenzar Quiz",
+  "startQuiz": "Comenzar Quiz",
+  "nextQuestion": "Siguiente pregunta",
+  "startNewQuiz": "Iniciar nuevo cuestionario",
+  "submitAnswer": "Enviar respuesta",
   "questions": "Preguntas:",
   "correctAnswers": "Respuestas Correctas:",
   "highScore": "Puntaje Más Alto:",
@@ -545,5 +548,29 @@
   "aiGeneratingQuestion": "La IA está generando una pregunta...",
   "aiAnswering": "La IA está respondiendo...",
   "aiAnalyzingResponse": "La IA está analizando tu respuesta...",
-  "impNote": "Nota Importante: ¡Aquí están las preguntas anteriores que ya has hecho! Intenta no repetir ninguna de estas preguntas:"
+  "impNote": "Nota Importante: ¡Aquí están las preguntas anteriores que ya has hecho! Intenta no repetir ninguna de estas preguntas:",
+
+  "privacyTitle": "Política de Privacidad",
+  "privacyDesc": "Bienvenido a Learn Baseball. Su privacidad es de suma importancia para nosotros. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos su información mientras utiliza nuestra aplicación.",
+
+  "infoWeCollect": "Información que Recopilamos",
+  "usageData": "Datos de Uso",
+  "usageDataDetail": ": Información sobre cómo utiliza la aplicación, incluyendo su progreso en los cuestionarios y las interacciones en el chat con la IA.",
+  "deviceData": "Datos del Dispositivo",
+  "deviceDataDetail": ": Detalles sobre el dispositivo que utiliza, como el tipo de navegador y el sistema operativo.",
+
+  "howUseYourInfo": "Cómo Usamos su Información",
+  "howUseYourInfoSub": "Utilizamos la información recopilada para ofrecerle y mejorar su experiencia con Learn Baseball:",
+  "howUseYourInfoSub1": "Para personalizar su recorrido de aprendizaje.",
+  "howUseYourInfoSub2": "Para analizar las tendencias de uso y mejorar el rendimiento de la aplicación.",
+
+  "howWeProtectData": "Cómo Protegemos su Información",
+  "howWeProtectData1": "Nos tomamos muy en serio la seguridad de los datos y utilizamos medidas estándar de la industria para proteger su información. Sus datos están encriptados, almacenados localmente y asegurados.",
+
+  "thirdPartyService": "Servicios de Terceros",
+  "thirdPartyService1": "Actualmente no estamos utilizando ningún servicio de terceros, excepto la API Gemini de Google.",
+
+  "changesInPolicy": "Cambios en esta Política",
+  "changesInPolicy1": "Podemos actualizar esta Política de Privacidad de vez en cuando. Le notificaremos sobre cambios significativos a través de la aplicación o por correo electrónico.",
+  "changesInPolicy2": "Si tiene preguntas sobre esta Política de Privacidad, contáctenos en "
 }

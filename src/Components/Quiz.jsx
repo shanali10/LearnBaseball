@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Quiz() {
-  const {t} = useTranslation() // for language translation
+  const { t } = useTranslation(); // for language translation
   const [questionInput, setQuestionInput] = useState(""); // State to write text in input field
-  const [aiQuestion, setAIQuestion] = useState(t("quizDescription"));
+  const [aiQuestion, setAIQuestion] = useState("");
 
   const [aiResponse, setAIResponse] = useState(""); // State to hold AI response
-  const [buttonText, setButtonText] = useState("Start Quiz"); // button text for Starting Quiz and submitting the answer of the question
+  const [buttonText, setButtonText] = useState(""); // button text for Starting Quiz and submitting the answer of the question
   const [quizQuestionNumber, setQuizQuestionNumber] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [previousQuizQuestions, setPreviousQuizQuestions] = useState(""); // This state will hold the previous asked questions data
@@ -26,15 +26,14 @@ export default function Quiz() {
 
   const analyzeCorrectAnswerPrompt = `You are a passionate baseball expert and quizmaster engaging with me, a new baseball fan. You previously asked the question: ${aiQuestion}\n I answered: ${questionInput}\n Your task now is simple: Check my answer and the question provided, If my answer is correct, respond with "correct." If it's not, respond with "incorrect." read the question and answer with focus according to baseball rules and then answer!! Provide no additional details or commentary!`;
 
-  const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
-  );
+  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const getAIQuizQuestion = async () => {
     setAIQuestion(t("aiGeneratingQuestion"));
     setAIResponse("");
     getPreviousQuizes();
+    console.log(aiQuizPrompt);
 
     let result;
     if (isQuizNull) {
@@ -45,7 +44,7 @@ export default function Quiz() {
       );
     }
     setAIQuestion(result.response.text()); // Set the actual AI response after fetching
-    setButtonText("Submit Answer");
+    setButtonText(t("submitAnswer"));
 
     // updating the question number of the quiz
     setQuizQuestionNumber(quizQuestionNumber + 1);
@@ -67,11 +66,11 @@ export default function Quiz() {
       const aiResponseText = result.response.text();
       setAIResponse(aiResponseText); // Set the actual AI response after fetching
       setQuestionInput(""); // Clear the input field
-      setButtonText("Next Question");
+      setButtonText(t("nextQuestion"));
 
       // Check if the user has completed 10 questions
       if (quizQuestionNumber === 10) {
-        setButtonText("Start New Quiz");
+        setButtonText(t("startNewQuiz"));
         setCongratsMessage(true);
       }
 
@@ -165,7 +164,6 @@ export default function Quiz() {
     if (getIsHighScore !== null) {
       setIsHighScore(getIsHighScore);
     }
-
   }, []);
 
   return (
@@ -189,7 +187,9 @@ export default function Quiz() {
             <p
               className="lead"
               dangerouslySetInnerHTML={{
-                __html: getHtmlFromMarkdown(aiQuestion),
+                __html: getHtmlFromMarkdown(
+                  aiQuestion === "" ? t("quizDescription") : aiQuestion
+                ),
               }}
             ></p>
 
@@ -201,7 +201,7 @@ export default function Quiz() {
                 type="text"
                 value={questionInput}
                 onChange={
-                  buttonText === "Submit Answer" ? onChangeValue : () => {}
+                  buttonText === t("submitAnswer") ? onChangeValue : () => {}
                 }
                 onKeyDown={(e) =>
                   e.key === "Enter" ? fetchAIResponse() : null
@@ -211,7 +211,7 @@ export default function Quiz() {
               <div>
                 <button
                   disabled={
-                    buttonText === "Submit Answer"
+                    buttonText === t("submitAnswer")
                       ? questionInput.length === 0
                         ? true
                         : false
@@ -219,15 +219,17 @@ export default function Quiz() {
                   }
                   type="submit"
                   onClick={
-                    buttonText === "Start Quiz" ||
-                    buttonText === "Next Question" ||
-                    buttonText === "Start New Quiz"
+                    buttonText === t("startQuiz") ||
+                    buttonText === t("nextQuestion") ||
+                    buttonText === t("startNewQuiz")
                       ? getAIQuizQuestion
                       : fetchAIResponse
                   }
                   className="btn btn-success mb-1 my-2"
                 >
-                  {buttonText}
+                  {buttonText === ""
+                    ? setButtonText(t("startQuiz"))
+                    : buttonText}
                 </button>
               </div>
             </div>
@@ -255,7 +257,7 @@ export default function Quiz() {
                 fontWeight: 700,
               }}
             >
-              {t("correctAnswers")}{" "}
+              {t("correctAnswers")}
               {correctAnswers < 10 ? ` 0${correctAnswers}` : correctAnswers}
             </h2>
 
@@ -268,7 +270,8 @@ export default function Quiz() {
                   color: "orange",
                 }}
               >
-                {t("highScore")}{` ${highScore}/10`}
+                {t("highScore")}
+                {` ${highScore}/10`}
               </h2>
             )}
             <br />

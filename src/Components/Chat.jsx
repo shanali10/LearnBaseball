@@ -6,27 +6,26 @@ import { useTranslation } from "react-i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Chat() {
-  const {t} = useTranslation(); // for language translation
+  const { t } = useTranslation(); // for language translation
 
   const [questionInput, setQuestionInput] = useState(""); // State to write text in input field
-  const [aiResponse, setAIResponse] = useState(""); // State to hold AI response  
+  const [aiResponse, setAIResponse] = useState(""); // State to hold AI response
 
-  const aiJobPrompt = `${t("chatAIPrompt")}`
+  const aiJobPrompt = `${t("chatAIPrompt")}`;
 
-  const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
-  );
+  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const fetchAIResponse = async () => {
     setAIResponse(t("aiAnswering"));
-    console.log(aiJobPrompt)
-    
+    console.log(aiJobPrompt);
+
     let prompt = questionInput;
-    let result = await model.generateContent(`${aiJobPrompt} <br/> Prompt: ${prompt}`);
+    let result = await model.generateContent(
+      `${aiJobPrompt} <br/> Prompt: ${prompt}`
+    );
     setAIResponse(result.response.text()); // Set the actual AI response after fetching
     setQuestionInput(""); // Clear the input field
-
   };
 
   const onChangeValue = (e) => {
@@ -59,9 +58,7 @@ export default function Chat() {
               alt="side_image"
             />
 
-            <p>
-              {t("chatDescription")}
-            </p>
+            <p>{t("chatDescription")}</p>
 
             <div className="mb-3">
               <label

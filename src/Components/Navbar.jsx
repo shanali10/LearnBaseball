@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../Images/learn_baseball_logo.jpeg";
+import logo from "../Images/baseball_logo.jpeg";
 import "../Css/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import "/node_modules/flag-icons/css/flag-icons.min.css";

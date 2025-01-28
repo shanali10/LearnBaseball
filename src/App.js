@@ -6,16 +6,15 @@ import ScrollTop from "./Components/ScrollTop";
 import Chat from "./Components/Chat";
 import Quiz from "./Components/Quiz";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
+import "./Css/Footer.css";
 
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <AppContent/>
+      <AppContent />
     </div>
   );
 }
@@ -24,7 +23,7 @@ function AppContent() {
   return (
     <div className="d-flex flex-column min-vh-100">
       {<Navbar />}
-      <ScrollTop/>
+      <ScrollTop />
       <div className="container flex-grow-1">
         <Routes>
           <Route exact path="/" element={<Rules />} />
@@ -34,9 +33,7 @@ function AppContent() {
         </Routes>
       </div>
 
-      {/* <footer className="footer mt-auto py-3 bg-light">
-        <Footer />
-      </footer> */}
+      <Footer />
     </div>
   );
 }

@@ -534,7 +534,10 @@
   "quizTitle": "Baseball Quiz with AI",
   "quizDescription": "Congratulations on learning the rules and gameplay of the baseball with the help of AI! 🎉 Now, let’s put your knowledge to the test. I’m your AI coach, ready to quiz you with some exciting questions about baseball. Each question will have four possible answers—choose the right one and show off your understanding of the game. Let’s see how well you know your baseball! 🏟️⚾",
   "quizHint": "Enter your answer here...",
-  "buttonTitle": "Start Quiz",
+  "startQuiz": "Start Quiz",
+  "nextQuestion": "Next Question",
+  "startNewQuiz": "Start New Quiz",
+  "submitAnswer": "Submit Answer",
   "questions": "Questions:",
   "correctAnswers": "Correct Answers:",
   "highScore": "High Score:",
@@ -545,5 +548,30 @@
   "aiGeneratingQuestion": "AI is generating question...",
   "aiAnswering": "AI is answering...",
   "aiAnalyzingResponse": "AI is analyzing your answer...",
-  "impNote": "Important Note: Here are the previous questions you already asked! try not to repeat any of these questions:"
+  "impNote": "Important Note: Here are the previous questions you already asked! try not to repeat any of these questions:",
+
+
+  "privacyTitle": "Privacy Policy",
+  "privacyDesc": "Welcome to Learn Baseball. Your privacy is critically important to us. This Privacy Policy explains how we collect, use, and protect your information while you use our app.",
+
+  "infoWeCollect": "Information We Collect",
+  "usageData": "Usage Data",
+  "usageDataDetail": ": Information about how you use the app, including your quiz progress and chat interactions with the AI.",
+  "deviceData": "Device Data",
+  "deviceDataDetail": ": Details about the device you use, like your browser type and operating system.",
+
+  "howUseYourInfo": "How We Use Your Information",
+  "howUseYourInfoSub": "We use the information we collect to provide and improve your experience with Learn Baseball:",
+  "howUseYourInfoSub1": "To personalize your learning journey.",
+  "howUseYourInfoSub2": "To analyze usage trends and improve app performance.",
+
+  "howWeProtectData": "How We Protect Your Information",
+  "howWeProtectData1": "We take data security seriously and use industry-standard measures to protect your information. Your data is encrypted and stored locally and is secured.",
+
+  "thirdPartyService": "Third-Party Services",
+  "thirdPartyService1": "We are currently not using any third party service except Google's Gemini API",
+
+  "changesInPolicy": "Changes to This Policy",
+  "changesInPolicy1": "We may update this Privacy Policy from time to time. We’ll notify you of significant changes through the app or email.",
+  "changesInPolicy2": "If you have any questions about this Privacy Policy, please contact us at "
 }
