@@ -98,6 +98,7 @@ Baseball is one of the most popular sports globally, yet billions of people have
 
 ![Home Page Screenshot](./src/Screenshots/home_screenshot.png)
 ![Rules Section Screenshot](./src/Screenshots/rules_screenshot.png)
+![Rules Chat Screenshot](./src/Screenshots/rules_chat_screenshot.png)
 ![Multi Language Screenshot](./src/Screenshots/multi_language_screenshot.png)
 ![Chat Page Screenshot](./src/Screenshots/chat_screenshot.png)
 ![Quiz Page Screenshot](./src/Screenshots/quiz_screenshot.png)
