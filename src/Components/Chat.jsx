@@ -13,7 +13,7 @@ export default function Chat() {
 
   const aiJobPrompt = `${t("chatAIPrompt")}`;
 
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI("AIzaSyAOXLqIhyFtvCiGoHvVEtw0OwK0R9-KKcc");
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const fetchAIResponse = async () => {
