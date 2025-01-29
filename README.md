@@ -1,12 +1,12 @@
 # LearnBaseball ⚾
 
-LearnBaseball is an interactive web application designed to teach baseball to new fans. It provides users with an engaging learning experience supported by AI, allowing them to explore the rules of the game, chat with an AI baseball expert, and test their knowledge through quizzes. Multi-language support ensures accessibility for a global audience. 🌍
+LearnBaseball is an interactive web application designed to teach baseball to new fans. It provides users with an engaging learning experience supported by AI, allowing them to explore the rules of the game, chat with an AI baseball expert, and test their knowledge through quizzes. Multi-language support ensures accessibility for a global audience.
 
 ---
 
 ## **Inspiration** ✨
 
-Baseball is one of the most popular sports globally, yet billions of people have little to no understanding of how to play the game. Many new fans find it challenging to learn this amazing sport. 🤯 LearnBaseball was created to help new fans learn baseball interactively with AI, from beginner to advanced levels, offering them a seamless and fun experience. 🎉
+Baseball is one of the most popular sports globally, yet billions of people have little to no understanding of how to play the game. Many new fans find it challenging to learn this amazing sport. LearnBaseball was created to help new fans learn baseball interactively with AI, from beginner to advanced levels, offering them a seamless and fun experience.
 
 ---
 
@@ -16,34 +16,34 @@ Baseball is one of the most popular sports globally, yet billions of people have
 - The homepage lists essential rules of baseball.
 - Users can learn the rules in an interactive manner.
 - Each rule has an AI support option powered by Google Cloud’s Gemini API, allowing users to:
-  - Ask questions about the specific rule. 🤔
-  - Get answers to general baseball-related queries. ⚾
+  - Ask questions about the specific rule. 🤔
+  - Get answers to general baseball-related queries. ⚾
 
 ### **2. AI Chat** 💬
 - A dedicated chat page where users can:
-  - Discuss anything about baseball with the AI baseball expert.
-  - Get guidance tailored for beginners, making learning personalized and engaging. 👍
+  - Discuss anything about baseball with the AI baseball expert.
+  - Get guidance tailored for beginners, making learning personalized and engaging. 👍
 
 ### **3. Baseball Quiz** ❓
 - Test your knowledge of baseball with our quiz feature:
-  - AI asks baseball-related questions with four possible answers.
-  - Users choose the correct answer, and AI evaluates their response.
-  - The quiz session consists of 10 questions per round.
-  - Features include:
-    - Progress tracking: Users can see how many questions are left. 📈
-    - Score tracking: Users can view the number of correct answers. 💯
-    - High score display: Track the best quiz performance. 🏆
-  - All quiz data is saved in local storage, ensuring persistence across sessions. 💾
+  - AI asks baseball-related questions with four possible answers.
+  - Users choose the correct answer, and AI evaluates their response.
+  - The quiz session consists of 10 questions per round.
+  - Features include:
+    - Progress tracking: Users can see how many questions are left. 📈
+    - Score tracking: Users can view the number of correct answers. 💯
+    - High score display: Track the best quiz performance. 🏆
+  - All quiz data is saved in local storage, ensuring persistence across sessions.
 
-### **4. Multi-Language Support** 🌐
-- The app supports the following languages:
-  - English (default)
-  - French
-  - German
-  - Spanish
-  - Hindi
-  - Arabic
-  - Urdu
+### **4. Multi-Language Support**
+- The app supports the following languages: 🌐
+  - English (default)
+  - French
+  - German
+  - Spanish
+  - Hindi
+  - Arabic
+  - Urdu
 - Users can select their preferred language, and the entire website content is translated dynamically.
 - Translation is implemented using the `i18next` npm package.
 
@@ -62,25 +62,25 @@ Baseball is one of the most popular sports globally, yet billions of people have
 ## **How to Run the Project** 🚀
 
 1. Clone the repository:
-   ```bash
-   git clone [https://github.com/shanali10/LearnBaseball.git](https://github.com/shanali10/LearnBaseball.git)
-   ```
+   ```bash
+   git clone https://github.com/shanali10/LearnBaseball.git
+   ```
 2. Navigate to the project directory:
-   ```bash
-   cd LearnBaseball
-   ```
+   ```bash
+   cd LearnBaseball
+   ```
 3. Install dependencies:
-   ```bash
-   npm install
-   ```
+   ```bash
+   npm install
+   ```
 4. Start the development server:
-   ```bash
-   npm start
-   ```
+   ```bash
+   npm start
+   ```
 5. Open the app in your browser:
-   ```
-   http://localhost:3000
-   ```
+   ```
+   http://localhost:3000
+   ```
 
 ---
 
@@ -119,17 +119,17 @@ Contributions are welcome! If you’d like to contribute, please follow these st
 
 1. Fork the repository.
 2. Create a feature branch:
-   ```bash
-   git checkout -b feature-name
-   ```
+   ```bash
+   git checkout -b feature-name
+   ```
 3. Commit your changes:
-   ```bash
-   git commit -m "Add some feature"
-   ```
+   ```bash
+   git commit -m "Add some feature"
+   ```
 4. Push to the branch:
-   ```bash
-   git push origin feature-name
-   ```
+   ```bash
+   git push origin feature-name
+   ```
 5. Open a pull request.
 
 ---
