@@ -35,8 +35,8 @@ Baseball is one of the most popular sports globally, yet billions of people have
     - High score display: Track the best quiz performance. 🏆
   - All quiz data is saved in local storage, ensuring persistence across sessions.
 
-### **4. Multi-Language Support**
-- The app supports the following languages: 🌐
+### **4. Multi-Language Support** 🌐
+- The app supports the following languages:
   - English (default)
   - French
   - German
@@ -84,6 +84,18 @@ Baseball is one of the most popular sports globally, yet billions of people have
 
 ---
 
+## **Add API Key** 🤖
+
+To use this application, you need to configure your API key. Follow these steps:
+
+1. Create a file named `.env.local` in the root directory of the project.
+2. Add the following line to the `.env.local` file:
+
+   ```plaintext
+   API_KEY="YOUR_API_KEY"
+
+---
+
 ## **Usage Instructions** 💡
 
 1. Visit the homepage to learn the essential rules of baseball interactively.
@@ -113,8 +125,6 @@ Baseball is one of the most popular sports globally, yet billions of people have
 - Integrate user authentication for personalized profiles and data tracking.
 
 ---
-
-## **Contributing** 🙌
 
 Contributions are welcome! If you’d like to contribute, please follow these steps:
 
