@@ -30,11 +30,7 @@ export default function Slider() {
   return (
     <div className="slider-container container">
       <img className="slider-image img-fluid" src={slider} alt="slider"></img>
-      <h1
-        style={{ border: "2px solid white" }}
-      >
-        {t("sliderComponentTitle")}
-      </h1>
+      <h1 style={{ border: "2px solid white" }}>{t("sliderComponentTitle")}</h1>
     </div>
   );
 }

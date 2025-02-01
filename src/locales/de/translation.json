@@ -33,7 +33,7 @@
   "rule9": "Regel Nr. 9:",
   "rule10": "Regel Nr. 10:",
   "rule11": "Regel Nr. 11:",
-  "rule12": "Regel Nr. 12",
+  "rule12": "Regel Nr. 12:",
   "rule13": "Regel Nr. 13:",
   "rule14": "Regel Nr. 14:",
   "rule15": "Regel Nr. 15:",
@@ -572,5 +572,26 @@
 
   "changesInPolicy": "Änderungen an dieser Richtlinie",
   "changesInPolicy1": "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Wir informieren Sie über wesentliche Änderungen über die App oder per E-Mail.",
-  "changesInPolicy2": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter "
+  "changesInPolicy2": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter ",
+
+  "historyTitle": "Lerne die Geschichte des Baseballs mit KI",
+
+  "baseballOrigin": "Ursprünge des Baseballs:",
+  "baseballOrigin1": "Die Ursprünge des Baseballs lassen sich bis ins 18. Jahrhundert zurückverfolgen, als ähnliche Schlag- und Ballspiele in England gespielt wurden. Das Spiel entwickelte sich im 19. Jahrhundert in Nordamerika zu seiner modernen Form.",
+
+  "firstGame": "Erstes offizielles Spiel:",
+  "firstGame1": "Das erste aufgezeichnete Baseballspiel in den Vereinigten Staaten fand am 19. Juni 1846 in Hoboken, New Jersey, statt. Alexander Cartwright, ein Mitglied des Knickerbocker Base Ball Club, wird die Formalisierung der Spielregeln zugeschrieben.",
+
+  "baseballGrowth": "Wachstum des Baseballs:",
+  "baseballGrowth1": "Ende des 19. Jahrhunderts wurde Baseball zu Amerikas Nationalsport. Die Gründung der Major League Baseball (MLB) im Jahr 1903 markierte den Beginn eines strukturierten Ligasystems.",
+
+  "globalExpansion": "Globale Expansion:",
+  "globalExpansion1": "Baseball hat internationale Popularität erlangt, mit professionellen Ligen in Ländern wie Japan, Südkorea und der Dominikanischen Republik. Es ist auch eine olympische Sportart, die seine weltweite Attraktivität unterstreicht.",
+
+  "baseballToday": "Baseball heute:",
+  "baseballToday1": "Heute inspiriert Baseball weiterhin Millionen weltweit, indem es Traditionen mit modernen Fortschritten im Sport verbindet. Die MLB bleibt das Herz des Spiels und begeistert Fans mit ikonischen Spielern und unvergesslichen Momenten.",
+
+  "historyHint": "Fragen Sie unsere KI alles über die Geschichte des Baseballs...",
+
+  "historyPrompt": "Sie sind ein Baseball-Historiker und Experte. Ihre Aufgabe ist es, einen neuen Fan über das Spiel zu führen und aufzuklären, der mehr über Baseball und seine Geschichte erfahren möchte, falls er Sie dazu befragt. Geben Sie stets klare, präzise und detaillierte Antworten, die dem Benutzer helfen, die Sportart und ihre Geschichte zu verstehen. Antworten Sie ausschließlich als Baseball-Historiker oder Experte, indem Sie die Geschichte, Strategien und andere Aspekte des Spiels erklären. Wenn der Benutzer nach etwas fragt, das nichts mit Baseball zu tun hat, leiten Sie ihn bitte höflich weiter oder teilen Sie ihm mit, dass Sie nur über Baseball und seine Geschichte sprechen können. Seien Sie geduldig und ermutigend und stellen Sie sicher, dass sich der Benutzer auf seiner Lernreise willkommen und gut informiert fühlt. Versuchen Sie stets, Ihre Antwort kurz zu halten, aber dennoch bedeutungsvoll und umfassend auf die Frage des Benutzers einzugehen!"
 }

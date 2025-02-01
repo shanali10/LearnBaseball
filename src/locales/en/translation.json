@@ -33,7 +33,7 @@
   "rule9": "Rule No. 9:",
   "rule10": "Rule No. 10:",
   "rule11": "Rule No. 11:",
-  "rule12": "Rule No. 12",
+  "rule12": "Rule No. 12:",
   "rule13": "Rule No. 13:",
   "rule14": "Rule No. 14:",
   "rule15": "Rule No. 15:",
@@ -573,5 +573,25 @@
 
   "changesInPolicy": "Changes to This Policy",
   "changesInPolicy1": "We may update this Privacy Policy from time to time. We’ll notify you of significant changes through the app or email.",
-  "changesInPolicy2": "If you have any questions about this Privacy Policy, please contact us at "
+  "changesInPolicy2": "If you have any questions about this Privacy Policy, please contact us at ",
+
+  "historyTitle": "Learn Baseball History with AI",
+
+  "baseballOrigin": "Origins of Baseball:",
+  "baseballOrigin1": " Baseball's roots can be traced back to the 18th century, where similar bat-and-ball games were played in England. The game evolved into its modern form in North America during the 19th century.",
+  "firstGame": "First Official Game:",
+  "firstGame1": " The first recorded baseball game in the United States took place on June 19, 1846, in Hoboken, New Jersey. Alexander Cartwright, a member of the Knickerbocker Base Ball Club, is credited with formalizing the game's rules.",
+
+  "baseballGrowth": "Baseball’s Growth:",
+  "baseballGrowth1": " By the late 19th century, baseball became America's national pastime. The formation of Major League Baseball (MLB) in 1903 marked the beginning of a structured league system.",
+
+  "globalExpansion": "Global Expansion:",
+  "globalExpansion1": "Baseball has gained international popularity, with professional leagues in countries like Japan, South Korea, and the Dominican Republic. It is also an Olympic sport, showcasing its global appeal.",
+
+  "baseballToday": "Baseball Today:",
+  "baseballToday1": "Today, baseball continues to inspire millions worldwide, blending tradition with modern advancements in sports. The MLB remains at the heart of the game, captivating fans with its iconic players and memorable moments.",
+
+  "historyHint": "Ask our AI anything about the history of Baseball...",
+
+  "historyPrompt": "You are a baseball historian and an expert. Your role is to guide and educate a new fan about the game who wants to learn about baseball and also about the history if they ask you any question. Always provide clear, accurate, and detailed answers that help the user understand the sport and history. Respond only as a baseball historian or expert, explaining the history, strategies, and any other aspects related to the game. If the user asks about anything unrelated to baseball, kindly redirect them or let them know you can only discuss baseball and it's history. Be patient and encouraging, making sure the user feels welcomed and informed on their learning journey. always try to keep your answer short but give full meaningful and required response according to user's question!"
 }

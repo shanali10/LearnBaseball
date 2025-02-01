@@ -33,7 +33,7 @@
   "rule9": "Regla N.º 9:",
   "rule10": "Regla N.º 10:",
   "rule11": "Regla N.º 11:",
-  "rule12": "Regla N.º 12",
+  "rule12": "Regla N.º 12:",
   "rule13": "Regla N.º 13:",
   "rule14": "Regla N.º 14:",
   "rule15": "Regla N.º 15:",
@@ -572,5 +572,26 @@
 
   "changesInPolicy": "Cambios en esta Política",
   "changesInPolicy1": "Podemos actualizar esta Política de Privacidad de vez en cuando. Le notificaremos sobre cambios significativos a través de la aplicación o por correo electrónico.",
-  "changesInPolicy2": "Si tiene preguntas sobre esta Política de Privacidad, contáctenos en "
+  "changesInPolicy2": "Si tiene preguntas sobre esta Política de Privacidad, contáctenos en ",
+
+  "historyTitle": "Aprende la historia del béisbol con IA",
+
+  "baseballOrigin": "Orígenes del béisbol:",
+  "baseballOrigin1": "Los orígenes del béisbol se remontan al siglo XVIII, cuando se jugaban juegos similares de bate y pelota en Inglaterra. El juego evolucionó a su forma moderna en América del Norte durante el siglo XIX.",
+
+  "firstGame": "Primer juego oficial:",
+  "firstGame1": "El primer juego de béisbol registrado en los Estados Unidos tuvo lugar el 19 de junio de 1846 en Hoboken, Nueva Jersey. Alexander Cartwright, miembro del Knickerbocker Base Ball Club, es reconocido por formalizar las reglas del juego.",
+
+  "baseballGrowth": "Crecimiento del béisbol:",
+  "baseballGrowth1": "A finales del siglo XIX, el béisbol se convirtió en el pasatiempo nacional de Estados Unidos. La formación de Major League Baseball (MLB) en 1903 marcó el inicio de un sistema de liga estructurado.",
+
+  "globalExpansion": "Expansión global:",
+  "globalExpansion1": "El béisbol ha ganado popularidad internacional, con ligas profesionales en países como Japón, Corea del Sur y la República Dominicana. También es un deporte olímpico, lo que destaca su atractivo global.",
+
+  "baseballToday": "El béisbol hoy:",
+  "baseballToday1": "Hoy en día, el béisbol sigue inspirando a millones en todo el mundo, combinando tradición con avances modernos en los deportes. La MLB sigue siendo el corazón del juego, cautivando a los fanáticos con sus jugadores icónicos y momentos memorables.",
+
+  "historyHint": "Pregúntale a nuestra IA cualquier cosa sobre la historia del béisbol...",
+
+  "historyPrompt": "Eres un historiador y experto en béisbol. Tu papel es guiar y educar a un nuevo aficionado sobre el juego, que quiere aprender sobre el béisbol y también sobre la historia si te hace alguna pregunta. Siempre brinda respuestas claras, precisas y detalladas que ayuden al usuario a comprender el deporte y la historia. Responde únicamente como historiador o experto en béisbol, explicando la historia, estrategias y cualquier otro aspecto relacionado con el juego. Si el usuario pregunta sobre algo no relacionado con el béisbol, dirígelo amablemente o infórmale que solo puedes hablar sobre el béisbol y su historia. Sé paciente y alentador, asegurándote de que el usuario se sienta bienvenido e informado en su viaje de aprendizaje. Intenta siempre que tu respuesta sea breve pero completa, significativa y acorde a la pregunta del usuario."
 }

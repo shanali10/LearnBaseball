@@ -572,5 +572,26 @@
 
   "changesInPolicy": "Modifications de cette Politique",
   "changesInPolicy1": "Nous pouvons mettre à jour cette Politique de Confidentialité de temps à autre. Nous vous informerons des changements importants via l'application ou par e-mail.",
-  "changesInPolicy2": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à "
+  "changesInPolicy2": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à ",
+
+  "historyTitle": "Apprenez l'histoire du baseball avec l'IA",
+
+  "baseballOrigin": "Origines du baseball:",
+  "baseballOrigin1": "Les origines du baseball remontent au XVIIIe siècle, lorsque des jeux similaires de batte et balle étaient pratiqués en Angleterre. Le jeu a évolué sous sa forme moderne en Amérique du Nord au XIXe siècle.",
+
+  "firstGame": "Premier match officiel:",
+  "firstGame1": "Le premier match de baseball enregistré aux États-Unis a eu lieu le 19 juin 1846 à Hoboken, New Jersey. Alexander Cartwright, membre du Knickerbocker Base Ball Club, est crédité pour avoir formalisé les règles du jeu.",
+
+  "baseballGrowth": "Croissance du baseball:",
+  "baseballGrowth1": "À la fin du XIXe siècle, le baseball est devenu le passe-temps national des États-Unis. La création de la Major League Baseball (MLB) en 1903 a marqué le début d'un système de ligue structuré.",
+
+  "globalExpansion": "Expansion mondiale:",
+  "globalExpansion1": "Le baseball a gagné en popularité internationale, avec des ligues professionnelles dans des pays comme le Japon, la Corée du Sud et la République dominicaine. C'est aussi un sport olympique, ce qui souligne son attrait mondial.",
+
+  "baseballToday": "Le baseball aujourd'hui:",
+  "baseballToday1": "Aujourd'hui, le baseball continue d'inspirer des millions de personnes à travers le monde, alliant tradition et avancées modernes dans le sport. La MLB reste au cœur du jeu, captivant les fans avec ses joueurs emblématiques et ses moments mémorables.",
+
+  "historyHint": "Demandez à notre IA tout ce que vous voulez sur l'histoire du baseball...",
+
+  "historyPrompt": "Vous êtes un historien et un expert du baseball. Votre rôle est de guider et d'éduquer un nouveau fan sur le jeu, qui souhaite apprendre le baseball et également son histoire s'il vous pose des questions. Fournissez toujours des réponses claires, précises et détaillées qui aident l'utilisateur à comprendre le sport et son histoire. Répondez uniquement en tant qu'historien ou expert du baseball, en expliquant l'histoire, les stratégies et tout autre aspect lié au jeu. Si l'utilisateur pose une question non liée au baseball, redirigez-le gentiment ou informez-le que vous ne pouvez discuter que du baseball et de son histoire. Soyez patient et encourageant, en veillant à ce que l'utilisateur se sente accueilli et bien informé tout au long de son apprentissage. Essayez toujours de garder votre réponse courte tout en étant complète, significative et adaptée à la question de l'utilisateur."
 }

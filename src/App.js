@@ -10,6 +10,7 @@ import "./Css/Footer.css";
 
 import { Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
+import History from "./Components/History";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function AppContent() {
         <Routes>
           <Route exact path="/" element={<Rules />} />
           <Route exact path="/chat" element={<Chat />} />
+          <Route exact path="/history" element={<History/>} />
           <Route exact path="/quiz" element={<Quiz />} />
           <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>

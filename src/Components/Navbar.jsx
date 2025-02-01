@@ -95,6 +95,19 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
+                    location.pathname === "/history" ||
+                    location.pathname === "/history/"
+                      ? "active"
+                      : ""
+                  }`}
+                  to="/history"
+                >
+                  History
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link ${
                     location.pathname === "/quiz" ||
                     location.pathname === "/quiz/"
                       ? "active"

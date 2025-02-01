@@ -19,6 +19,7 @@ import { marked } from "marked"; // Import marked for converting markdown to HTM
 import RulesTable from "./RulesTable";
 import Slider from "./Slider";
 import { useTranslation } from "react-i18next";
+import Gameplay from "./Gameplay";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -64,7 +65,9 @@ export default function Rules() {
   });
   const aiJob = `${t("chatAIPrompt")}`;
 
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(
+    process.env.API_KEY
+  );
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const fetchAIResponse = async (rule) => {
@@ -299,7 +302,6 @@ export default function Rules() {
             className="col-md-6 float-md-end mb-3 ms-md-3 comparison-image"
             alt="side_image"
           />
-
           <p className="lead">{t("rule1Subtitle")}</p>
           <h2>{t("whenDefending")}</h2>
           <p>
@@ -367,7 +369,6 @@ export default function Rules() {
               </li>
             </ul>
           </p>
-
           <div className="mb-3">
             <label
               htmlFor="askAI"
@@ -399,13 +400,13 @@ export default function Rules() {
               </button>
             </div>
           </div>
-
           <p
             className="lead my-2 ai-response"
             dangerouslySetInnerHTML={{
               __html: getHtmlFromMarkdown(responses.response1),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/yJnOv29U7K8" />
         </div>
       </div>
 
@@ -543,6 +544,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response2),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/2NkcYlFXT7A" />
         </div>
       </div>
 
@@ -643,6 +645,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response3),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/mw02OnRcHuA" />
         </div>
       </div>
 
@@ -750,6 +753,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response4),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/MAJDweKl7To" />
         </div>
       </div>
 
@@ -859,6 +863,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response5),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/eVb1w1DYWwQ" />
         </div>
       </div>
 
@@ -974,6 +979,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response6),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/aMgc-vlKMpA" />
         </div>
       </div>
 
@@ -1073,6 +1079,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response7),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/NULTp_hRnjA" />
         </div>
       </div>
 
@@ -1211,6 +1218,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response8),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/4PRGg-wxiAU" />
         </div>
       </div>
 
@@ -1322,6 +1330,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response9),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/mH8MpOWfmV8" />
         </div>
       </div>
 
@@ -1427,6 +1436,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response10),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/NfUaxYlBdKA" />
         </div>
       </div>
 
@@ -1546,6 +1556,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response11),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/kJS9FNXmxvI" />
         </div>
       </div>
 
@@ -1667,6 +1678,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response12),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/-wRAmV0xseY" />
         </div>
       </div>
 
@@ -1777,6 +1789,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response13),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/1qxFSALiBMo" />
         </div>
       </div>
 
@@ -1903,6 +1916,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response14),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/qNdNtyLjA94" />
         </div>
       </div>
 
@@ -1999,6 +2013,7 @@ export default function Rules() {
               __html: getHtmlFromMarkdown(responses.response15),
             }}
           ></p>
+          <Gameplay url="https://www.youtube.com/embed/VnpQECzymVE" />
         </div>
       </div>
     </>
