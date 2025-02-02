@@ -1,4 +1,4 @@
-<div class="container">
+<div align="container">
   <img src="./src/Images/baseball_logo.jpeg" alt="App Logo" width="300" height="300">
 </div>
 
