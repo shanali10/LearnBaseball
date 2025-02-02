@@ -1,4 +1,4 @@
-![Home Page Screenshot](./src/Images/baseball_logo.jpeg)
+<img src="./src/Images/baseball_logo.jpeg" alt="App Logo" width="1024" height="1024">
 
 
 # LearnBaseball ⚾
