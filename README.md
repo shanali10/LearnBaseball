@@ -1,3 +1,6 @@
+![Home Page Screenshot](./src/Images/baseball_logo.jpeg)
+
+
 # LearnBaseball ⚾
 
 LearnBaseball is an interactive web application designed to teach baseball to new fans. It provides users with an engaging learning experience supported by AI, allowing them to explore the rules of the game, chat with an AI baseball expert, and test their knowledge through quizzes. Multi-language support ensures accessibility for a global audience.
@@ -9,43 +12,49 @@ LearnBaseball is an interactive web application designed to teach baseball to ne
 Baseball is one of the most popular sports globally, yet billions of people have little to no understanding of how to play the game. Many new fans find it challenging to learn this amazing sport. LearnBaseball was created to help new fans learn baseball interactively with AI, from beginner to advanced levels, offering them a seamless and fun experience.
 
 ---
+## **Features** ⚙️  
 
-## **Features** ⚙️
+### **1. Interactive Rules of Baseball** 📖  
+- The homepage lists essential rules of baseball.  
+- Users can learn the rules in an interactive manner.  
+- Each rule has an AI support option powered by Google Cloud’s Gemini API, allowing users to:  
+  - Ask questions about the specific rule. 🤔  
+  - Get answers to general baseball-related queries. ⚾  
 
-### **1. Interactive Rules of Baseball** 📖
-- The homepage lists essential rules of baseball.
-- Users can learn the rules in an interactive manner.
-- Each rule has an AI support option powered by Google Cloud’s Gemini API, allowing users to:
-  - Ask questions about the specific rule. 🤔
-  - Get answers to general baseball-related queries. ⚾
+### **2. MLB Baseball Videos** 🎥  
+- Users can watch the latest MLB baseball videos directly from MLB’s YouTube channel within the app.  
 
-### **2. AI Chat** 💬
-- A dedicated chat page where users can:
-  - Discuss anything about baseball with the AI baseball expert.
-  - Get guidance tailored for beginners, making learning personalized and engaging. 👍
+### **3. AI Chat** 💬  
+- A dedicated chat page where users can:  
+  - Discuss anything about baseball with the AI baseball expert.  
+  - Get guidance tailored for beginners, making learning personalized and engaging. 👍  
+  
+### **4. Learn Baseball History** 📜  
+- A dedicated History page to explore the origins and growth of baseball.  
+- Users can ask AI about historical facts, milestones, and trivia to deepen their understanding.  
 
-### **3. Baseball Quiz** ❓
-- Test your knowledge of baseball with our quiz feature:
-  - AI asks baseball-related questions with four possible answers.
-  - Users choose the correct answer, and AI evaluates their response.
-  - The quiz session consists of 10 questions per round.
-  - Features include:
-    - Progress tracking: Users can see how many questions are left. 📈
-    - Score tracking: Users can view the number of correct answers. 💯
-    - High score display: Track the best quiz performance. 🏆
-  - All quiz data is saved in local storage, ensuring persistence across sessions.
+### **5. Baseball Quiz** ❓  
+- Test your knowledge of baseball with our quiz feature:  
+  - AI asks baseball-related questions with four possible answers.  
+  - Users choose the correct answer, and AI evaluates their response.  
+  - The quiz session consists of 10 questions per round.  
+  - Features include:  
+    - Progress tracking: Users can see how many questions are left. 📈  
+    - Score tracking: Users can view the number of correct answers. 💯  
+    - High score display: Track the best quiz performance. 🏆  
+  - All quiz data is saved in local storage, ensuring persistence across sessions.  
 
-### **4. Multi-Language Support** 🌐
-- The app supports the following languages:
-  - English (default)
-  - French
-  - German
-  - Spanish
-  - Hindi
-  - Arabic
-  - Urdu
-- Users can select their preferred language, and the entire website content is translated dynamically.
-- Translation is implemented using the `i18next` npm package.
+### **6. Multi-Language Support** 🌐  
+- The app supports the following languages:  
+  - English (default)  
+  - French  
+  - German  
+  - Spanish  
+  - Hindi  
+  - Arabic  
+  - Urdu  
+- Users can select their preferred language, and the entire website content is translated dynamically. 
+- Translation is implemented using the `i18next` npm package.  
 
 ---
 
@@ -108,12 +117,14 @@ To use this application, you need to configure your API key. Follow these steps:
 
 ## **Screenshots** 📸
 
-![Home Page Screenshot](./src/Screenshots/home_screenshot.png)
-![Rules Section Screenshot](./src/Screenshots/rules_screenshot.png)
-![Rules Chat Screenshot](./src/Screenshots/rules_chat_screenshot.png)
-![Multi Language Screenshot](./src/Screenshots/multi_language_screenshot.png)
-![Chat Page Screenshot](./src/Screenshots/chat_screenshot.png)
-![Quiz Page Screenshot](./src/Screenshots/quiz_screenshot.png)
+![Home Page Screenshot](./src/Screenshots/home_screenshot.png.png)
+![Rules Section Screenshot](./src/Screenshots/rules_screenshot.png.png)
+![Rules Chat Screenshot](./src/Screenshots/gameplay_screenshot.png.png)
+![Multi Language Screenshot](./src/Screenshots/rule_chat_screenshot.png.png)
+![Chat Page Screenshot](./src/Screenshots/general_chat_screenshot.png.png.png)
+![Quiz Page Screenshot](./src/Screenshots/history_screenshot.png.png)
+![Quiz Page Screenshot](./src/Screenshots/quiz_screenshot.png.png.png)
+![Quiz Page Screenshot](./src/Screenshots/multi_language_screenshot.png.png.png)
 
 ---
 
