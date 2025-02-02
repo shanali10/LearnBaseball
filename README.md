@@ -1,4 +1,4 @@
-  <img src="./src/Images/new_slider_1.jpeg" alt="App Logo" width="1024" height="512">
+  <img src="./src/Images/new_slider_1.jpeg" alt="App Logo" width="1024" height="300">
 
 # LearnBaseball ⚾
 
