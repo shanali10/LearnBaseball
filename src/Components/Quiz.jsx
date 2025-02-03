@@ -3,6 +3,7 @@ import quizLogo from "../Images/quiz_logo.jpeg";
 
 import { marked } from "marked"; // Import marked for converting markdown to HTML
 import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Quiz() {
@@ -29,7 +30,7 @@ export default function Quiz() {
   const genAI = new GoogleGenerativeAI(
     process.env.API_KEY
   );
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
   const getAIQuizQuestion = async () => {
     setAIQuestion(t("aiGeneratingQuestion"));
@@ -90,18 +91,16 @@ export default function Quiz() {
 
   const correctAnswerAiResponse = async () => {
     const result = await model.generateContent(analyzeCorrectAnswerPrompt);
-    console.log(result.response.text());
-    if (
-      result.response.text() === "correct" ||
-      result.response.text() === "Correct"
-    ) {
+    let responseText = result.response.text();
+    console.log(responseText);
+
+    if (responseText === "correct" || responseText === "Correct") {
       setCorrectAnswers(correctAnswers + 1);
     }
 
     if (
       quizQuestionNumber === 10 &&
-      (result.response.text() === "correct" ||
-        result.response.text() === "Correct")
+      (responseText === "correct" || responseText === "Correct")
     ) {
       if (highScore < correctAnswers) {
         localStorage.setItem("highScore", correctAnswers + 1);
@@ -166,7 +165,9 @@ export default function Quiz() {
     if (getIsHighScore !== null) {
       setIsHighScore(getIsHighScore);
     }
-  }, []);
+
+    setButtonText(t("startQuiz"));
+  }, [t]);
 
   return (
     <>
@@ -229,9 +230,7 @@ export default function Quiz() {
                   }
                   className="btn btn-success mb-1 my-2"
                 >
-                  {buttonText === ""
-                    ? setButtonText(t("startQuiz"))
-                    : buttonText}
+                  {buttonText}
                 </button>
               </div>
             </div>

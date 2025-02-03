@@ -124,14 +124,14 @@ To use this application, you need to configure your API key. Follow these steps:
 
 ## **Screenshots** 📸
 
-![Home Page Screenshot](./src/Screenshots/home_screenshot.png.png)
-![Rules Section Screenshot](./src/Screenshots/rules_screenshot.png.png)
-![Rules Chat Screenshot](./src/Screenshots/gameplay_screenshot.png.png)
-![Multi Language Screenshot](./src/Screenshots/rule_chat_screenshot.png.png)
-![Chat Page Screenshot](./src/Screenshots/general_chat_screenshot.png.png.png)
-![Quiz Page Screenshot](./src/Screenshots/history_screenshot.png.png)
-![Quiz Page Screenshot](./src/Screenshots/quiz_screenshot.png.png.png)
-![Quiz Page Screenshot](./src/Screenshots/multi_language_screenshot.png.png.png)
+![Home Page Screenshot](./src/Screenshots/home_screenshot.png)
+![Rules Section Screenshot](./src/Screenshots/rules_screenshot.png)
+![Gameplay Screenshot](./src/Screenshots/gameplay_screenshot.png)
+![Chat about Rules Screenshot](./src/Screenshots/rule_chat_screenshot.png)
+![Chat Page Screenshot](./src/Screenshots/general_chat_screenshot.png)
+![History Page Screenshot](./src/Screenshots/history_screenshot.png)
+![Quiz Page Screenshot](./src/Screenshots/quiz_screenshot.png)
+![Multi Language Support Screenshot](./src/Screenshots/multi_language_screenshot.png)
 
 ---
 
