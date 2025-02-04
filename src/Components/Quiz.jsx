@@ -3,7 +3,6 @@ import quizLogo from "../Images/quiz_logo.jpeg";
 
 import { marked } from "marked"; // Import marked for converting markdown to HTML
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 export default function Quiz() {
@@ -166,8 +165,50 @@ export default function Quiz() {
       setIsHighScore(getIsHighScore);
     }
 
-    setButtonText(t("startQuiz"));
-  }, [t]);
+    if (
+      buttonText === "Start Quiz" ||
+      buttonText === "ابدأ الاختبار" ||
+      buttonText === "Quiz starten" ||
+      buttonText === "Comenzar Quiz" ||
+      buttonText === "Commencer le Quiz" ||
+      buttonText === "क्विज़ शुरू करें" ||
+      buttonText === "کوئز شروع کریں"
+    ) {
+      setButtonText(t("startQuiz"));
+    } else if (
+      buttonText === "Next Question" ||
+      buttonText === "السؤال التالي" ||
+      buttonText === "Nächste Frage" ||
+      buttonText === "Siguiente pregunta" ||
+      buttonText === "Question suivante" ||
+      buttonText === "अगला प्रश्न" ||
+      buttonText === "اگلا سوال"
+    ) {
+      setButtonText(t("nextQuestion"));
+    } else if (
+      buttonText === "Start New Quiz" ||
+      buttonText === "ابدأ اختبار جديد" ||
+      buttonText === "Neues Quiz starten" ||
+      buttonText === "Iniciar nuevo cuestionario" ||
+      buttonText === "Commencer un nouveau quiz" ||
+      buttonText === "नया क्विज़ शुरू करें" ||
+      buttonText === "نیا کوئز شروع کریں"
+    ) {
+      setButtonText(t("startNewQuiz"));
+    } else if (
+      buttonText === "Submit Answer" ||
+      buttonText === "إرسال الإجابة" ||
+      buttonText === "Antwort abschicken" ||
+      buttonText === "Enviar respuesta" ||
+      buttonText === "Soumettre la réponse" ||
+      buttonText === "उत्तर जमा करें" ||
+      buttonText === "جواب جمع کروائیں"
+    ) {
+      setButtonText(t("submitAnswer"));
+    } else {
+      setButtonText(t("startQuiz"));
+    }
+  }, [t, buttonText]);
 
   return (
     <>
