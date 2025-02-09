@@ -66,7 +66,7 @@ export default function Rules() {
   const aiJob = `${t("chatAIPrompt")}`;
 
   const genAI = new GoogleGenerativeAI(
-    "AIzaSyAOXLqIhyFtvCiGoHvVEtw0OwK0R9-KKcc"
+    process.env.REACT_APP_GEMINI_API
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
