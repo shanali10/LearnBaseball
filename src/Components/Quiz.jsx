@@ -27,9 +27,9 @@ export default function Quiz() {
   const analyzeCorrectAnswerPrompt = `You are a passionate baseball expert and quizmaster engaging with me, a new baseball fan. You previously asked the question: ${aiQuestion}\n I answered: ${questionInput}\n Your task now is simple: Check my answer and the question provided, If my answer is correct, respond with "correct." If it's not, respond with "incorrect." read the question and answer with focus according to baseball rules and then answer!! Provide no additional details or commentary!`;
 
   const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
+    process.env.REACT_APP_GEMINI_API
   );
-  const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const getAIQuizQuestion = async () => {
     setAIQuestion(t("aiGeneratingQuestion"));
@@ -91,15 +91,21 @@ export default function Quiz() {
   const correctAnswerAiResponse = async () => {
     const result = await model.generateContent(analyzeCorrectAnswerPrompt);
     let responseText = result.response.text();
-    console.log(responseText);
-
-    if (responseText === "correct" || responseText === "Correct") {
+    if (
+      responseText.startsWith("correct") ||
+      responseText.startsWith("Correct") ||
+      responseText.startsWith("correct.") ||
+      responseText.startsWith("Correct.")
+    ) {
       setCorrectAnswers(correctAnswers + 1);
     }
 
     if (
       quizQuestionNumber === 10 &&
-      (responseText === "correct" || responseText === "Correct")
+      (responseText.startsWith("correct") ||
+        responseText.startsWith("Correct") ||
+        responseText.startsWith("correct.") ||
+        responseText.startsWith("Correct."))
     ) {
       if (highScore < correctAnswers) {
         localStorage.setItem("highScore", correctAnswers + 1);

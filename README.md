@@ -107,7 +107,7 @@ To use this application, you need to configure your API key. Follow these steps:
 2. Add the following line to the `.env.local` file:
 
    ```plaintext
-   API_KEY="YOUR_API_KEY"
+   REACT_APP_GEMINI_API = "YOUR_API_KEY"
    ```
 
 ---

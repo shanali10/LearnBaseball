@@ -14,7 +14,7 @@ export default function Chat() {
   const aiJobPrompt = `${t("chatAIPrompt")}`;
 
   const genAI = new GoogleGenerativeAI(
-    process.env.API_KEY
+    process.env.REACT_APP_GEMINI_API
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
